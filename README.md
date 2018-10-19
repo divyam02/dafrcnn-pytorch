@@ -25,7 +25,7 @@ CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net_x.py \
 ### Test
 If you want to evaluate the detection performance of a pre-trained model on your testset run:
 ```
-python test_net.py --dataset $TARGET_DATASET_NAME --net res101 \
+python test_net_x.py --dataset $TARGET_DATASET_NAME --net res101 \
                    --checksession $SESSION --checkepoch $EPOCH --checkpoint $CHECKPOINT \
                    --cuda
 ```
