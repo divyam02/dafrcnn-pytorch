@@ -29,7 +29,7 @@ python test_net_x.py --dataset $TARGET_DATASET_NAME --net res101 \
                    --checksession $SESSION --checkepoch $EPOCH --checkpoint $CHECKPOINT \
                    --cuda
 ```
-Specify the specific model session, chechepoch and checkpoint, e.g., SESSION=1, EPOCH=5, CHECKPOINT=5931.
+Specify the specific model session, checkepoch and checkpoint, e.g., SESSION=1, EPOCH=5, CHECKPOINT=5931.
 
 ### Demo
 Follow instructions given [here](https://github.com/jwyang/faster-rcnn.pytorch#demo)
