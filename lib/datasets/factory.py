@@ -18,11 +18,23 @@ from datasets.vg import vg
 
 import numpy as np
 
+# Add devkit paths to your own folders
+# Add argument for domain
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'city_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, 'src', '/home/divyam/FRCN/faster-rcnn.pytorch/data/src/cityscapes/VOCdevkit2007/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'fcity_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, 'tar', '/home/divyam/FRCN/faster-rcnn.pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/' ))
+
 # Set up voc_<year>_<split>
 for year in ['2007', '2012']:
   for split in ['train', 'val', 'trainval', 'test']:
     name = 'voc_{}_{}'.format(year, split)
-    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year))
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year,'/home/divyam/FRCN/faster-rcnn.pytorch/data/VOC2007/VOCdevkit2007/' ))
 
 # Set up coco_2014_<split>
 for year in ['2014']:

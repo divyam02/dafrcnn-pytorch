@@ -1,0 +1,197 @@
+Called with args:
+Namespace(adaption_lr=False, batch_size=1, checkepoch=1, checkpoint=0, checkpoint_interval=10000, checksession=1, class_agnostic=False, cuda=True, da=True, dataset='pascal_voc', disp_interval=100, large_scale=False, lr=0.001, lr_decay_gamma=0.1, lr_decay_step=50000, mGPUs=False, max_epochs=20, net='res101', num_workers=0, optimizer='sgd', resume=False, save_dir='data/pretrained_model', session=1, src_dataset='city', start_epoch=1, tar_dataset='fcity', use_tfboard=False)
+Using config:
+{'ANCHOR_RATIOS': [0.5, 1, 2],
+ 'ANCHOR_SCALES': [8, 16, 32],
+ 'CROP_RESIZE_WITH_MAX_POOL': False,
+ 'CUDA': False,
+ 'DATA_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch/data',
+ 'DEDUP_BOXES': 0.0625,
+ 'EPS': 1e-14,
+ 'EXP_DIR': 'res101',
+ 'FEAT_STRIDE': [16],
+ 'GPU_ID': 0,
+ 'MATLAB': 'matlab',
+ 'MAX_NUM_GT_BOXES': 20,
+ 'MOBILENET': {'DEPTH_MULTIPLIER': 1.0,
+               'FIXED_LAYERS': 5,
+               'REGU_DEPTH': False,
+               'WEIGHT_DECAY': 4e-05},
+ 'PIXEL_MEANS': array([[[102.9801, 115.9465, 122.7717]]]),
+ 'POOLING_MODE': 'align',
+ 'POOLING_SIZE': 7,
+ 'RESNET': {'FIXED_BLOCKS': 1, 'MAX_POOL': False},
+ 'RNG_SEED': 3,
+ 'ROOT_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch',
+ 'TEST': {'BBOX_REG': True,
+          'HAS_RPN': True,
+          'MAX_SIZE': 1000,
+          'MODE': 'nms',
+          'NMS': 0.3,
+          'PROPOSAL_METHOD': 'gt',
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000,
+          'RPN_TOP_N': 5000,
+          'SCALES': [600],
+          'SVM': False},
+ 'TRAIN': {'ASPECT_GROUPING': False,
+           'BATCH_SIZE': 128,
+           'BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'BBOX_NORMALIZE_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZE_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_NORMALIZE_TARGETS': True,
+           'BBOX_NORMALIZE_TARGETS_PRECOMPUTED': True,
+           'BBOX_REG': True,
+           'BBOX_THRESH': 0.5,
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'BIAS_DECAY': False,
+           'BN_TRAIN': False,
+           'DISPLAY': 20,
+           'DOUBLE_BIAS': False,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'GAMMA': 0.1,
+           'HAS_RPN': True,
+           'IMS_PER_BATCH': 1,
+           'LEARNING_RATE': 0.001,
+           'MAX_SIZE': 1000,
+           'MOMENTUM': 0.9,
+           'PROPOSAL_METHOD': 'gt',
+           'RPN_BATCHSIZE': 256,
+           'RPN_BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 8,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 2000,
+           'RPN_PRE_NMS_TOP_N': 12000,
+           'SCALES': [600],
+           'SNAPSHOT_ITERS': 5000,
+           'SNAPSHOT_KEPT': 3,
+           'SNAPSHOT_PREFIX': 'res101_faster_rcnn',
+           'STEPSIZE': [30000],
+           'SUMMARY_INTERVAL': 180,
+           'TRIM_HEIGHT': 600,
+           'TRIM_WIDTH': 600,
+           'TRUNCATED': False,
+           'USE_ALL_GT': True,
+           'USE_FLIPPED': True,
+           'USE_GT': False,
+           'WEIGHT_DECAY': 0.0001},
+ 'USE_GPU_NMS': True}
+ROOT_DIR /home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/../..
+image dataset path: /home/divyam/FRCN/faster-rcnn.pytorch/data/src/cityscapes/VOCdevkit2007/VOC2007
+sample image from dataset: source_tubingen_000027_000019_leftImg8bit
+
+Loaded dataset `voc_2007_trainval` for training
+Set proposal method: gt
+Appending horizontally-flipped training examples...
+voc_2007_trainval gt roidb loaded from /home/divyam/FRCN/faster-rcnn.pytorch/data/src/cache/voc_2007_trainval_gt_roidb.pkl
+done
+Preparing training data...
+done
+ROOT_DIR /home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/../..
+image dataset path: /home/divyam/FRCN/faster-rcnn.pytorch/data/src/cityscapes/VOCdevkit2007/VOC2007
+sample image from dataset: source_tubingen_000027_000019_leftImg8bit
+
+before filtering, there are 5950 images...
+after filtering, there are 5932 images...
+ROOT_DIR /home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/../..
+image dataset path: /home/divyam/FRCN/faster-rcnn.pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/VOC2007
+sample image from dataset: target_tubingen_000119_000019_leftImg8bit_foggy_beta_0.02
+
+Loaded dataset `voc_2007_trainval` for training
+Set proposal method: gt
+Appending horizontally-flipped training examples...
+voc_2007_trainval gt roidb loaded from /home/divyam/FRCN/faster-rcnn.pytorch/data/tar/cache/voc_2007_trainval_gt_roidb.pkl
+done
+Preparing training data...
+done
+ROOT_DIR /home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/../..
+image dataset path: /home/divyam/FRCN/faster-rcnn.pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/VOC2007
+sample image from dataset: target_tubingen_000119_000019_leftImg8bit_foggy_beta_0.02
+
+before filtering, there are 5950 images...
+after filtering, there are 5932 images...
+5932 source roidb entries
+5932 target roidb entries
+using RESNET101 architecture
+source imdb classes ('__background__', 'person', 'train', 'rider', 'bicycle', 'motorcycle', 'car', 'truck', 'bus')
+Loading pretrained weights from data/pretrained_model/resnet101_caffe.pth
+Variable containing:
+( 0  , 0  ,.,.) = 
+   0.7175   0.0000   0.7175  ...    0.2683   0.6318   0.0000
+   0.0219   0.0000   0.0000  ...    0.0000   0.1916   0.0000
+   0.7349   0.0571   0.6937  ...    0.3634   0.6105   1.6462
+            ...               ⋱              ...            
+   0.0587   0.4562   0.1647  ...    0.6284   0.0000   0.0000
+   0.4721   0.0000   0.4305  ...    2.6191   0.4906   0.0000
+   0.0000   0.0000   0.0000  ...    2.9970   5.0433   0.0000
+
+( 0  , 1  ,.,.) = 
+   2.1863   2.8332   2.2786  ...    1.3801   1.1509   0.8251
+   2.7250   0.1255   2.9664  ...    0.7451   0.1610   0.0000
+   1.0452   3.9502   3.3302  ...    0.7968   1.3049   0.4737
+            ...               ⋱              ...            
+   1.0137   1.9395   1.9997  ...    0.0000   0.0509   0.6807
+   0.6600   0.8041   0.7233  ...    0.0000   0.8999   1.2408
+   0.7610   0.4220   1.9398  ...    0.0000   2.1248   0.0000
+
+( 0  , 2  ,.,.) = 
+   0.0000   0.0000   0.6695  ...    1.3722   1.2229   3.1168
+   0.6345   0.1294   0.0899  ...    1.0881   0.3893   3.4793
+   0.3267   0.0000   0.9620  ...    1.0343   0.9313   5.6719
+            ...               ⋱              ...            
+   1.0402   1.4084   1.1336  ...    0.4355   4.8526   4.6467
+   0.3505   0.0200   0.0267  ...    0.0000   4.8130   0.8535
+   0.0000   2.7344   0.9733  ...    0.7677   2.2505   0.7626
+      ... 
+
+( 0  ,1021,.,.) = 
+   1.0811   1.6155   2.0145  ...    3.1796   5.0987   4.2608
+   1.2537   2.3951   1.1446  ...    1.3857   1.9399   3.4782
+   0.8708   1.2041   1.2102  ...    1.2746   1.4731   2.8422
+            ...               ⋱              ...            
+   0.1804   0.0000   0.0000  ...    1.2598   0.9068   0.2884
+   2.7603   1.0953   0.4514  ...    0.9469   3.7886   1.3832
+   1.0202   1.0162   1.1243  ...    0.0000   0.1905   0.0000
+
+( 0  ,1022,.,.) = 
+   1.1270   0.0000   0.7321  ...    0.8742   1.0274   0.2213
+   0.1876   0.0000   1.3659  ...    0.7659   1.5274   0.1875
+   0.8852   0.1368   0.9552  ...    2.8028   1.4030   0.2714
+            ...               ⋱              ...            
+   0.4925   0.3568   2.4334  ...    0.9603   1.1746   0.5848
+   1.1745   1.4474   0.8850  ...    0.4370   0.9913   0.5693
+   1.6847   0.9199   1.4635  ...    1.4380   1.8399   0.9975
+
+( 0  ,1023,.,.) = 
+   0.0906   0.7376   1.1275  ...    0.8570   0.6354   0.3233
+   0.6336   0.7963   2.6274  ...    1.0471   0.2456   0.9212
+   0.0000   0.9800   1.4925  ...    2.1582   0.7629   0.9468
+            ...               ⋱              ...            
+   4.3504   5.8857   5.8662  ...    1.8344   1.8485   1.3281
+   2.1673   6.1508   3.8257  ...    1.5863   2.9693   2.7922
+   2.3257   1.7139   1.5509  ...    1.1380   1.6200   1.6984
+[torch.cuda.FloatTensor of size 1x1024x38x75 (GPU 0)]
+ tar_feat_map
+Variable containing:
+  0.0989   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.1014   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.3534   0.4349   0.0000  ...    0.0000   0.6482   0.0000
+           ...               ⋱              ...            
+  0.0000   0.0000   0.0000  ...    0.0000   0.0057   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.3629   1.6892   0.0000  ...    0.4595   0.0000   0.0000
+[torch.cuda.FloatTensor of size 2000x2048 (GPU 0)]
+ tar_roi_pool
+Traceback (most recent call last):
+  File "trainval_net.py", line 698, in <module>
+    assert 1<0
+AssertionError

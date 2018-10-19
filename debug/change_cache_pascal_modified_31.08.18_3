@@ -1,0 +1,115 @@
+Called with args:
+Namespace(adaption_lr=False, batch_size=1, checkepoch=1, checkpoint=0, checkpoint_interval=10000, checksession=1, class_agnostic=False, cuda=True, da=True, dataset='pascal_voc', disp_interval=100, large_scale=False, lr=0.001, lr_decay_gamma=0.1, lr_decay_step=50000, mGPUs=False, max_epochs=10, net='res101', num_workers=0, optimizer='sgd', resume=False, save_dir='data/pretrained_model', session=1, src_dataset='city', start_epoch=1, tar_dataset='fcity', use_tfboard=False)
+Using config:
+{'ANCHOR_RATIOS': [0.5, 1, 2],
+ 'ANCHOR_SCALES': [8, 16, 32],
+ 'CROP_RESIZE_WITH_MAX_POOL': False,
+ 'CUDA': False,
+ 'DATA_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch/data',
+ 'DEDUP_BOXES': 0.0625,
+ 'EPS': 1e-14,
+ 'EXP_DIR': 'res101',
+ 'FEAT_STRIDE': [16],
+ 'GPU_ID': 0,
+ 'MATLAB': 'matlab',
+ 'MAX_NUM_GT_BOXES': 20,
+ 'MOBILENET': {'DEPTH_MULTIPLIER': 1.0,
+               'FIXED_LAYERS': 5,
+               'REGU_DEPTH': False,
+               'WEIGHT_DECAY': 4e-05},
+ 'PIXEL_MEANS': array([[[102.9801, 115.9465, 122.7717]]]),
+ 'POOLING_MODE': 'align',
+ 'POOLING_SIZE': 7,
+ 'RESNET': {'FIXED_BLOCKS': 1, 'MAX_POOL': False},
+ 'RNG_SEED': 3,
+ 'ROOT_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch',
+ 'TEST': {'BBOX_REG': True,
+          'HAS_RPN': True,
+          'MAX_SIZE': 1000,
+          'MODE': 'nms',
+          'NMS': 0.3,
+          'PROPOSAL_METHOD': 'gt',
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000,
+          'RPN_TOP_N': 5000,
+          'SCALES': [600],
+          'SVM': False},
+ 'TRAIN': {'ASPECT_GROUPING': False,
+           'BATCH_SIZE': 128,
+           'BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'BBOX_NORMALIZE_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZE_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_NORMALIZE_TARGETS': True,
+           'BBOX_NORMALIZE_TARGETS_PRECOMPUTED': True,
+           'BBOX_REG': True,
+           'BBOX_THRESH': 0.5,
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'BIAS_DECAY': False,
+           'BN_TRAIN': False,
+           'DISPLAY': 20,
+           'DOUBLE_BIAS': False,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'GAMMA': 0.1,
+           'HAS_RPN': True,
+           'IMS_PER_BATCH': 1,
+           'LEARNING_RATE': 0.001,
+           'MAX_SIZE': 1000,
+           'MOMENTUM': 0.9,
+           'PROPOSAL_METHOD': 'gt',
+           'RPN_BATCHSIZE': 256,
+           'RPN_BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 8,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 2000,
+           'RPN_PRE_NMS_TOP_N': 12000,
+           'SCALES': [600],
+           'SNAPSHOT_ITERS': 5000,
+           'SNAPSHOT_KEPT': 3,
+           'SNAPSHOT_PREFIX': 'res101_faster_rcnn',
+           'STEPSIZE': [30000],
+           'SUMMARY_INTERVAL': 180,
+           'TRIM_HEIGHT': 600,
+           'TRIM_WIDTH': 600,
+           'TRUNCATED': False,
+           'USE_ALL_GT': True,
+           'USE_FLIPPED': True,
+           'USE_GT': False,
+           'WEIGHT_DECAY': 0.0001},
+ 'USE_GPU_NMS': True}
+Loading src, tar datasets
+ROOT_DIR /home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/../..
+image dataset path: /home/divyam/FRCN/faster-rcnn.pytorch/data/src/cityscapes/VOCdevkit2007/VOC2007
+sample image from dataset: source_tubingen_000027_000019_leftImg8bit
+
+CALLING FROM PASCAL_VOC FOR gt_roidb
+Loaded dataset `voc_2007_trainval` for training
+Set proposal method: gt
+Appending horizontally-flipped training examples...
+CALLING FROM PASCAL_VOC
+cache_path: /home/divyam/FRCN/faster-rcnn.pytorch/data/src/cache
+self.domain src
+self.name voc_2007_trainval
+wrote gt roidb to /home/divyam/FRCN/faster-rcnn.pytorch/data/src/cache/voc_2007_trainval_gt_roidb.pkl
+Traceback (most recent call last):
+  File "trainval_net.py", line 311, in <module>
+    src_imdb, src_roidb, src_ratio_list, src_ratio_index = combined_roidb(args.src_imdb_name, domain='src')
+  File "/home/divyam/FRCN/faster-rcnn.pytorch/lib/roi_data_layer/roidb.py", line 116, in combined_roidb
+    roidbs = [get_roidb(s) for s in imdb_names.split('+')]
+  File "/home/divyam/FRCN/faster-rcnn.pytorch/lib/roi_data_layer/roidb.py", line 113, in get_roidb
+    roidb = get_training_roidb(imdb, domain)
+  File "/home/divyam/FRCN/faster-rcnn.pytorch/lib/roi_data_layer/roidb.py", line 97, in get_training_roidb
+    imdb.append_flipped_images()
+  File "/home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/imdb.py", line 125, in append_flipped_images
+    boxes = self.roidb[i]['boxes'].copy()
+  File "/home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/imdb.py", line 78, in roidb
+    self._roidb = self.roidb_handler(self.domain)
+TypeError: 'list' object is not callable

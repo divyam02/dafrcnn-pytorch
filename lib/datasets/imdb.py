@@ -22,7 +22,7 @@ ROOT_DIR = osp.join(osp.dirname(__file__), '..', '..')
 class imdb(object):
   """Image database."""
 
-  def __init__(self, name, classes=None):
+  def __init__(self, name, domain=None, classes=None):
     self._name = name
     self._num_classes = 0
     if not classes:
@@ -35,7 +35,9 @@ class imdb(object):
     self._roidb_handler = self.default_roidb
     # Use this dict for storing dataset specific config options
     self.config = {}
-
+    print('ROOT_DIR', ROOT_DIR)
+    self.domain = domain
+    
   @property
   def name(self):
     return self._name
@@ -54,10 +56,12 @@ class imdb(object):
 
   @property
   def roidb_handler(self):
+    #print('CALLING DOMAIN 1')
     return self._roidb_handler
 
   @roidb_handler.setter
   def roidb_handler(self, val):
+    #print('CALLING DOMAIN 2', val)
     self._roidb_handler = val
 
   def set_proposal_method(self, method):
@@ -73,14 +77,21 @@ class imdb(object):
     #   flipped
     if self._roidb is not None:
       return self._roidb
+    #self._roidb = self.roidb_handler(self.domain)
+    #print('self.roidb_handler', self.roidb_handler())
     self._roidb = self.roidb_handler()
     return self._roidb
 
   @property
   def cache_path(self):
-    cache_path = osp.abspath(osp.join(cfg.DATA_DIR, 'cache'))
-    if not os.path.exists(cache_path):
-      os.makedirs(cache_path)
+    if self.domain is not None:
+      cache_path = osp.abspath(osp.join(cfg.DATA_DIR, self.domain, 'cache'))
+      if not os.path.exists(cache_path):
+        os.makedirs(cache_path)
+    else:
+      cache_path = osp.abspath(osp.join(cfg.DATA_DIR, 'cache'))
+      if not os.path.exists(cache_path):
+        os.makedirs(cache_path)
     return cache_path
 
   @property
@@ -115,6 +126,7 @@ class imdb(object):
     num_images = self.num_images
     widths = self._get_widths()
     for i in range(num_images):
+      #print('ROIDB', type(self.roidb))
       boxes = self.roidb[i]['boxes'].copy()
       oldx1 = boxes[:, 0].copy()
       oldx2 = boxes[:, 2].copy()

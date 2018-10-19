@@ -10,7 +10,7 @@ from datasets.factory import get_imdb
 import PIL
 import pdb
 
-def prepare_roidb(imdb):
+def prepare_roidb(imdb, domain):
   """Enrich the imdb's roidb by adding some derived quantities that
   are useful for training. This function precomputes the maximum
   overlap, taken over ground-truth boxes, between each ROI and
@@ -79,18 +79,20 @@ def filter_roidb(roidb):
     while i < len(roidb):
       if len(roidb[i]['boxes']) == 0:
         del roidb[i]
+	print('rejected index', i)
         i -= 1
       i += 1
 
     print('after filtering, there are %d images...' % (len(roidb)))
+    #assert 1<0,'God help us'
     return roidb
 
-def combined_roidb(imdb_names, training=True):
+def combined_roidb(imdb_names, domain, training=True):
   """
   Combine multiple roidbs
   """
 
-  def get_training_roidb(imdb):
+  def get_training_roidb(imdb, domain):
     """Returns a roidb (Region of Interest database) for use in training."""
     if cfg.TRAIN.USE_FLIPPED:
       print('Appending horizontally-flipped training examples...')
@@ -99,7 +101,7 @@ def combined_roidb(imdb_names, training=True):
 
     print('Preparing training data...')
 
-    prepare_roidb(imdb)
+    prepare_roidb(imdb, domain)
     #ratio_index = rank_roidb_ratio(imdb)
     print('done')
 
@@ -110,7 +112,7 @@ def combined_roidb(imdb_names, training=True):
     print('Loaded dataset `{:s}` for training'.format(imdb.name))
     imdb.set_proposal_method(cfg.TRAIN.PROPOSAL_METHOD)
     print('Set proposal method: {:s}'.format(cfg.TRAIN.PROPOSAL_METHOD))
-    roidb = get_training_roidb(imdb)
+    roidb = get_training_roidb(imdb, domain)
     return roidb
 
   roidbs = [get_roidb(s) for s in imdb_names.split('+')]

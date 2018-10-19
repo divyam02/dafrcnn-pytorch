@@ -19,7 +19,8 @@ def parse_rec(filename):
   for obj in tree.findall('object'):
     obj_struct = {}
     obj_struct['name'] = obj.find('name').text
-    obj_struct['pose'] = obj.find('pose').text
+    # city xml files don't have pose attribute
+    #obj_struct['pose'] = obj.find('pose').text
     obj_struct['truncated'] = int(obj.find('truncated').text)
     obj_struct['difficult'] = int(obj.find('difficult').text)
     bbox = obj.find('bndbox')
@@ -111,6 +112,8 @@ def voc_eval(detpath,
     # load annotations
     recs = {}
     for i, imagename in enumerate(imagenames):
+      #print('imagename', i, imagename)
+      #print('formated annopath', annopath.format(imagename))
       recs[imagename] = parse_rec(annopath.format(imagename))
       if i % 100 == 0:
         print('Reading annotation for {:d}/{:d}'.format(

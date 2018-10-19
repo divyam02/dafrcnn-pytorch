@@ -1,0 +1,195 @@
+running build_ext
+skipping 'model/utils/bbox.c' Cython extension (up-to-date)
+skipping 'pycocotools/_mask.c' Cython extension (up-to-date)
+Compiling nms kernels by nvcc...
+make.sh: line 20: nvcc: command not found
+Including CUDA code.
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/nms
+['/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/nms/src/nms_cuda_kernel.cu.o']
+generating /tmp/tmp8fitU5/_nms.c
+setting the current directory to '/tmp/tmp8fitU5'
+running build_ext
+building '_nms' extension
+creating home
+creating home/divyam
+creating home/divyam/FRCN
+creating home/divyam/FRCN/faster-rcnn.pytorch
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib/model
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib/model/nms
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib/model/nms/src
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DWITH_CUDA -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/TH -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/include/python2.7 -c _nms.c -o ./_nms.o
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DWITH_CUDA -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/TH -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/include/python2.7 -c /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/nms/src/nms_cuda.c -o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/nms/src/nms_cuda.o
+x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security ./_nms.o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/nms/src/nms_cuda.o /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/nms/src/nms_cuda_kernel.cu.o -o ./_nms.so
+x86_64-linux-gnu-gcc: error: /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/nms/src/nms_cuda_kernel.cu.o: No such file or directory
+Traceback (most recent call last):
+  File "build.py", line 37, in <module>
+    ffi.build()
+  File "/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/__init__.py", line 164, in build
+    _build_extension(ffi, cffi_wrapper_name, target_dir, verbose)
+  File "/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/__init__.py", line 100, in _build_extension
+    ffi.compile(tmpdir=tmpdir, verbose=verbose, target=libname)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/api.py", line 690, in compile
+    compiler_verbose=verbose, debug=debug, **kwds)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/recompiler.py", line 1515, in recompile
+    compiler_verbose, debug)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/ffiplatform.py", line 22, in compile
+    outputfilename = _build(tmpdir, ext, compiler_verbose, debug)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/ffiplatform.py", line 58, in _build
+    raise VerificationError('%s: %s' % (e.__class__.__name__, e))
+cffi.error.VerificationError: LinkError: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+Compiling roi pooling kernels by nvcc...
+make.sh: line 30: nvcc: command not found
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_pooling
+Including CUDA code.
+generating /tmp/tmpCn0J0R/_roi_pooling.c
+setting the current directory to '/tmp/tmpCn0J0R'
+running build_ext
+building '_roi_pooling' extension
+creating home
+creating home/divyam
+creating home/divyam/FRCN
+creating home/divyam/FRCN/faster-rcnn.pytorch
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib/model
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_pooling
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_pooling/src
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DWITH_CUDA -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/TH -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/include/python2.7 -c _roi_pooling.c -o ./_roi_pooling.o
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DWITH_CUDA -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/TH -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/include/python2.7 -c /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_pooling/src/roi_pooling.c -o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_pooling/src/roi_pooling.o
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DWITH_CUDA -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/TH -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/include/python2.7 -c /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_pooling/src/roi_pooling_cuda.c -o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_pooling/src/roi_pooling_cuda.o
+x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security ./_roi_pooling.o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_pooling/src/roi_pooling.o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_pooling/src/roi_pooling_cuda.o /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_pooling/src/roi_pooling.cu.o -o ./_roi_pooling.so
+x86_64-linux-gnu-gcc: error: /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_pooling/src/roi_pooling.cu.o: No such file or directory
+Traceback (most recent call last):
+  File "build.py", line 36, in <module>
+    ffi.build()
+  File "/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/__init__.py", line 164, in build
+    _build_extension(ffi, cffi_wrapper_name, target_dir, verbose)
+  File "/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/__init__.py", line 100, in _build_extension
+    ffi.compile(tmpdir=tmpdir, verbose=verbose, target=libname)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/api.py", line 690, in compile
+    compiler_verbose=verbose, debug=debug, **kwds)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/recompiler.py", line 1515, in recompile
+    compiler_verbose, debug)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/ffiplatform.py", line 22, in compile
+    outputfilename = _build(tmpdir, ext, compiler_verbose, debug)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/ffiplatform.py", line 58, in _build
+    raise VerificationError('%s: %s' % (e.__class__.__name__, e))
+cffi.error.VerificationError: LinkError: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+Compiling roi align kernels by nvcc...
+make.sh: line 39: nvcc: command not found
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align
+Including CUDA code.
+generating /tmp/tmpPMZiWM/_roi_align.c
+setting the current directory to '/tmp/tmpPMZiWM'
+running build_ext
+building '_roi_align' extension
+creating home
+creating home/divyam
+creating home/divyam/FRCN
+creating home/divyam/FRCN/faster-rcnn.pytorch
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib/model
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DWITH_CUDA -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/TH -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/include/python2.7 -c _roi_align.c -o ./_roi_align.o
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DWITH_CUDA -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/TH -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/include/python2.7 -c /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align.c -o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align.o
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align.c: In function ‘roi_align_backward’:
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align.c:65:9: warning: unused variable ‘batch_size’ [-Wunused-variable]
+     int batch_size = THFloatTensor_size(bottom_grad, 0);
+         ^
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align.c: In function ‘ROIAlignForwardCpu’:
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align.c:87:0: warning: ignoring #pragma omp parallel [-Wunknown-pragmas]
+     #pragma omp parallel for 
+ ^
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align.c: In function ‘ROIAlignBackwardCpu’:
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align.c:145:0: warning: ignoring #pragma omp parallel [-Wunknown-pragmas]
+     #pragma omp parallel for 
+ ^
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DWITH_CUDA -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/TH -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/include/python2.7 -c /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align_cuda.c -o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align_cuda.o
+x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security ./_roi_align.o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align.o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align_cuda.o /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align_kernel.cu.o -o ./_roi_align.so
+x86_64-linux-gnu-gcc: error: /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_align/src/roi_align_kernel.cu.o: No such file or directory
+Traceback (most recent call last):
+  File "build.py", line 38, in <module>
+    ffi.build()
+  File "/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/__init__.py", line 164, in build
+    _build_extension(ffi, cffi_wrapper_name, target_dir, verbose)
+  File "/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/__init__.py", line 100, in _build_extension
+    ffi.compile(tmpdir=tmpdir, verbose=verbose, target=libname)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/api.py", line 690, in compile
+    compiler_verbose=verbose, debug=debug, **kwds)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/recompiler.py", line 1515, in recompile
+    compiler_verbose, debug)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/ffiplatform.py", line 22, in compile
+    outputfilename = _build(tmpdir, ext, compiler_verbose, debug)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/ffiplatform.py", line 58, in _build
+    raise VerificationError('%s: %s' % (e.__class__.__name__, e))
+cffi.error.VerificationError: LinkError: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+Compiling roi crop kernels by nvcc...
+make.sh: line 48: nvcc: command not found
+Including CUDA code.
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop
+generating /tmp/tmpCdBkmZ/_roi_crop.c
+setting the current directory to '/tmp/tmpCdBkmZ'
+running build_ext
+building '_roi_crop' extension
+creating home
+creating home/divyam
+creating home/divyam/FRCN
+creating home/divyam/FRCN/faster-rcnn.pytorch
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib/model
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop
+creating home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DWITH_CUDA -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/TH -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/include/python2.7 -c _roi_crop.c -o ./_roi_crop.o
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DWITH_CUDA -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/TH -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/include/python2.7 -c /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.c -o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.o
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.c: In function ‘BilinearSamplerBHWD_updateGradInput’:
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.c:190:14: warning: unused variable ‘inBottomRight’ [-Wunused-variable]
+         real inBottomRight=0;
+              ^
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.c:189:14: warning: unused variable ‘inBottomLeft’ [-Wunused-variable]
+         real inBottomLeft=0;
+              ^
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.c:188:14: warning: unused variable ‘inTopRight’ [-Wunused-variable]
+         real inTopRight=0;
+              ^
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.c:187:14: warning: unused variable ‘inTopLeft’ [-Wunused-variable]
+         real inTopLeft=0;
+              ^
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.c:186:14: warning: unused variable ‘v’ [-Wunused-variable]
+         real v=0;
+              ^
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.c: In function ‘BilinearSamplerBCHW_updateGradInput’:
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.c:441:14: warning: unused variable ‘inBottomRight’ [-Wunused-variable]
+         real inBottomRight=0;
+              ^
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.c:440:14: warning: unused variable ‘inBottomLeft’ [-Wunused-variable]
+         real inBottomLeft=0;
+              ^
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.c:439:14: warning: unused variable ‘inTopRight’ [-Wunused-variable]
+         real inTopRight=0;
+              ^
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.c:438:14: warning: unused variable ‘inTopLeft’ [-Wunused-variable]
+         real inTopLeft=0;
+              ^
+/home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.c:437:14: warning: unused variable ‘v’ [-Wunused-variable]
+         real v=0;
+              ^
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DWITH_CUDA -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/TH -I/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/include/python2.7 -c /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop_cuda.c -o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop_cuda.o
+x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security ./_roi_crop.o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop.o ./home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop_cuda.o /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop_cuda_kernel.cu.o -o ./_roi_crop.so
+x86_64-linux-gnu-gcc: error: /home/divyam/FRCN/faster-rcnn.pytorch/lib/model/roi_crop/src/roi_crop_cuda_kernel.cu.o: No such file or directory
+Traceback (most recent call last):
+  File "build.py", line 36, in <module>
+    ffi.build()
+  File "/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/__init__.py", line 164, in build
+    _build_extension(ffi, cffi_wrapper_name, target_dir, verbose)
+  File "/usr/local/lib/python2.7/dist-packages/torch/utils/ffi/__init__.py", line 100, in _build_extension
+    ffi.compile(tmpdir=tmpdir, verbose=verbose, target=libname)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/api.py", line 690, in compile
+    compiler_verbose=verbose, debug=debug, **kwds)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/recompiler.py", line 1515, in recompile
+    compiler_verbose, debug)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/ffiplatform.py", line 22, in compile
+    outputfilename = _build(tmpdir, ext, compiler_verbose, debug)
+  File "/usr/local/lib/python2.7/dist-packages/cffi/ffiplatform.py", line 58, in _build
+    raise VerificationError('%s: %s' % (e.__class__.__name__, e))
+cffi.error.VerificationError: LinkError: command 'x86_64-linux-gnu-gcc' failed with exit status 1

@@ -1,0 +1,4555 @@
+Called with args:
+Namespace(cfg_file='cfgs/vgg16.yml', checkepoch=10, checkpoint=5931, checksession=1, class_agnostic=False, cuda=True, dataset='fcity', large_scale=False, load_dir='data/pretrained_model', mGPUs=False, net='res101', parallel_type=0, set_cfgs=None, vis=False)
+Using config:
+{'ANCHOR_RATIOS': [0.5, 1, 2],
+ 'ANCHOR_SCALES': [8, 16, 32],
+ 'CROP_RESIZE_WITH_MAX_POOL': False,
+ 'CUDA': False,
+ 'DATA_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch/data',
+ 'DEDUP_BOXES': 0.0625,
+ 'EPS': 1e-14,
+ 'EXP_DIR': 'res101',
+ 'FEAT_STRIDE': [16],
+ 'GPU_ID': 0,
+ 'MATLAB': 'matlab',
+ 'MAX_NUM_GT_BOXES': 20,
+ 'MOBILENET': {'DEPTH_MULTIPLIER': 1.0,
+               'FIXED_LAYERS': 5,
+               'REGU_DEPTH': False,
+               'WEIGHT_DECAY': 4e-05},
+ 'PIXEL_MEANS': array([[[102.9801, 115.9465, 122.7717]]]),
+ 'POOLING_MODE': 'align',
+ 'POOLING_SIZE': 7,
+ 'RESNET': {'FIXED_BLOCKS': 1, 'MAX_POOL': False},
+ 'RNG_SEED': 3,
+ 'ROOT_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch',
+ 'TEST': {'BBOX_REG': True,
+          'HAS_RPN': True,
+          'MAX_SIZE': 1000,
+          'MODE': 'nms',
+          'NMS': 0.3,
+          'PROPOSAL_METHOD': 'gt',
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000,
+          'RPN_TOP_N': 5000,
+          'SCALES': [600],
+          'SVM': False},
+ 'TRAIN': {'ASPECT_GROUPING': False,
+           'BATCH_SIZE': 128,
+           'BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'BBOX_NORMALIZE_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZE_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_NORMALIZE_TARGETS': True,
+           'BBOX_NORMALIZE_TARGETS_PRECOMPUTED': True,
+           'BBOX_REG': True,
+           'BBOX_THRESH': 0.5,
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'BIAS_DECAY': False,
+           'BN_TRAIN': False,
+           'DISPLAY': 20,
+           'DOUBLE_BIAS': False,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'GAMMA': 0.1,
+           'HAS_RPN': True,
+           'IMS_PER_BATCH': 1,
+           'LEARNING_RATE': 0.001,
+           'MAX_SIZE': 1000,
+           'MOMENTUM': 0.9,
+           'PROPOSAL_METHOD': 'gt',
+           'RPN_BATCHSIZE': 256,
+           'RPN_BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 8,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 2000,
+           'RPN_PRE_NMS_TOP_N': 12000,
+           'SCALES': [600],
+           'SNAPSHOT_ITERS': 5000,
+           'SNAPSHOT_KEPT': 3,
+           'SNAPSHOT_PREFIX': 'res101_faster_rcnn',
+           'STEPSIZE': [30000],
+           'SUMMARY_INTERVAL': 180,
+           'TRIM_HEIGHT': 600,
+           'TRIM_WIDTH': 600,
+           'TRUNCATED': False,
+           'USE_ALL_GT': True,
+           'USE_FLIPPED': True,
+           'USE_GT': False,
+           'WEIGHT_DECAY': 0.0001},
+ 'USE_GPU_NMS': True}
+ROOT_DIR /home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/../..
+image dataset path: /home/divyam/FRCN/faster-rcnn.pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/VOC2007
+sample image from dataset: target_munster_000158_000019_leftImg8bit_foggy_beta_0.02
+
+Loaded dataset `voc_2007_test` for training
+Set proposal method: gt
+Preparing training data...
+voc_2007_test gt roidb loaded from /home/divyam/FRCN/faster-rcnn.pytorch/data/tar/cache/voc_2007_test_gt_roidb.pkl
+done
+ROOT_DIR /home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/../..
+image dataset path: /home/divyam/FRCN/faster-rcnn.pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/VOC2007
+sample image from dataset: target_munster_000158_000019_leftImg8bit_foggy_beta_0.02
+
+before filtering, there are 500 images...
+after filtering, there are 493 images...
+493 roidb entries
+load checkpoint data/pretrained_model/res101/fcity/faster_rcnn_1_10_5931.pth
+load model successfully!
+testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 0
+im_detect: 1/493 1.024s 0.018s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 1
+im_detect: 2/493 0.072s 0.028s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 2
+im_detect: 3/493 0.070s 0.016s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 3
+im_detect: 4/493 0.099s 0.025s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 4
+im_detect: 5/493 0.069s 0.016s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 5
+im_detect: 6/493 0.100s 0.024s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 6
+im_detect: 7/493 0.069s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 7
+im_detect: 8/493 0.073s 0.035s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 8
+im_detect: 9/493 0.070s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 9
+im_detect: 10/493 0.097s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 10
+im_detect: 11/493 0.070s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 11
+im_detect: 12/493 0.082s 0.030s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 12
+im_detect: 13/493 0.084s 0.029s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 13
+im_detect: 14/493 0.069s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 14
+im_detect: 15/493 0.072s 0.044s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 15
+im_detect: 16/493 0.099s 0.034s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 16
+im_detect: 17/493 0.070s 0.033s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 17
+im_detect: 18/493 0.132s 0.019s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 18
+im_detect: 19/493 0.097s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 19
+im_detect: 20/493 0.070s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 20
+im_detect: 21/493 0.087s 0.064s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 21
+im_detect: 22/493 0.124s 0.049s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 22
+im_detect: 23/493 0.068s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 23
+im_detect: 24/493 0.082s 0.067s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 24
+im_detect: 25/493 0.070s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 25
+im_detect: 26/493 0.108s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 26
+im_detect: 27/493 0.112s 0.024s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 27
+im_detect: 28/493 0.085s 0.026s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 28
+im_detect: 29/493 0.097s 0.025s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 29
+im_detect: 30/493 0.069s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 30
+im_detect: 31/493 0.098s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 31
+im_detect: 32/493 0.071s 0.038s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 32
+im_detect: 33/493 0.084s 0.032s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 33
+im_detect: 34/493 0.082s 0.027s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 34
+im_detect: 35/493 0.098s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 35
+im_detect: 36/493 0.097s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 36
+im_detect: 37/493 0.105s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 37
+im_detect: 38/493 0.069s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 38
+im_detect: 39/493 0.067s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 39
+im_detect: 40/493 0.122s 0.046s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 40
+im_detect: 41/493 0.068s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 41
+im_detect: 42/493 0.070s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 42
+im_detect: 43/493 0.123s 0.019s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 43
+im_detect: 44/493 0.070s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 44
+im_detect: 45/493 0.116s 0.060s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 45
+im_detect: 46/493 0.068s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 46
+im_detect: 47/493 0.101s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 47
+im_detect: 48/493 0.085s 0.017s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 48
+im_detect: 49/493 0.069s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 49
+im_detect: 50/493 0.082s 0.030s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 50
+im_detect: 51/493 0.087s 0.015s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 51
+im_detect: 52/493 0.067s 0.042s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 52
+im_detect: 53/493 0.104s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 53
+im_detect: 54/493 0.067s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 54
+im_detect: 55/493 0.117s 0.058s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 55
+im_detect: 56/493 0.067s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 56
+im_detect: 57/493 0.096s 0.026s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 57
+im_detect: 58/493 0.068s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 58
+im_detect: 59/493 0.068s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 59
+im_detect: 60/493 0.136s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 60
+im_detect: 61/493 0.069s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 61
+im_detect: 62/493 0.104s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 62
+im_detect: 63/493 0.104s 0.023s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 63
+im_detect: 64/493 0.085s 0.030s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 64
+im_detect: 65/493 0.074s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 65
+im_detect: 66/493 0.098s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 66
+im_detect: 67/493 0.075s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 67
+im_detect: 68/493 0.084s 0.024s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 68
+im_detect: 69/493 0.099s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 69
+im_detect: 70/493 0.074s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 70
+im_detect: 71/493 0.096s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 71
+im_detect: 72/493 0.070s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 72
+im_detect: 73/493 0.074s 0.044s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 73
+im_detect: 74/493 0.069s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 74
+im_detect: 75/493 0.097s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 75
+im_detect: 76/493 0.085s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 76
+im_detect: 77/493 0.068s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 77
+im_detect: 78/493 0.101s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 78
+im_detect: 79/493 0.078s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 79
+im_detect: 80/493 0.096s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 80
+im_detect: 81/493 0.106s 0.027s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 81
+im_detect: 82/493 0.072s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 82
+im_detect: 83/493 0.074s 0.042s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 83
+im_detect: 84/493 0.092s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 84
+im_detect: 85/493 0.068s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 85
+im_detect: 86/493 0.076s 0.061s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 86
+im_detect: 87/493 0.067s 0.016s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 87
+im_detect: 88/493 0.071s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 88
+im_detect: 89/493 0.069s 0.015s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 89
+im_detect: 90/493 0.114s 0.057s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 90
+im_detect: 91/493 0.118s 0.026s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 91
+im_detect: 92/493 0.124s 0.037s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 92
+im_detect: 93/493 0.092s 0.029s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 93
+im_detect: 94/493 0.099s 0.030s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 94
+im_detect: 95/493 0.070s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 95
+im_detect: 96/493 0.069s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 96
+im_detect: 97/493 0.117s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 97
+im_detect: 98/493 0.099s 0.068s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 98
+im_detect: 99/493 0.098s 0.062s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 99
+im_detect: 100/493 0.100s 0.037s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 100
+im_detect: 101/493 0.069s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 101
+im_detect: 102/493 0.070s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 102
+im_detect: 103/493 0.129s 0.044s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 103
+im_detect: 104/493 0.110s 0.040s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 104
+im_detect: 105/493 0.068s 0.023s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 105
+im_detect: 106/493 0.076s 0.073s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 106
+im_detect: 107/493 0.072s 0.023s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 107
+im_detect: 108/493 0.097s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 108
+im_detect: 109/493 0.083s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 109
+im_detect: 110/493 0.080s 0.030s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 110
+im_detect: 111/493 0.075s 0.025s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 111
+im_detect: 112/493 0.069s 0.022s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 112
+im_detect: 113/493 0.080s 0.030s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 113
+im_detect: 114/493 0.091s 0.038s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 114
+im_detect: 115/493 0.072s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 115
+im_detect: 116/493 0.069s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 116
+im_detect: 117/493 0.079s 0.059s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 117
+im_detect: 118/493 0.069s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 118
+im_detect: 119/493 0.088s 0.023s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 119
+im_detect: 120/493 0.084s 0.026s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 120
+im_detect: 121/493 0.129s 0.016s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 121
+im_detect: 122/493 0.070s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 122
+im_detect: 123/493 0.074s 0.040s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 123
+im_detect: 124/493 0.097s 0.027s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 124
+im_detect: 125/493 0.069s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 125
+im_detect: 126/493 0.079s 0.030s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 126
+im_detect: 127/493 0.090s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 127
+im_detect: 128/493 0.070s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 128
+im_detect: 129/493 0.118s 0.043s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 129
+im_detect: 130/493 0.119s 0.030s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 130
+im_detect: 131/493 0.074s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 131
+im_detect: 132/493 0.100s 0.025s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 132
+im_detect: 133/493 0.100s 0.029s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 133
+im_detect: 134/493 0.069s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 134
+im_detect: 135/493 0.096s 0.023s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 135
+im_detect: 136/493 0.094s 0.018s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 136
+im_detect: 137/493 0.069s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 137
+im_detect: 138/493 0.069s 0.045s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 138
+im_detect: 139/493 0.092s 0.024s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 139
+im_detect: 140/493 0.071s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 140
+im_detect: 141/493 0.079s 0.031s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 141
+im_detect: 142/493 0.079s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 142
+im_detect: 143/493 0.068s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 143
+im_detect: 144/493 0.089s 0.024s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 144
+im_detect: 145/493 0.071s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 145
+im_detect: 146/493 0.070s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 146
+im_detect: 147/493 0.121s 0.063s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 147
+im_detect: 148/493 0.069s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 148
+im_detect: 149/493 0.070s 0.047s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 149
+im_detect: 150/493 0.071s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 150
+im_detect: 151/493 0.069s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 151
+im_detect: 152/493 0.114s 0.032s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 152
+im_detect: 153/493 0.130s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 153
+im_detect: 154/493 0.071s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 154
+im_detect: 155/493 0.121s 0.069s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 155
+im_detect: 156/493 0.068s 0.015s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 156
+im_detect: 157/493 0.088s 0.062s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 157
+im_detect: 158/493 0.081s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 158
+im_detect: 159/493 0.103s 0.036s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 159
+im_detect: 160/493 0.079s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 160
+im_detect: 161/493 0.114s 0.049s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 161
+im_detect: 162/493 0.076s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 162
+im_detect: 163/493 0.101s 0.050s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 163
+im_detect: 164/493 0.072s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 164
+im_detect: 165/493 0.075s 0.032s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 165
+im_detect: 166/493 0.114s 0.024s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 166
+im_detect: 167/493 0.087s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 167
+im_detect: 168/493 0.109s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 168
+im_detect: 169/493 0.098s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 169
+im_detect: 170/493 0.080s 0.068s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 170
+im_detect: 171/493 0.068s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 171
+im_detect: 172/493 0.069s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 172
+im_detect: 173/493 0.098s 0.022s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 173
+im_detect: 174/493 0.070s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 174
+im_detect: 175/493 0.099s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 175
+im_detect: 176/493 0.072s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 176
+im_detect: 177/493 0.088s 0.024s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 177
+im_detect: 178/493 0.077s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 178
+im_detect: 179/493 0.095s 0.017s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 179
+im_detect: 180/493 0.073s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 180
+im_detect: 181/493 0.068s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 181
+im_detect: 182/493 0.102s 0.025s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 182
+im_detect: 183/493 0.069s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 183
+im_detect: 184/493 0.069s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 184
+im_detect: 185/493 0.069s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 185
+im_detect: 186/493 0.097s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 186
+im_detect: 187/493 0.105s 0.024s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 187
+im_detect: 188/493 0.096s 0.034s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 188
+im_detect: 189/493 0.070s 0.015s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 189
+im_detect: 190/493 0.102s 0.036s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 190
+im_detect: 191/493 0.107s 0.026s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 191
+im_detect: 192/493 0.125s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 192
+im_detect: 193/493 0.109s 0.022s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 193
+im_detect: 194/493 0.117s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 194
+im_detect: 195/493 0.080s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 195
+im_detect: 196/493 0.127s 0.063s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 196
+im_detect: 197/493 0.118s 0.016s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 197
+im_detect: 198/493 0.078s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 198
+im_detect: 199/493 0.070s 0.043s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 199
+im_detect: 200/493 0.093s 0.023s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 200
+im_detect: 201/493 0.073s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 201
+im_detect: 202/493 0.074s 0.033s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 202
+im_detect: 203/493 0.076s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 203
+im_detect: 204/493 0.067s 0.043s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 204
+im_detect: 205/493 0.081s 0.016s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 205
+im_detect: 206/493 0.078s 0.034s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 206
+im_detect: 207/493 0.093s 0.020s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 207
+im_detect: 208/493 0.072s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 208
+im_detect: 209/493 0.098s 0.017s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 209
+im_detect: 210/493 0.105s 0.022s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 210
+im_detect: 211/493 0.090s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 211
+im_detect: 212/493 0.072s 0.038s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 212
+im_detect: 213/493 0.074s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 213
+im_detect: 214/493 0.070s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 214
+im_detect: 215/493 0.096s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 215
+im_detect: 216/493 0.086s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 216
+im_detect: 217/493 0.079s 0.032s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 217
+im_detect: 218/493 0.128s 0.026s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 218
+im_detect: 219/493 0.099s 0.020s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 219
+im_detect: 220/493 0.069s 0.032s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 220
+im_detect: 221/493 0.070s 0.052s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 221
+im_detect: 222/493 0.123s 0.034s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 222
+im_detect: 223/493 0.120s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 223
+im_detect: 224/493 0.095s 0.027s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 224
+im_detect: 225/493 0.119s 0.020s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 225
+im_detect: 226/493 0.076s 0.040s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 226
+im_detect: 227/493 0.073s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 227
+im_detect: 228/493 0.077s 0.043s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 228
+im_detect: 229/493 0.101s 0.036s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 229
+im_detect: 230/493 0.083s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 230
+im_detect: 231/493 0.075s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 231
+im_detect: 232/493 0.121s 0.058s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 232
+im_detect: 233/493 0.132s 0.061s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 233
+im_detect: 234/493 0.121s 0.025s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 234
+im_detect: 235/493 0.076s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 235
+im_detect: 236/493 0.079s 0.051s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 236
+im_detect: 237/493 0.071s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 237
+im_detect: 238/493 0.100s 0.051s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 238
+im_detect: 239/493 0.081s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 239
+im_detect: 240/493 0.072s 0.037s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 240
+im_detect: 241/493 0.077s 0.015s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 241
+im_detect: 242/493 0.107s 0.030s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 242
+im_detect: 243/493 0.109s 0.025s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 243
+im_detect: 244/493 0.072s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 244
+im_detect: 245/493 0.106s 0.027s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 245
+im_detect: 246/493 0.092s 0.033s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 246
+im_detect: 247/493 0.072s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 247
+im_detect: 248/493 0.080s 0.032s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 248
+im_detect: 249/493 0.078s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 249
+im_detect: 250/493 0.072s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 250
+im_detect: 251/493 0.111s 0.038s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 251
+im_detect: 252/493 0.069s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 252
+im_detect: 253/493 0.121s 0.054s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 253
+im_detect: 254/493 0.113s 0.057s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 254
+im_detect: 255/493 0.075s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 255
+im_detect: 256/493 0.082s 0.029s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 256
+im_detect: 257/493 0.071s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 257
+im_detect: 258/493 0.086s 0.027s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 258
+im_detect: 259/493 0.072s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 259
+im_detect: 260/493 0.068s 0.039s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 260
+im_detect: 261/493 0.072s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 261
+im_detect: 262/493 0.069s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 262
+im_detect: 263/493 0.114s 0.029s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 263
+im_detect: 264/493 0.098s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 264
+im_detect: 265/493 0.070s 0.015s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 265
+im_detect: 266/493 0.093s 0.019s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 266
+im_detect: 267/493 0.083s 0.028s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 267
+im_detect: 268/493 0.098s 0.026s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 268
+im_detect: 269/493 0.080s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 269
+im_detect: 270/493 0.099s 0.027s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 270
+im_detect: 271/493 0.097s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 271
+im_detect: 272/493 0.070s 0.038s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 272
+im_detect: 273/493 0.069s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 273
+im_detect: 274/493 0.069s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 274
+im_detect: 275/493 0.112s 0.059s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 275
+im_detect: 276/493 0.132s 0.041s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 276
+im_detect: 277/493 0.108s 0.018s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 277
+im_detect: 278/493 0.081s 0.047s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 278
+im_detect: 279/493 0.078s 0.044s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 279
+im_detect: 280/493 0.088s 0.037s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 280
+im_detect: 281/493 0.083s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 281
+im_detect: 282/493 0.077s 0.048s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 282
+im_detect: 283/493 0.087s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 283
+im_detect: 284/493 0.080s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 284
+im_detect: 285/493 0.136s 0.061s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 285
+im_detect: 286/493 0.147s 0.052s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 286
+im_detect: 287/493 0.124s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 287
+im_detect: 288/493 0.107s 0.022s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 288
+im_detect: 289/493 0.108s 0.036s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 289
+im_detect: 290/493 0.084s 0.033s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 290
+im_detect: 291/493 0.085s 0.033s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 291
+im_detect: 292/493 0.090s 0.035s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 292
+im_detect: 293/493 0.122s 0.020s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 293
+im_detect: 294/493 0.076s 0.017s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 294
+im_detect: 295/493 0.070s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 295
+im_detect: 296/493 0.118s 0.044s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 296
+im_detect: 297/493 0.068s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 297
+im_detect: 298/493 0.097s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 298
+im_detect: 299/493 0.074s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 299
+im_detect: 300/493 0.077s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 300
+im_detect: 301/493 0.125s 0.044s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 301
+im_detect: 302/493 0.088s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 302
+im_detect: 303/493 0.069s 0.025s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 303
+im_detect: 304/493 0.124s 0.037s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 304
+im_detect: 305/493 0.070s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 305
+im_detect: 306/493 0.096s 0.018s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 306
+im_detect: 307/493 0.114s 0.027s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 307
+im_detect: 308/493 0.070s 0.041s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 308
+im_detect: 309/493 0.095s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 309
+im_detect: 310/493 0.068s 0.046s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 310
+im_detect: 311/493 0.083s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 311
+im_detect: 312/493 0.074s 0.041s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 312
+im_detect: 313/493 0.089s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 313
+im_detect: 314/493 0.069s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 314
+im_detect: 315/493 0.071s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 315
+im_detect: 316/493 0.117s 0.026s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 316
+im_detect: 317/493 0.068s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 317
+im_detect: 318/493 0.128s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 318
+im_detect: 319/493 0.115s 0.032s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 319
+im_detect: 320/493 0.098s 0.025s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 320
+im_detect: 321/493 0.096s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 321
+im_detect: 322/493 0.069s 0.017s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 322
+im_detect: 323/493 0.113s 0.061s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 323
+im_detect: 324/493 0.088s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 324
+im_detect: 325/493 0.069s 0.041s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 325
+im_detect: 326/493 0.089s 0.037s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 326
+im_detect: 327/493 0.102s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 327
+im_detect: 328/493 0.068s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 328
+im_detect: 329/493 0.099s 0.027s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 329
+im_detect: 330/493 0.101s 0.040s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 330
+im_detect: 331/493 0.069s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 331
+im_detect: 332/493 0.073s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 332
+im_detect: 333/493 0.079s 0.057s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 333
+im_detect: 334/493 0.075s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 334
+im_detect: 335/493 0.097s 0.039s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 335
+im_detect: 336/493 0.068s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 336
+im_detect: 337/493 0.097s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 337
+im_detect: 338/493 0.098s 0.022s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 338
+im_detect: 339/493 0.098s 0.033s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 339
+im_detect: 340/493 0.073s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 340
+im_detect: 341/493 0.069s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 341
+im_detect: 342/493 0.095s 0.063s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 342
+im_detect: 343/493 0.069s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 343
+im_detect: 344/493 0.092s 0.029s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 344
+im_detect: 345/493 0.120s 0.021s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 345
+im_detect: 346/493 0.122s 0.025s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 346
+im_detect: 347/493 0.123s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 347
+im_detect: 348/493 0.074s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 348
+im_detect: 349/493 0.131s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 349
+im_detect: 350/493 0.119s 0.043s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 350
+im_detect: 351/493 0.107s 0.040s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 351
+im_detect: 352/493 0.074s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 352
+im_detect: 353/493 0.100s 0.016s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 353
+im_detect: 354/493 0.072s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 354
+im_detect: 355/493 0.072s 0.040s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 355
+im_detect: 356/493 0.076s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 356
+im_detect: 357/493 0.069s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 357
+im_detect: 358/493 0.115s 0.060s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 358
+im_detect: 359/493 0.068s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 359
+im_detect: 360/493 0.069s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 360
+im_detect: 361/493 0.123s 0.037s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 361
+im_detect: 362/493 0.123s 0.016s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 362
+im_detect: 363/493 0.076s 0.033s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 363
+im_detect: 364/493 0.073s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 364
+im_detect: 365/493 0.100s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 365
+im_detect: 366/493 0.072s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 366
+im_detect: 367/493 0.070s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 367
+im_detect: 368/493 0.117s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 368
+im_detect: 369/493 0.075s 0.035s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 369
+im_detect: 370/493 0.093s 0.016s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 370
+im_detect: 371/493 0.068s 0.015s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 371
+im_detect: 372/493 0.115s 0.048s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 372
+im_detect: 373/493 0.108s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 373
+im_detect: 374/493 0.068s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 374
+im_detect: 375/493 0.111s 0.078s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 375
+im_detect: 376/493 0.082s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 376
+im_detect: 377/493 0.091s 0.043s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 377
+im_detect: 378/493 0.133s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 378
+im_detect: 379/493 0.114s 0.030s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 379
+im_detect: 380/493 0.116s 0.019s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 380
+im_detect: 381/493 0.129s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 381
+im_detect: 382/493 0.074s 0.016s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 382
+im_detect: 383/493 0.110s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 383
+im_detect: 384/493 0.105s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 384
+im_detect: 385/493 0.077s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 385
+im_detect: 386/493 0.075s 0.040s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 386
+im_detect: 387/493 0.106s 0.039s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 387
+im_detect: 388/493 0.070s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 388
+im_detect: 389/493 0.100s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 389
+im_detect: 390/493 0.073s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 390
+im_detect: 391/493 0.105s 0.024s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 391
+im_detect: 392/493 0.070s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 392
+im_detect: 393/493 0.091s 0.035s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 393
+im_detect: 394/493 0.077s 0.015s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 394
+im_detect: 395/493 0.113s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 395
+im_detect: 396/493 0.148s 0.020s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 396
+im_detect: 397/493 0.096s 0.023s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 397
+im_detect: 398/493 0.105s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 398
+im_detect: 399/493 0.081s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 399
+im_detect: 400/493 0.072s 0.044s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 400
+im_detect: 401/493 0.075s 0.040s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 401
+im_detect: 402/493 0.106s 0.028s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 402
+im_detect: 403/493 0.097s 0.030s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 403
+im_detect: 404/493 0.099s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 404
+im_detect: 405/493 0.092s 0.026s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 405
+im_detect: 406/493 0.084s 0.027s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 406
+im_detect: 407/493 0.070s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 407
+im_detect: 408/493 0.087s 0.060s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 408
+im_detect: 409/493 0.070s 0.015s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 409
+im_detect: 410/493 0.105s 0.040s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 410
+im_detect: 411/493 0.115s 0.016s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 411
+im_detect: 412/493 0.106s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 412
+im_detect: 413/493 0.108s 0.017s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 413
+im_detect: 414/493 0.080s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 414
+im_detect: 415/493 0.105s 0.031s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 415
+im_detect: 416/493 0.107s 0.020s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 416
+im_detect: 417/493 0.116s 0.035s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 417
+im_detect: 418/493 0.080s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 418
+im_detect: 419/493 0.106s 0.028s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 419
+im_detect: 420/493 0.071s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 420
+im_detect: 421/493 0.073s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 421
+im_detect: 422/493 0.137s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 422
+im_detect: 423/493 0.071s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 423
+im_detect: 424/493 0.068s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 424
+im_detect: 425/493 0.113s 0.048s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 425
+im_detect: 426/493 0.070s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 426
+im_detect: 427/493 0.076s 0.048s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 427
+im_detect: 428/493 0.083s 0.022s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 428
+im_detect: 429/493 0.079s 0.042s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 429
+im_detect: 430/493 0.076s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 430
+im_detect: 431/493 0.074s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 431
+im_detect: 432/493 0.114s 0.029s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 432
+im_detect: 433/493 0.068s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 433
+im_detect: 434/493 0.069s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 434
+im_detect: 435/493 0.118s 0.047s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 435
+im_detect: 436/493 0.070s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 436
+im_detect: 437/493 0.101s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 437
+im_detect: 438/493 0.069s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 438
+im_detect: 439/493 0.067s 0.040s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 439
+im_detect: 440/493 0.123s 0.024s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 440
+im_detect: 441/493 0.072s 0.029s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 441
+im_detect: 442/493 0.070s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 442
+im_detect: 443/493 0.071s 0.017s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 443
+im_detect: 444/493 0.117s 0.038s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 444
+im_detect: 445/493 0.116s 0.037s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 445
+im_detect: 446/493 0.072s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 446
+im_detect: 447/493 0.119s 0.027s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 447
+im_detect: 448/493 0.128s 0.041s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 448
+im_detect: 449/493 0.070s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 449
+im_detect: 450/493 0.068s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 450
+im_detect: 451/493 0.113s 0.040s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 451
+im_detect: 452/493 0.128s 0.036s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 452
+im_detect: 453/493 0.070s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 453
+im_detect: 454/493 0.070s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 454
+im_detect: 455/493 0.129s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 455
+im_detect: 456/493 0.104s 0.022s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 456
+im_detect: 457/493 0.070s 0.015s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 457
+im_detect: 458/493 0.074s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 458
+im_detect: 459/493 0.086s 0.041s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 459
+im_detect: 460/493 0.080s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 460
+im_detect: 461/493 0.089s 0.056s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 461
+im_detect: 462/493 0.097s 0.062s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 462
+im_detect: 463/493 0.078s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 463
+im_detect: 464/493 0.122s 0.062s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 464
+im_detect: 465/493 0.130s 0.052s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 465
+im_detect: 466/493 0.071s 0.045s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 466
+im_detect: 467/493 0.093s 0.011s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 467
+im_detect: 468/493 0.071s 0.007s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 468
+im_detect: 469/493 0.117s 0.034s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 469
+im_detect: 470/493 0.098s 0.030s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 470
+im_detect: 471/493 0.070s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 471
+im_detect: 472/493 0.071s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 472
+im_detect: 473/493 0.075s 0.034s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 473
+im_detect: 474/493 0.090s 0.009s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 474
+im_detect: 475/493 0.097s 0.016s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 475
+im_detect: 476/493 0.098s 0.040s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 476
+im_detect: 477/493 0.069s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 477
+im_detect: 478/493 0.073s 0.015s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 478
+im_detect: 479/493 0.125s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 479
+im_detect: 480/493 0.082s 0.034s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 480
+im_detect: 481/493 0.081s 0.008s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 481
+im_detect: 482/493 0.098s 0.012s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 482
+im_detect: 483/493 0.071s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 483
+im_detect: 484/493 0.069s 0.045s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 484
+im_detect: 485/493 0.093s 0.019s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 485
+im_detect: 486/493 0.075s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 486
+im_detect: 487/493 0.079s 0.034s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 487
+im_detect: 488/493 0.112s 0.014s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 488
+im_detect: 489/493 0.097s 0.010s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 489
+im_detect: 490/493 0.102s 0.024s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 490
+im_detect: 491/493 0.099s 0.013s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 491
+im_detect: 492/493 0.102s 0.018s   testing phase!
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 492
+im_detect: 493/493 0.070s 0.034s   Evaluating detections
+Writing person VOC results file
+all boxes <type 'list'>
+cls_ind 1
+im_ind 0
+all boxes <type 'list'>
+cls_ind 1
+im_ind 1
+all boxes <type 'list'>
+cls_ind 1
+im_ind 2
+all boxes <type 'list'>
+cls_ind 1
+im_ind 3
+all boxes <type 'list'>
+cls_ind 1
+im_ind 4
+all boxes <type 'list'>
+cls_ind 1
+im_ind 5
+all boxes <type 'list'>
+cls_ind 1
+im_ind 6
+all boxes <type 'list'>
+cls_ind 1
+im_ind 7
+all boxes <type 'list'>
+cls_ind 1
+im_ind 8
+all boxes <type 'list'>
+cls_ind 1
+im_ind 9
+all boxes <type 'list'>
+cls_ind 1
+im_ind 10
+all boxes <type 'list'>
+cls_ind 1
+im_ind 11
+all boxes <type 'list'>
+cls_ind 1
+im_ind 12
+all boxes <type 'list'>
+cls_ind 1
+im_ind 13
+all boxes <type 'list'>
+cls_ind 1
+im_ind 14
+all boxes <type 'list'>
+cls_ind 1
+im_ind 15
+all boxes <type 'list'>
+cls_ind 1
+im_ind 16
+all boxes <type 'list'>
+cls_ind 1
+im_ind 17
+all boxes <type 'list'>
+cls_ind 1
+im_ind 18
+all boxes <type 'list'>
+cls_ind 1
+im_ind 19
+all boxes <type 'list'>
+cls_ind 1
+im_ind 20
+all boxes <type 'list'>
+cls_ind 1
+im_ind 21
+all boxes <type 'list'>
+cls_ind 1
+im_ind 22
+all boxes <type 'list'>
+cls_ind 1
+im_ind 23
+all boxes <type 'list'>
+cls_ind 1
+im_ind 24
+all boxes <type 'list'>
+cls_ind 1
+im_ind 25
+all boxes <type 'list'>
+cls_ind 1
+im_ind 26
+all boxes <type 'list'>
+cls_ind 1
+im_ind 27
+all boxes <type 'list'>
+cls_ind 1
+im_ind 28
+all boxes <type 'list'>
+cls_ind 1
+im_ind 29
+all boxes <type 'list'>
+cls_ind 1
+im_ind 30
+all boxes <type 'list'>
+cls_ind 1
+im_ind 31
+all boxes <type 'list'>
+cls_ind 1
+im_ind 32
+all boxes <type 'list'>
+cls_ind 1
+im_ind 33
+all boxes <type 'list'>
+cls_ind 1
+im_ind 34
+all boxes <type 'list'>
+cls_ind 1
+im_ind 35
+all boxes <type 'list'>
+cls_ind 1
+im_ind 36
+all boxes <type 'list'>
+cls_ind 1
+im_ind 37
+all boxes <type 'list'>
+cls_ind 1
+im_ind 38
+all boxes <type 'list'>
+cls_ind 1
+im_ind 39
+all boxes <type 'list'>
+cls_ind 1
+im_ind 40
+all boxes <type 'list'>
+cls_ind 1
+im_ind 41
+all boxes <type 'list'>
+cls_ind 1
+im_ind 42
+all boxes <type 'list'>
+cls_ind 1
+im_ind 43
+all boxes <type 'list'>
+cls_ind 1
+im_ind 44
+all boxes <type 'list'>
+cls_ind 1
+im_ind 45
+all boxes <type 'list'>
+cls_ind 1
+im_ind 46
+all boxes <type 'list'>
+cls_ind 1
+im_ind 47
+all boxes <type 'list'>
+cls_ind 1
+im_ind 48
+all boxes <type 'list'>
+cls_ind 1
+im_ind 49
+all boxes <type 'list'>
+cls_ind 1
+im_ind 50
+all boxes <type 'list'>
+cls_ind 1
+im_ind 51
+all boxes <type 'list'>
+cls_ind 1
+im_ind 52
+all boxes <type 'list'>
+cls_ind 1
+im_ind 53
+all boxes <type 'list'>
+cls_ind 1
+im_ind 54
+all boxes <type 'list'>
+cls_ind 1
+im_ind 55
+all boxes <type 'list'>
+cls_ind 1
+im_ind 56
+all boxes <type 'list'>
+cls_ind 1
+im_ind 57
+all boxes <type 'list'>
+cls_ind 1
+im_ind 58
+all boxes <type 'list'>
+cls_ind 1
+im_ind 59
+all boxes <type 'list'>
+cls_ind 1
+im_ind 60
+all boxes <type 'list'>
+cls_ind 1
+im_ind 61
+all boxes <type 'list'>
+cls_ind 1
+im_ind 62
+all boxes <type 'list'>
+cls_ind 1
+im_ind 63
+all boxes <type 'list'>
+cls_ind 1
+im_ind 64
+all boxes <type 'list'>
+cls_ind 1
+im_ind 65
+all boxes <type 'list'>
+cls_ind 1
+im_ind 66
+all boxes <type 'list'>
+cls_ind 1
+im_ind 67
+all boxes <type 'list'>
+cls_ind 1
+im_ind 68
+all boxes <type 'list'>
+cls_ind 1
+im_ind 69
+all boxes <type 'list'>
+cls_ind 1
+im_ind 70
+all boxes <type 'list'>
+cls_ind 1
+im_ind 71
+all boxes <type 'list'>
+cls_ind 1
+im_ind 72
+all boxes <type 'list'>
+cls_ind 1
+im_ind 73
+all boxes <type 'list'>
+cls_ind 1
+im_ind 74
+all boxes <type 'list'>
+cls_ind 1
+im_ind 75
+all boxes <type 'list'>
+cls_ind 1
+im_ind 76
+all boxes <type 'list'>
+cls_ind 1
+im_ind 77
+all boxes <type 'list'>
+cls_ind 1
+im_ind 78
+all boxes <type 'list'>
+cls_ind 1
+im_ind 79
+all boxes <type 'list'>
+cls_ind 1
+im_ind 80
+all boxes <type 'list'>
+cls_ind 1
+im_ind 81
+all boxes <type 'list'>
+cls_ind 1
+im_ind 82
+all boxes <type 'list'>
+cls_ind 1
+im_ind 83
+all boxes <type 'list'>
+cls_ind 1
+im_ind 84
+all boxes <type 'list'>
+cls_ind 1
+im_ind 85
+all boxes <type 'list'>
+cls_ind 1
+im_ind 86
+all boxes <type 'list'>
+cls_ind 1
+im_ind 87
+all boxes <type 'list'>
+cls_ind 1
+im_ind 88
+all boxes <type 'list'>
+cls_ind 1
+im_ind 89
+all boxes <type 'list'>
+cls_ind 1
+im_ind 90
+all boxes <type 'list'>
+cls_ind 1
+im_ind 91
+all boxes <type 'list'>
+cls_ind 1
+im_ind 92
+all boxes <type 'list'>
+cls_ind 1
+im_ind 93
+all boxes <type 'list'>
+cls_ind 1
+im_ind 94
+all boxes <type 'list'>
+cls_ind 1
+im_ind 95
+all boxes <type 'list'>
+cls_ind 1
+im_ind 96
+all boxes <type 'list'>
+cls_ind 1
+im_ind 97
+all boxes <type 'list'>
+cls_ind 1
+im_ind 98
+all boxes <type 'list'>
+cls_ind 1
+im_ind 99
+all boxes <type 'list'>
+cls_ind 1
+im_ind 100
+all boxes <type 'list'>
+cls_ind 1
+im_ind 101
+all boxes <type 'list'>
+cls_ind 1
+im_ind 102
+all boxes <type 'list'>
+cls_ind 1
+im_ind 103
+all boxes <type 'list'>
+cls_ind 1
+im_ind 104
+all boxes <type 'list'>
+cls_ind 1
+im_ind 105
+all boxes <type 'list'>
+cls_ind 1
+im_ind 106
+all boxes <type 'list'>
+cls_ind 1
+im_ind 107
+all boxes <type 'list'>
+cls_ind 1
+im_ind 108
+all boxes <type 'list'>
+cls_ind 1
+im_ind 109
+all boxes <type 'list'>
+cls_ind 1
+im_ind 110
+all boxes <type 'list'>
+cls_ind 1
+im_ind 111
+all boxes <type 'list'>
+cls_ind 1
+im_ind 112
+all boxes <type 'list'>
+cls_ind 1
+im_ind 113
+all boxes <type 'list'>
+cls_ind 1
+im_ind 114
+all boxes <type 'list'>
+cls_ind 1
+im_ind 115
+all boxes <type 'list'>
+cls_ind 1
+im_ind 116
+all boxes <type 'list'>
+cls_ind 1
+im_ind 117
+all boxes <type 'list'>
+cls_ind 1
+im_ind 118
+all boxes <type 'list'>
+cls_ind 1
+im_ind 119
+all boxes <type 'list'>
+cls_ind 1
+im_ind 120
+all boxes <type 'list'>
+cls_ind 1
+im_ind 121
+all boxes <type 'list'>
+cls_ind 1
+im_ind 122
+all boxes <type 'list'>
+cls_ind 1
+im_ind 123
+all boxes <type 'list'>
+cls_ind 1
+im_ind 124
+all boxes <type 'list'>
+cls_ind 1
+im_ind 125
+all boxes <type 'list'>
+cls_ind 1
+im_ind 126
+all boxes <type 'list'>
+cls_ind 1
+im_ind 127
+all boxes <type 'list'>
+cls_ind 1
+im_ind 128
+all boxes <type 'list'>
+cls_ind 1
+im_ind 129
+all boxes <type 'list'>
+cls_ind 1
+im_ind 130
+all boxes <type 'list'>
+cls_ind 1
+im_ind 131
+all boxes <type 'list'>
+cls_ind 1
+im_ind 132
+all boxes <type 'list'>
+cls_ind 1
+im_ind 133
+all boxes <type 'list'>
+cls_ind 1
+im_ind 134
+all boxes <type 'list'>
+cls_ind 1
+im_ind 135
+all boxes <type 'list'>
+cls_ind 1
+im_ind 136
+all boxes <type 'list'>
+cls_ind 1
+im_ind 137
+all boxes <type 'list'>
+cls_ind 1
+im_ind 138
+all boxes <type 'list'>
+cls_ind 1
+im_ind 139
+all boxes <type 'list'>
+cls_ind 1
+im_ind 140
+all boxes <type 'list'>
+cls_ind 1
+im_ind 141
+all boxes <type 'list'>
+cls_ind 1
+im_ind 142
+all boxes <type 'list'>
+cls_ind 1
+im_ind 143
+all boxes <type 'list'>
+cls_ind 1
+im_ind 144
+all boxes <type 'list'>
+cls_ind 1
+im_ind 145
+all boxes <type 'list'>
+cls_ind 1
+im_ind 146
+all boxes <type 'list'>
+cls_ind 1
+im_ind 147
+all boxes <type 'list'>
+cls_ind 1
+im_ind 148
+all boxes <type 'list'>
+cls_ind 1
+im_ind 149
+all boxes <type 'list'>
+cls_ind 1
+im_ind 150
+all boxes <type 'list'>
+cls_ind 1
+im_ind 151
+all boxes <type 'list'>
+cls_ind 1
+im_ind 152
+all boxes <type 'list'>
+cls_ind 1
+im_ind 153
+all boxes <type 'list'>
+cls_ind 1
+im_ind 154
+all boxes <type 'list'>
+cls_ind 1
+im_ind 155
+all boxes <type 'list'>
+cls_ind 1
+im_ind 156
+all boxes <type 'list'>
+cls_ind 1
+im_ind 157
+all boxes <type 'list'>
+cls_ind 1
+im_ind 158
+all boxes <type 'list'>
+cls_ind 1
+im_ind 159
+all boxes <type 'list'>
+cls_ind 1
+im_ind 160
+all boxes <type 'list'>
+cls_ind 1
+im_ind 161
+all boxes <type 'list'>
+cls_ind 1
+im_ind 162
+all boxes <type 'list'>
+cls_ind 1
+im_ind 163
+all boxes <type 'list'>
+cls_ind 1
+im_ind 164
+all boxes <type 'list'>
+cls_ind 1
+im_ind 165
+all boxes <type 'list'>
+cls_ind 1
+im_ind 166
+all boxes <type 'list'>
+cls_ind 1
+im_ind 167
+all boxes <type 'list'>
+cls_ind 1
+im_ind 168
+all boxes <type 'list'>
+cls_ind 1
+im_ind 169
+all boxes <type 'list'>
+cls_ind 1
+im_ind 170
+all boxes <type 'list'>
+cls_ind 1
+im_ind 171
+all boxes <type 'list'>
+cls_ind 1
+im_ind 172
+all boxes <type 'list'>
+cls_ind 1
+im_ind 173
+all boxes <type 'list'>
+cls_ind 1
+im_ind 174
+all boxes <type 'list'>
+cls_ind 1
+im_ind 175
+all boxes <type 'list'>
+cls_ind 1
+im_ind 176
+all boxes <type 'list'>
+cls_ind 1
+im_ind 177
+all boxes <type 'list'>
+cls_ind 1
+im_ind 178
+all boxes <type 'list'>
+cls_ind 1
+im_ind 179
+all boxes <type 'list'>
+cls_ind 1
+im_ind 180
+all boxes <type 'list'>
+cls_ind 1
+im_ind 181
+all boxes <type 'list'>
+cls_ind 1
+im_ind 182
+all boxes <type 'list'>
+cls_ind 1
+im_ind 183
+all boxes <type 'list'>
+cls_ind 1
+im_ind 184
+all boxes <type 'list'>
+cls_ind 1
+im_ind 185
+all boxes <type 'list'>
+cls_ind 1
+im_ind 186
+all boxes <type 'list'>
+cls_ind 1
+im_ind 187
+all boxes <type 'list'>
+cls_ind 1
+im_ind 188
+all boxes <type 'list'>
+cls_ind 1
+im_ind 189
+all boxes <type 'list'>
+cls_ind 1
+im_ind 190
+all boxes <type 'list'>
+cls_ind 1
+im_ind 191
+all boxes <type 'list'>
+cls_ind 1
+im_ind 192
+all boxes <type 'list'>
+cls_ind 1
+im_ind 193
+all boxes <type 'list'>
+cls_ind 1
+im_ind 194
+all boxes <type 'list'>
+cls_ind 1
+im_ind 195
+all boxes <type 'list'>
+cls_ind 1
+im_ind 196
+all boxes <type 'list'>
+cls_ind 1
+im_ind 197
+all boxes <type 'list'>
+cls_ind 1
+im_ind 198
+all boxes <type 'list'>
+cls_ind 1
+im_ind 199
+all boxes <type 'list'>
+cls_ind 1
+im_ind 200
+all boxes <type 'list'>
+cls_ind 1
+im_ind 201
+all boxes <type 'list'>
+cls_ind 1
+im_ind 202
+all boxes <type 'list'>
+cls_ind 1
+im_ind 203
+all boxes <type 'list'>
+cls_ind 1
+im_ind 204
+all boxes <type 'list'>
+cls_ind 1
+im_ind 205
+all boxes <type 'list'>
+cls_ind 1
+im_ind 206
+all boxes <type 'list'>
+cls_ind 1
+im_ind 207
+all boxes <type 'list'>
+cls_ind 1
+im_ind 208
+all boxes <type 'list'>
+cls_ind 1
+im_ind 209
+all boxes <type 'list'>
+cls_ind 1
+im_ind 210
+all boxes <type 'list'>
+cls_ind 1
+im_ind 211
+all boxes <type 'list'>
+cls_ind 1
+im_ind 212
+all boxes <type 'list'>
+cls_ind 1
+im_ind 213
+all boxes <type 'list'>
+cls_ind 1
+im_ind 214
+all boxes <type 'list'>
+cls_ind 1
+im_ind 215
+all boxes <type 'list'>
+cls_ind 1
+im_ind 216
+all boxes <type 'list'>
+cls_ind 1
+im_ind 217
+all boxes <type 'list'>
+cls_ind 1
+im_ind 218
+all boxes <type 'list'>
+cls_ind 1
+im_ind 219
+all boxes <type 'list'>
+cls_ind 1
+im_ind 220
+all boxes <type 'list'>
+cls_ind 1
+im_ind 221
+all boxes <type 'list'>
+cls_ind 1
+im_ind 222
+all boxes <type 'list'>
+cls_ind 1
+im_ind 223
+all boxes <type 'list'>
+cls_ind 1
+im_ind 224
+all boxes <type 'list'>
+cls_ind 1
+im_ind 225
+all boxes <type 'list'>
+cls_ind 1
+im_ind 226
+all boxes <type 'list'>
+cls_ind 1
+im_ind 227
+all boxes <type 'list'>
+cls_ind 1
+im_ind 228
+all boxes <type 'list'>
+cls_ind 1
+im_ind 229
+all boxes <type 'list'>
+cls_ind 1
+im_ind 230
+all boxes <type 'list'>
+cls_ind 1
+im_ind 231
+all boxes <type 'list'>
+cls_ind 1
+im_ind 232
+all boxes <type 'list'>
+cls_ind 1
+im_ind 233
+all boxes <type 'list'>
+cls_ind 1
+im_ind 234
+all boxes <type 'list'>
+cls_ind 1
+im_ind 235
+all boxes <type 'list'>
+cls_ind 1
+im_ind 236
+all boxes <type 'list'>
+cls_ind 1
+im_ind 237
+all boxes <type 'list'>
+cls_ind 1
+im_ind 238
+all boxes <type 'list'>
+cls_ind 1
+im_ind 239
+all boxes <type 'list'>
+cls_ind 1
+im_ind 240
+all boxes <type 'list'>
+cls_ind 1
+im_ind 241
+all boxes <type 'list'>
+cls_ind 1
+im_ind 242
+all boxes <type 'list'>
+cls_ind 1
+im_ind 243
+all boxes <type 'list'>
+cls_ind 1
+im_ind 244
+all boxes <type 'list'>
+cls_ind 1
+im_ind 245
+all boxes <type 'list'>
+cls_ind 1
+im_ind 246
+all boxes <type 'list'>
+cls_ind 1
+im_ind 247
+all boxes <type 'list'>
+cls_ind 1
+im_ind 248
+all boxes <type 'list'>
+cls_ind 1
+im_ind 249
+all boxes <type 'list'>
+cls_ind 1
+im_ind 250
+all boxes <type 'list'>
+cls_ind 1
+im_ind 251
+all boxes <type 'list'>
+cls_ind 1
+im_ind 252
+all boxes <type 'list'>
+cls_ind 1
+im_ind 253
+all boxes <type 'list'>
+cls_ind 1
+im_ind 254
+all boxes <type 'list'>
+cls_ind 1
+im_ind 255
+all boxes <type 'list'>
+cls_ind 1
+im_ind 256
+all boxes <type 'list'>
+cls_ind 1
+im_ind 257
+all boxes <type 'list'>
+cls_ind 1
+im_ind 258
+all boxes <type 'list'>
+cls_ind 1
+im_ind 259
+all boxes <type 'list'>
+cls_ind 1
+im_ind 260
+all boxes <type 'list'>
+cls_ind 1
+im_ind 261
+all boxes <type 'list'>
+cls_ind 1
+im_ind 262
+all boxes <type 'list'>
+cls_ind 1
+im_ind 263
+all boxes <type 'list'>
+cls_ind 1
+im_ind 264
+all boxes <type 'list'>
+cls_ind 1
+im_ind 265
+all boxes <type 'list'>
+cls_ind 1
+im_ind 266
+all boxes <type 'list'>
+cls_ind 1
+im_ind 267
+all boxes <type 'list'>
+cls_ind 1
+im_ind 268
+all boxes <type 'list'>
+cls_ind 1
+im_ind 269
+all boxes <type 'list'>
+cls_ind 1
+im_ind 270
+all boxes <type 'list'>
+cls_ind 1
+im_ind 271
+all boxes <type 'list'>
+cls_ind 1
+im_ind 272
+all boxes <type 'list'>
+cls_ind 1
+im_ind 273
+all boxes <type 'list'>
+cls_ind 1
+im_ind 274
+all boxes <type 'list'>
+cls_ind 1
+im_ind 275
+all boxes <type 'list'>
+cls_ind 1
+im_ind 276
+all boxes <type 'list'>
+cls_ind 1
+im_ind 277
+all boxes <type 'list'>
+cls_ind 1
+im_ind 278
+all boxes <type 'list'>
+cls_ind 1
+im_ind 279
+all boxes <type 'list'>
+cls_ind 1
+im_ind 280
+all boxes <type 'list'>
+cls_ind 1
+im_ind 281
+all boxes <type 'list'>
+cls_ind 1
+im_ind 282
+all boxes <type 'list'>
+cls_ind 1
+im_ind 283
+all boxes <type 'list'>
+cls_ind 1
+im_ind 284
+all boxes <type 'list'>
+cls_ind 1
+im_ind 285
+all boxes <type 'list'>
+cls_ind 1
+im_ind 286
+all boxes <type 'list'>
+cls_ind 1
+im_ind 287
+all boxes <type 'list'>
+cls_ind 1
+im_ind 288
+all boxes <type 'list'>
+cls_ind 1
+im_ind 289
+all boxes <type 'list'>
+cls_ind 1
+im_ind 290
+all boxes <type 'list'>
+cls_ind 1
+im_ind 291
+all boxes <type 'list'>
+cls_ind 1
+im_ind 292
+all boxes <type 'list'>
+cls_ind 1
+im_ind 293
+all boxes <type 'list'>
+cls_ind 1
+im_ind 294
+all boxes <type 'list'>
+cls_ind 1
+im_ind 295
+all boxes <type 'list'>
+cls_ind 1
+im_ind 296
+all boxes <type 'list'>
+cls_ind 1
+im_ind 297
+all boxes <type 'list'>
+cls_ind 1
+im_ind 298
+all boxes <type 'list'>
+cls_ind 1
+im_ind 299
+all boxes <type 'list'>
+cls_ind 1
+im_ind 300
+all boxes <type 'list'>
+cls_ind 1
+im_ind 301
+all boxes <type 'list'>
+cls_ind 1
+im_ind 302
+all boxes <type 'list'>
+cls_ind 1
+im_ind 303
+all boxes <type 'list'>
+cls_ind 1
+im_ind 304
+all boxes <type 'list'>
+cls_ind 1
+im_ind 305
+all boxes <type 'list'>
+cls_ind 1
+im_ind 306
+all boxes <type 'list'>
+cls_ind 1
+im_ind 307
+all boxes <type 'list'>
+cls_ind 1
+im_ind 308
+all boxes <type 'list'>
+cls_ind 1
+im_ind 309
+all boxes <type 'list'>
+cls_ind 1
+im_ind 310
+all boxes <type 'list'>
+cls_ind 1
+im_ind 311
+all boxes <type 'list'>
+cls_ind 1
+im_ind 312
+all boxes <type 'list'>
+cls_ind 1
+im_ind 313
+all boxes <type 'list'>
+cls_ind 1
+im_ind 314
+all boxes <type 'list'>
+cls_ind 1
+im_ind 315
+all boxes <type 'list'>
+cls_ind 1
+im_ind 316
+all boxes <type 'list'>
+cls_ind 1
+im_ind 317
+all boxes <type 'list'>
+cls_ind 1
+im_ind 318
+all boxes <type 'list'>
+cls_ind 1
+im_ind 319
+all boxes <type 'list'>
+cls_ind 1
+im_ind 320
+all boxes <type 'list'>
+cls_ind 1
+im_ind 321
+all boxes <type 'list'>
+cls_ind 1
+im_ind 322
+all boxes <type 'list'>
+cls_ind 1
+im_ind 323
+all boxes <type 'list'>
+cls_ind 1
+im_ind 324
+all boxes <type 'list'>
+cls_ind 1
+im_ind 325
+all boxes <type 'list'>
+cls_ind 1
+im_ind 326
+all boxes <type 'list'>
+cls_ind 1
+im_ind 327
+all boxes <type 'list'>
+cls_ind 1
+im_ind 328
+all boxes <type 'list'>
+cls_ind 1
+im_ind 329
+all boxes <type 'list'>
+cls_ind 1
+im_ind 330
+all boxes <type 'list'>
+cls_ind 1
+im_ind 331
+all boxes <type 'list'>
+cls_ind 1
+im_ind 332
+all boxes <type 'list'>
+cls_ind 1
+im_ind 333
+all boxes <type 'list'>
+cls_ind 1
+im_ind 334
+all boxes <type 'list'>
+cls_ind 1
+im_ind 335
+all boxes <type 'list'>
+cls_ind 1
+im_ind 336
+all boxes <type 'list'>
+cls_ind 1
+im_ind 337
+all boxes <type 'list'>
+cls_ind 1
+im_ind 338
+all boxes <type 'list'>
+cls_ind 1
+im_ind 339
+all boxes <type 'list'>
+cls_ind 1
+im_ind 340
+all boxes <type 'list'>
+cls_ind 1
+im_ind 341
+all boxes <type 'list'>
+cls_ind 1
+im_ind 342
+all boxes <type 'list'>
+cls_ind 1
+im_ind 343
+all boxes <type 'list'>
+cls_ind 1
+im_ind 344
+all boxes <type 'list'>
+cls_ind 1
+im_ind 345
+all boxes <type 'list'>
+cls_ind 1
+im_ind 346
+all boxes <type 'list'>
+cls_ind 1
+im_ind 347
+all boxes <type 'list'>
+cls_ind 1
+im_ind 348
+all boxes <type 'list'>
+cls_ind 1
+im_ind 349
+all boxes <type 'list'>
+cls_ind 1
+im_ind 350
+all boxes <type 'list'>
+cls_ind 1
+im_ind 351
+all boxes <type 'list'>
+cls_ind 1
+im_ind 352
+all boxes <type 'list'>
+cls_ind 1
+im_ind 353
+all boxes <type 'list'>
+cls_ind 1
+im_ind 354
+all boxes <type 'list'>
+cls_ind 1
+im_ind 355
+all boxes <type 'list'>
+cls_ind 1
+im_ind 356
+all boxes <type 'list'>
+cls_ind 1
+im_ind 357
+all boxes <type 'list'>
+cls_ind 1
+im_ind 358
+all boxes <type 'list'>
+cls_ind 1
+im_ind 359
+all boxes <type 'list'>
+cls_ind 1
+im_ind 360
+all boxes <type 'list'>
+cls_ind 1
+im_ind 361
+all boxes <type 'list'>
+cls_ind 1
+im_ind 362
+all boxes <type 'list'>
+cls_ind 1
+im_ind 363
+all boxes <type 'list'>
+cls_ind 1
+im_ind 364
+all boxes <type 'list'>
+cls_ind 1
+im_ind 365
+all boxes <type 'list'>
+cls_ind 1
+im_ind 366
+all boxes <type 'list'>
+cls_ind 1
+im_ind 367
+all boxes <type 'list'>
+cls_ind 1
+im_ind 368
+all boxes <type 'list'>
+cls_ind 1
+im_ind 369
+all boxes <type 'list'>
+cls_ind 1
+im_ind 370
+all boxes <type 'list'>
+cls_ind 1
+im_ind 371
+all boxes <type 'list'>
+cls_ind 1
+im_ind 372
+all boxes <type 'list'>
+cls_ind 1
+im_ind 373
+all boxes <type 'list'>
+cls_ind 1
+im_ind 374
+all boxes <type 'list'>
+cls_ind 1
+im_ind 375
+all boxes <type 'list'>
+cls_ind 1
+im_ind 376
+all boxes <type 'list'>
+cls_ind 1
+im_ind 377
+all boxes <type 'list'>
+cls_ind 1
+im_ind 378
+all boxes <type 'list'>
+cls_ind 1
+im_ind 379
+all boxes <type 'list'>
+cls_ind 1
+im_ind 380
+all boxes <type 'list'>
+cls_ind 1
+im_ind 381
+all boxes <type 'list'>
+cls_ind 1
+im_ind 382
+all boxes <type 'list'>
+cls_ind 1
+im_ind 383
+all boxes <type 'list'>
+cls_ind 1
+im_ind 384
+all boxes <type 'list'>
+cls_ind 1
+im_ind 385
+all boxes <type 'list'>
+cls_ind 1
+im_ind 386
+all boxes <type 'list'>
+cls_ind 1
+im_ind 387
+all boxes <type 'list'>
+cls_ind 1
+im_ind 388
+all boxes <type 'list'>
+cls_ind 1
+im_ind 389
+all boxes <type 'list'>
+cls_ind 1
+im_ind 390
+all boxes <type 'list'>
+cls_ind 1
+im_ind 391
+all boxes <type 'list'>
+cls_ind 1
+im_ind 392
+all boxes <type 'list'>
+cls_ind 1
+im_ind 393
+all boxes <type 'list'>
+cls_ind 1
+im_ind 394
+all boxes <type 'list'>
+cls_ind 1
+im_ind 395
+all boxes <type 'list'>
+cls_ind 1
+im_ind 396
+all boxes <type 'list'>
+cls_ind 1
+im_ind 397
+all boxes <type 'list'>
+cls_ind 1
+im_ind 398
+all boxes <type 'list'>
+cls_ind 1
+im_ind 399
+all boxes <type 'list'>
+cls_ind 1
+im_ind 400
+all boxes <type 'list'>
+cls_ind 1
+im_ind 401
+all boxes <type 'list'>
+cls_ind 1
+im_ind 402
+all boxes <type 'list'>
+cls_ind 1
+im_ind 403
+all boxes <type 'list'>
+cls_ind 1
+im_ind 404
+all boxes <type 'list'>
+cls_ind 1
+im_ind 405
+all boxes <type 'list'>
+cls_ind 1
+im_ind 406
+all boxes <type 'list'>
+cls_ind 1
+im_ind 407
+all boxes <type 'list'>
+cls_ind 1
+im_ind 408
+all boxes <type 'list'>
+cls_ind 1
+im_ind 409
+all boxes <type 'list'>
+cls_ind 1
+im_ind 410
+all boxes <type 'list'>
+cls_ind 1
+im_ind 411
+all boxes <type 'list'>
+cls_ind 1
+im_ind 412
+all boxes <type 'list'>
+cls_ind 1
+im_ind 413
+all boxes <type 'list'>
+cls_ind 1
+im_ind 414
+all boxes <type 'list'>
+cls_ind 1
+im_ind 415
+all boxes <type 'list'>
+cls_ind 1
+im_ind 416
+all boxes <type 'list'>
+cls_ind 1
+im_ind 417
+all boxes <type 'list'>
+cls_ind 1
+im_ind 418
+all boxes <type 'list'>
+cls_ind 1
+im_ind 419
+all boxes <type 'list'>
+cls_ind 1
+im_ind 420
+all boxes <type 'list'>
+cls_ind 1
+im_ind 421
+all boxes <type 'list'>
+cls_ind 1
+im_ind 422
+all boxes <type 'list'>
+cls_ind 1
+im_ind 423
+all boxes <type 'list'>
+cls_ind 1
+im_ind 424
+all boxes <type 'list'>
+cls_ind 1
+im_ind 425
+all boxes <type 'list'>
+cls_ind 1
+im_ind 426
+all boxes <type 'list'>
+cls_ind 1
+im_ind 427
+all boxes <type 'list'>
+cls_ind 1
+im_ind 428
+all boxes <type 'list'>
+cls_ind 1
+im_ind 429
+all boxes <type 'list'>
+cls_ind 1
+im_ind 430
+all boxes <type 'list'>
+cls_ind 1
+im_ind 431
+all boxes <type 'list'>
+cls_ind 1
+im_ind 432
+all boxes <type 'list'>
+cls_ind 1
+im_ind 433
+all boxes <type 'list'>
+cls_ind 1
+im_ind 434
+all boxes <type 'list'>
+cls_ind 1
+im_ind 435
+all boxes <type 'list'>
+cls_ind 1
+im_ind 436
+all boxes <type 'list'>
+cls_ind 1
+im_ind 437
+all boxes <type 'list'>
+cls_ind 1
+im_ind 438
+all boxes <type 'list'>
+cls_ind 1
+im_ind 439
+all boxes <type 'list'>
+cls_ind 1
+im_ind 440
+all boxes <type 'list'>
+cls_ind 1
+im_ind 441
+all boxes <type 'list'>
+cls_ind 1
+im_ind 442
+all boxes <type 'list'>
+cls_ind 1
+im_ind 443
+all boxes <type 'list'>
+cls_ind 1
+im_ind 444
+all boxes <type 'list'>
+cls_ind 1
+im_ind 445
+all boxes <type 'list'>
+cls_ind 1
+im_ind 446
+all boxes <type 'list'>
+cls_ind 1
+im_ind 447
+all boxes <type 'list'>
+cls_ind 1
+im_ind 448
+all boxes <type 'list'>
+cls_ind 1
+im_ind 449
+all boxes <type 'list'>
+cls_ind 1
+im_ind 450
+all boxes <type 'list'>
+cls_ind 1
+im_ind 451
+all boxes <type 'list'>
+cls_ind 1
+im_ind 452
+all boxes <type 'list'>
+cls_ind 1
+im_ind 453
+all boxes <type 'list'>
+cls_ind 1
+im_ind 454
+all boxes <type 'list'>
+cls_ind 1
+im_ind 455
+all boxes <type 'list'>
+cls_ind 1
+im_ind 456
+all boxes <type 'list'>
+cls_ind 1
+im_ind 457
+all boxes <type 'list'>
+cls_ind 1
+im_ind 458
+all boxes <type 'list'>
+cls_ind 1
+im_ind 459
+all boxes <type 'list'>
+cls_ind 1
+im_ind 460
+all boxes <type 'list'>
+cls_ind 1
+im_ind 461
+all boxes <type 'list'>
+cls_ind 1
+im_ind 462
+all boxes <type 'list'>
+cls_ind 1
+im_ind 463
+all boxes <type 'list'>
+cls_ind 1
+im_ind 464
+all boxes <type 'list'>
+cls_ind 1
+im_ind 465
+all boxes <type 'list'>
+cls_ind 1
+im_ind 466
+all boxes <type 'list'>
+cls_ind 1
+im_ind 467
+all boxes <type 'list'>
+cls_ind 1
+im_ind 468
+all boxes <type 'list'>
+cls_ind 1
+im_ind 469
+all boxes <type 'list'>
+cls_ind 1
+im_ind 470
+all boxes <type 'list'>
+cls_ind 1
+im_ind 471
+all boxes <type 'list'>
+cls_ind 1
+im_ind 472
+all boxes <type 'list'>
+cls_ind 1
+im_ind 473
+all boxes <type 'list'>
+cls_ind 1
+im_ind 474
+all boxes <type 'list'>
+cls_ind 1
+im_ind 475
+all boxes <type 'list'>
+cls_ind 1
+im_ind 476
+all boxes <type 'list'>
+cls_ind 1
+im_ind 477
+all boxes <type 'list'>
+cls_ind 1
+im_ind 478
+all boxes <type 'list'>
+cls_ind 1
+im_ind 479
+all boxes <type 'list'>
+cls_ind 1
+im_ind 480
+all boxes <type 'list'>
+cls_ind 1
+im_ind 481
+all boxes <type 'list'>
+cls_ind 1
+im_ind 482
+all boxes <type 'list'>
+cls_ind 1
+im_ind 483
+all boxes <type 'list'>
+cls_ind 1
+im_ind 484
+all boxes <type 'list'>
+cls_ind 1
+im_ind 485
+all boxes <type 'list'>
+cls_ind 1
+im_ind 486
+all boxes <type 'list'>
+cls_ind 1
+im_ind 487
+all boxes <type 'list'>
+cls_ind 1
+im_ind 488
+all boxes <type 'list'>
+cls_ind 1
+im_ind 489
+all boxes <type 'list'>
+cls_ind 1
+im_ind 490
+all boxes <type 'list'>
+cls_ind 1
+im_ind 491
+all boxes <type 'list'>
+cls_ind 1
+im_ind 492
+all boxes <type 'list'>
+cls_ind 1
+im_ind 493
+Traceback (most recent call last):
+  File "test_net_x.py", line 342, in <module>
+    imdb.evaluate_detections(all_boxes, output_dir)
+  File "/home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/pascal_voc.py", line 379, in evaluate_detections
+    self._write_voc_results_file(all_boxes)
+  File "/home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/pascal_voc.py", line 307, in _write_voc_results_file
+    dets = all_boxes[cls_ind][im_ind]
+IndexError: list index out of range

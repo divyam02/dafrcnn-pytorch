@@ -1,0 +1,3069 @@
+Called with args:
+Namespace(cfg_file='cfgs/vgg16.yml', checkepoch=10, checkpoint=5931, checksession=1, class_agnostic=False, cuda=True, dataset='fcity', large_scale=False, load_dir='data/pretrained_model', mGPUs=False, net='res101', parallel_type=0, set_cfgs=None, vis=False)
+Using config:
+{'ANCHOR_RATIOS': [0.5, 1, 2],
+ 'ANCHOR_SCALES': [8, 16, 32],
+ 'CROP_RESIZE_WITH_MAX_POOL': False,
+ 'CUDA': False,
+ 'DATA_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch/data',
+ 'DEDUP_BOXES': 0.0625,
+ 'EPS': 1e-14,
+ 'EXP_DIR': 'res101',
+ 'FEAT_STRIDE': [16],
+ 'GPU_ID': 0,
+ 'MATLAB': 'matlab',
+ 'MAX_NUM_GT_BOXES': 20,
+ 'MOBILENET': {'DEPTH_MULTIPLIER': 1.0,
+               'FIXED_LAYERS': 5,
+               'REGU_DEPTH': False,
+               'WEIGHT_DECAY': 4e-05},
+ 'PIXEL_MEANS': array([[[102.9801, 115.9465, 122.7717]]]),
+ 'POOLING_MODE': 'align',
+ 'POOLING_SIZE': 7,
+ 'RESNET': {'FIXED_BLOCKS': 1, 'MAX_POOL': False},
+ 'RNG_SEED': 3,
+ 'ROOT_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch',
+ 'TEST': {'BBOX_REG': True,
+          'HAS_RPN': True,
+          'MAX_SIZE': 1000,
+          'MODE': 'nms',
+          'NMS': 0.3,
+          'PROPOSAL_METHOD': 'gt',
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000,
+          'RPN_TOP_N': 5000,
+          'SCALES': [600],
+          'SVM': False},
+ 'TRAIN': {'ASPECT_GROUPING': False,
+           'BATCH_SIZE': 128,
+           'BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'BBOX_NORMALIZE_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZE_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_NORMALIZE_TARGETS': True,
+           'BBOX_NORMALIZE_TARGETS_PRECOMPUTED': True,
+           'BBOX_REG': True,
+           'BBOX_THRESH': 0.5,
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'BIAS_DECAY': False,
+           'BN_TRAIN': False,
+           'DISPLAY': 20,
+           'DOUBLE_BIAS': False,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'GAMMA': 0.1,
+           'HAS_RPN': True,
+           'IMS_PER_BATCH': 1,
+           'LEARNING_RATE': 0.001,
+           'MAX_SIZE': 1000,
+           'MOMENTUM': 0.9,
+           'PROPOSAL_METHOD': 'gt',
+           'RPN_BATCHSIZE': 256,
+           'RPN_BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 8,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 2000,
+           'RPN_PRE_NMS_TOP_N': 12000,
+           'SCALES': [600],
+           'SNAPSHOT_ITERS': 5000,
+           'SNAPSHOT_KEPT': 3,
+           'SNAPSHOT_PREFIX': 'res101_faster_rcnn',
+           'STEPSIZE': [30000],
+           'SUMMARY_INTERVAL': 180,
+           'TRIM_HEIGHT': 600,
+           'TRIM_WIDTH': 600,
+           'TRUNCATED': False,
+           'USE_ALL_GT': True,
+           'USE_FLIPPED': True,
+           'USE_GT': False,
+           'WEIGHT_DECAY': 0.0001},
+ 'USE_GPU_NMS': True}
+ROOT_DIR /home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/../..
+image dataset path: /home/divyam/FRCN/faster-rcnn.pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/VOC2007
+sample image from dataset: target_munster_000158_000019_leftImg8bit_foggy_beta_0.02
+
+Loaded dataset `voc_2007_test` for training
+Set proposal method: gt
+Preparing training data...
+voc_2007_test gt roidb loaded from /home/divyam/FRCN/faster-rcnn.pytorch/data/tar/cache/voc_2007_test_gt_roidb.pkl
+done
+ROOT_DIR /home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/../..
+image dataset path: /home/divyam/FRCN/faster-rcnn.pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/VOC2007
+sample image from dataset: target_munster_000158_000019_leftImg8bit_foggy_beta_0.02
+
+before filtering, there are 500 images...
+after filtering, there are 493 images...
+493 roidb entries
+load checkpoint data/pretrained_model/res101/fcity/faster_rcnn_1_10_5931.pth
+load model successfully!
+('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 0
+im_detect: 1/500 0.949s 0.084s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 1
+im_detect: 2/500 0.068s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 2
+im_detect: 3/500 0.098s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 3
+im_detect: 4/500 0.076s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 4
+im_detect: 5/500 0.070s 0.015s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 5
+im_detect: 6/500 0.147s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 6
+im_detect: 7/500 0.093s 0.036s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 7
+im_detect: 8/500 0.115s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 8
+im_detect: 9/500 0.114s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 9
+im_detect: 10/500 0.072s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 10
+im_detect: 11/500 0.069s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 11
+im_detect: 12/500 0.133s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 12
+im_detect: 13/500 0.077s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 13
+im_detect: 14/500 0.129s 0.025s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 14
+im_detect: 15/500 0.068s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 15
+im_detect: 16/500 0.093s 0.075s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 16
+im_detect: 17/500 0.094s 0.066s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 17
+im_detect: 18/500 0.069s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 18
+im_detect: 19/500 0.096s 0.026s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 19
+im_detect: 20/500 0.069s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 20
+im_detect: 21/500 0.085s 0.032s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 21
+im_detect: 22/500 0.116s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 22
+im_detect: 23/500 0.102s 0.021s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 23
+im_detect: 24/500 0.071s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 24
+im_detect: 25/500 0.069s 0.049s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 25
+im_detect: 26/500 0.071s 0.015s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 26
+im_detect: 27/500 0.068s 0.043s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 27
+im_detect: 28/500 0.070s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 28
+im_detect: 29/500 0.069s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 29
+im_detect: 30/500 0.068s 0.014s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 30
+im_detect: 31/500 0.098s 0.025s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 31
+im_detect: 32/500 0.096s 0.032s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 32
+im_detect: 33/500 0.069s 0.018s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 33
+im_detect: 34/500 0.099s 0.026s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 34
+im_detect: 35/500 0.073s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 35
+im_detect: 36/500 0.072s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 36
+im_detect: 37/500 0.123s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 37
+im_detect: 38/500 0.067s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 38
+im_detect: 39/500 0.115s 0.059s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 39
+im_detect: 40/500 0.075s 0.016s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 40
+im_detect: 41/500 0.153s 0.043s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 41
+im_detect: 42/500 0.105s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 42
+im_detect: 43/500 0.081s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 43
+im_detect: 44/500 0.113s 0.027s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 44
+im_detect: 45/500 0.084s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 45
+im_detect: 46/500 0.074s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 46
+im_detect: 47/500 0.127s 0.054s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 47
+im_detect: 48/500 0.075s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 48
+im_detect: 49/500 0.130s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 49
+im_detect: 50/500 0.071s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 50
+im_detect: 51/500 0.076s 0.066s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 51
+im_detect: 52/500 0.068s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 52
+im_detect: 53/500 0.075s 0.037s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 53
+im_detect: 54/500 0.102s 0.028s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 54
+im_detect: 55/500 0.073s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 55
+im_detect: 56/500 0.072s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 56
+im_detect: 57/500 0.125s 0.046s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 57
+im_detect: 58/500 0.119s 0.057s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 58
+im_detect: 59/500 0.130s 0.017s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 59
+im_detect: 60/500 0.131s 0.015s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 60
+im_detect: 61/500 0.110s 0.016s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 61
+im_detect: 62/500 0.099s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 62
+im_detect: 63/500 0.075s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 63
+im_detect: 64/500 0.069s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 64
+im_detect: 65/500 0.118s 0.064s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 65
+im_detect: 66/500 0.120s 0.065s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 66
+im_detect: 67/500 0.067s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 67
+im_detect: 68/500 0.069s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 68
+im_detect: 69/500 0.120s 0.044s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 69
+im_detect: 70/500 0.117s 0.061s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 70
+im_detect: 71/500 0.114s 0.057s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 71
+im_detect: 72/500 0.073s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 72
+im_detect: 73/500 0.107s 0.065s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 73
+im_detect: 74/500 0.079s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 74
+im_detect: 75/500 0.105s 0.027s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 75
+im_detect: 76/500 0.081s 0.016s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 76
+im_detect: 77/500 0.111s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 77
+im_detect: 78/500 0.114s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 78
+im_detect: 79/500 0.078s 0.017s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 79
+im_detect: 80/500 0.105s 0.034s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 80
+im_detect: 81/500 0.086s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 81
+im_detect: 82/500 0.069s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 82
+im_detect: 83/500 0.095s 0.074s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 83
+im_detect: 84/500 0.070s 0.015s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 84
+im_detect: 85/500 0.103s 0.033s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 85
+im_detect: 86/500 0.080s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 86
+im_detect: 87/500 0.092s 0.026s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 87
+im_detect: 88/500 0.126s 0.015s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 88
+im_detect: 89/500 0.118s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 89
+im_detect: 90/500 0.085s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 90
+im_detect: 91/500 0.092s 0.026s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 91
+im_detect: 92/500 0.075s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 92
+im_detect: 93/500 0.071s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 93
+im_detect: 94/500 0.099s 0.089s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 94
+im_detect: 95/500 0.114s 0.041s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 95
+im_detect: 96/500 0.112s 0.038s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 96
+im_detect: 97/500 0.069s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 97
+im_detect: 98/500 0.121s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 98
+im_detect: 99/500 0.068s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 99
+im_detect: 100/500 0.074s 0.015s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 100
+im_detect: 101/500 0.077s 0.067s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 101
+im_detect: 102/500 0.107s 0.074s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 102
+im_detect: 103/500 0.085s 0.066s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 103
+im_detect: 104/500 0.080s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 104
+im_detect: 105/500 0.076s 0.051s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 105
+im_detect: 106/500 0.103s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 106
+im_detect: 107/500 0.072s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 107
+im_detect: 108/500 0.138s 0.076s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 108
+im_detect: 109/500 0.115s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 109
+im_detect: 110/500 0.070s 0.015s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 110
+im_detect: 111/500 0.125s 0.037s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 111
+im_detect: 112/500 0.114s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 112
+im_detect: 113/500 0.088s 0.033s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 113
+im_detect: 114/500 0.086s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 114
+im_detect: 115/500 0.086s 0.027s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 115
+im_detect: 116/500 0.094s 0.028s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 116
+im_detect: 117/500 0.107s 0.014s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 117
+im_detect: 118/500 0.097s 0.018s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 118
+im_detect: 119/500 0.091s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 119
+im_detect: 120/500 0.074s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 120
+im_detect: 121/500 0.115s 0.072s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 121
+im_detect: 122/500 0.067s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 122
+im_detect: 123/500 0.077s 0.068s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 123
+im_detect: 124/500 0.072s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 124
+im_detect: 125/500 0.069s 0.038s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 125
+im_detect: 126/500 0.082s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 126
+im_detect: 127/500 0.069s 0.015s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 127
+im_detect: 128/500 0.084s 0.052s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 128
+im_detect: 129/500 0.070s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 129
+im_detect: 130/500 0.069s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 130
+im_detect: 131/500 0.118s 0.025s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 131
+im_detect: 132/500 0.068s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 132
+im_detect: 133/500 0.113s 0.037s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 133
+im_detect: 134/500 0.069s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 134
+im_detect: 135/500 0.098s 0.062s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 135
+im_detect: 136/500 0.114s 0.062s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 136
+im_detect: 137/500 0.073s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 137
+im_detect: 138/500 0.102s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 138
+im_detect: 139/500 0.080s 0.029s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 139
+im_detect: 140/500 0.115s 0.023s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 140
+im_detect: 141/500 0.097s 0.044s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 141
+im_detect: 142/500 0.070s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 142
+im_detect: 143/500 0.077s 0.037s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 143
+im_detect: 144/500 0.126s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 144
+im_detect: 145/500 0.079s 0.044s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 145
+im_detect: 146/500 0.117s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 146
+im_detect: 147/500 0.080s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 147
+im_detect: 148/500 0.098s 0.030s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 148
+im_detect: 149/500 0.081s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 149
+im_detect: 150/500 0.080s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 150
+im_detect: 151/500 0.129s 0.020s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 151
+im_detect: 152/500 0.069s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 152
+im_detect: 153/500 0.120s 0.074s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 153
+im_detect: 154/500 0.074s 0.024s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 154
+im_detect: 155/500 0.110s 0.043s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 155
+im_detect: 156/500 0.131s 0.042s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 156
+im_detect: 157/500 0.073s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 157
+im_detect: 158/500 0.075s 0.033s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 158
+im_detect: 159/500 0.094s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 159
+im_detect: 160/500 0.074s 0.043s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 160
+im_detect: 161/500 0.093s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 161
+im_detect: 162/500 0.068s 0.039s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 162
+im_detect: 163/500 0.070s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 163
+im_detect: 164/500 0.069s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 164
+im_detect: 165/500 0.080s 0.056s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 165
+im_detect: 166/500 0.068s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 166
+im_detect: 167/500 0.101s 0.016s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 167
+im_detect: 168/500 0.106s 0.028s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 168
+im_detect: 169/500 0.095s 0.016s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 169
+im_detect: 170/500 0.070s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 170
+im_detect: 171/500 0.098s 0.027s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 171
+im_detect: 172/500 0.070s 0.018s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 172
+im_detect: 173/500 0.100s 0.035s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 173
+im_detect: 174/500 0.099s 0.025s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 174
+im_detect: 175/500 0.069s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 175
+im_detect: 176/500 0.069s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 176
+im_detect: 177/500 0.119s 0.025s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 177
+im_detect: 178/500 0.068s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 178
+im_detect: 179/500 0.079s 0.056s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 179
+im_detect: 180/500 0.084s 0.083s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 180
+im_detect: 181/500 0.093s 0.079s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 181
+im_detect: 182/500 0.069s 0.021s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 182
+im_detect: 183/500 0.070s 0.019s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 183
+im_detect: 184/500 0.117s 0.042s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 184
+im_detect: 185/500 0.069s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 185
+im_detect: 186/500 0.080s 0.064s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 186
+im_detect: 187/500 0.068s 0.018s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 187
+im_detect: 188/500 0.083s 0.038s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 188
+im_detect: 189/500 0.107s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 189
+im_detect: 190/500 0.097s 0.022s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 190
+im_detect: 191/500 0.099s 0.023s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 191
+im_detect: 192/500 0.091s 0.037s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 192
+im_detect: 193/500 0.124s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 193
+im_detect: 194/500 0.071s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 194
+im_detect: 195/500 0.089s 0.032s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 195
+im_detect: 196/500 0.070s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 196
+im_detect: 197/500 0.073s 0.032s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 197
+im_detect: 198/500 0.101s 0.031s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 198
+im_detect: 199/500 0.103s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 199
+im_detect: 200/500 0.083s 0.026s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 200
+im_detect: 201/500 0.117s 0.018s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 201
+im_detect: 202/500 0.069s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 202
+im_detect: 203/500 0.067s 0.016s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 203
+im_detect: 204/500 0.126s 0.030s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 204
+im_detect: 205/500 0.071s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 205
+im_detect: 206/500 0.068s 0.040s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 206
+im_detect: 207/500 0.108s 0.031s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 207
+im_detect: 208/500 0.105s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 208
+im_detect: 209/500 0.074s 0.048s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 209
+im_detect: 210/500 0.071s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 210
+im_detect: 211/500 0.072s 0.058s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 211
+im_detect: 212/500 0.097s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 212
+im_detect: 213/500 0.110s 0.016s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 213
+im_detect: 214/500 0.105s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 214
+im_detect: 215/500 0.080s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 215
+im_detect: 216/500 0.138s 0.070s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 216
+im_detect: 217/500 0.150s 0.014s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 217
+im_detect: 218/500 0.087s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 218
+im_detect: 219/500 0.105s 0.027s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 219
+im_detect: 220/500 0.117s 0.027s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 220
+im_detect: 221/500 0.099s 0.026s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 221
+im_detect: 222/500 0.079s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 222
+im_detect: 223/500 0.079s 0.040s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 223
+im_detect: 224/500 0.078s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 224
+im_detect: 225/500 0.098s 0.015s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 225
+im_detect: 226/500 0.101s 0.023s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 226
+im_detect: 227/500 0.108s 0.031s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 227
+im_detect: 228/500 0.122s 0.017s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 228
+im_detect: 229/500 0.117s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 229
+im_detect: 230/500 0.081s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 230
+im_detect: 231/500 0.110s 0.050s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 231
+im_detect: 232/500 0.105s 0.033s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 232
+im_detect: 233/500 0.072s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 233
+im_detect: 234/500 0.096s 0.020s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 234
+im_detect: 235/500 0.114s 0.042s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 235
+im_detect: 236/500 0.101s 0.024s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 236
+im_detect: 237/500 0.100s 0.038s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 237
+im_detect: 238/500 0.069s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 238
+im_detect: 239/500 0.070s 0.045s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 239
+im_detect: 240/500 0.084s 0.020s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 240
+im_detect: 241/500 0.068s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 241
+im_detect: 242/500 0.072s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 242
+im_detect: 243/500 0.097s 0.063s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 243
+im_detect: 244/500 0.070s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 244
+im_detect: 245/500 0.101s 0.066s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 245
+im_detect: 246/500 0.100s 0.067s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 246
+im_detect: 247/500 0.120s 0.044s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 247
+im_detect: 248/500 0.118s 0.044s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 248
+im_detect: 249/500 0.069s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 249
+im_detect: 250/500 0.137s 0.059s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 250
+im_detect: 251/500 0.085s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 251
+im_detect: 252/500 0.083s 0.067s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 252
+im_detect: 253/500 0.118s 0.036s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 253
+im_detect: 254/500 0.112s 0.021s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 254
+im_detect: 255/500 0.152s 0.023s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 255
+im_detect: 256/500 0.095s 0.036s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 256
+im_detect: 257/500 0.115s 0.037s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 257
+im_detect: 258/500 0.103s 0.028s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 258
+im_detect: 259/500 0.103s 0.015s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 259
+im_detect: 260/500 0.080s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 260
+im_detect: 261/500 0.097s 0.057s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 261
+im_detect: 262/500 0.099s 0.027s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 262
+im_detect: 263/500 0.102s 0.028s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 263
+im_detect: 264/500 0.113s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 264
+im_detect: 265/500 0.139s 0.021s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 265
+im_detect: 266/500 0.094s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 266
+im_detect: 267/500 0.091s 0.045s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 267
+im_detect: 268/500 0.148s 0.029s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 268
+im_detect: 269/500 0.104s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 269
+im_detect: 270/500 0.070s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 270
+im_detect: 271/500 0.137s 0.044s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 271
+im_detect: 272/500 0.105s 0.019s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 272
+im_detect: 273/500 0.098s 0.024s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 273
+im_detect: 274/500 0.082s 0.014s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 274
+im_detect: 275/500 0.070s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 275
+im_detect: 276/500 0.134s 0.020s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 276
+im_detect: 277/500 0.069s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 277
+im_detect: 278/500 0.120s 0.051s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 278
+im_detect: 279/500 0.068s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 279
+im_detect: 280/500 0.073s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 280
+im_detect: 281/500 0.121s 0.054s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 281
+im_detect: 282/500 0.068s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 282
+im_detect: 283/500 0.126s 0.042s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 283
+im_detect: 284/500 0.069s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 284
+im_detect: 285/500 0.081s 0.073s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 285
+im_detect: 286/500 0.119s 0.060s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 286
+im_detect: 287/500 0.114s 0.057s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 287
+im_detect: 288/500 0.074s 0.014s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 288
+im_detect: 289/500 0.100s 0.026s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 289
+im_detect: 290/500 0.070s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 290
+im_detect: 291/500 0.070s 0.047s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 291
+im_detect: 292/500 0.131s 0.032s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 292
+im_detect: 293/500 0.081s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 293
+im_detect: 294/500 0.080s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 294
+im_detect: 295/500 0.134s 0.039s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 295
+im_detect: 296/500 0.080s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 296
+im_detect: 297/500 0.121s 0.071s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 297
+im_detect: 298/500 0.103s 0.088s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 298
+im_detect: 299/500 0.074s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 299
+im_detect: 300/500 0.076s 0.043s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 300
+im_detect: 301/500 0.099s 0.015s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 301
+im_detect: 302/500 0.076s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 302
+im_detect: 303/500 0.088s 0.020s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 303
+im_detect: 304/500 0.076s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 304
+im_detect: 305/500 0.070s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 305
+im_detect: 306/500 0.080s 0.050s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 306
+im_detect: 307/500 0.101s 0.024s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 307
+im_detect: 308/500 0.069s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 308
+im_detect: 309/500 0.067s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 309
+im_detect: 310/500 0.082s 0.031s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 310
+im_detect: 311/500 0.072s 0.021s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 311
+im_detect: 312/500 0.074s 0.036s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 312
+im_detect: 313/500 0.069s 0.014s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 313
+im_detect: 314/500 0.068s 0.046s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 314
+im_detect: 315/500 0.070s 0.018s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 315
+im_detect: 316/500 0.070s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 316
+im_detect: 317/500 0.115s 0.073s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 317
+im_detect: 318/500 0.118s 0.014s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 318
+im_detect: 319/500 0.078s 0.032s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 319
+im_detect: 320/500 0.086s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 320
+im_detect: 321/500 0.106s 0.034s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 321
+im_detect: 322/500 0.100s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 322
+im_detect: 323/500 0.076s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 323
+im_detect: 324/500 0.113s 0.041s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 324
+im_detect: 325/500 0.116s 0.041s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 325
+im_detect: 326/500 0.121s 0.043s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 326
+im_detect: 327/500 0.121s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 327
+im_detect: 328/500 0.117s 0.067s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 328
+im_detect: 329/500 0.094s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 329
+im_detect: 330/500 0.127s 0.052s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 330
+im_detect: 331/500 0.112s 0.070s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 331
+im_detect: 332/500 0.102s 0.027s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 332
+im_detect: 333/500 0.098s 0.035s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 333
+im_detect: 334/500 0.098s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 334
+im_detect: 335/500 0.097s 0.023s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 335
+im_detect: 336/500 0.118s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 336
+im_detect: 337/500 0.093s 0.040s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 337
+im_detect: 338/500 0.100s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 338
+im_detect: 339/500 0.100s 0.014s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 339
+im_detect: 340/500 0.079s 0.037s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 340
+im_detect: 341/500 0.123s 0.031s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 341
+im_detect: 342/500 0.106s 0.019s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 342
+im_detect: 343/500 0.100s 0.016s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 343
+im_detect: 344/500 0.070s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 344
+im_detect: 345/500 0.102s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 345
+im_detect: 346/500 0.123s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 346
+im_detect: 347/500 0.082s 0.066s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 347
+im_detect: 348/500 0.079s 0.068s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 348
+im_detect: 349/500 0.069s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 349
+im_detect: 350/500 0.121s 0.043s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 350
+im_detect: 351/500 0.103s 0.023s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 351
+im_detect: 352/500 0.092s 0.035s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 352
+im_detect: 353/500 0.105s 0.022s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 353
+im_detect: 354/500 0.099s 0.078s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 354
+im_detect: 355/500 0.103s 0.020s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 355
+im_detect: 356/500 0.118s 0.030s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 356
+im_detect: 357/500 0.080s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 357
+im_detect: 358/500 0.144s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 358
+im_detect: 359/500 0.136s 0.050s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 359
+im_detect: 360/500 0.137s 0.047s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 360
+im_detect: 361/500 0.109s 0.018s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 361
+im_detect: 362/500 0.091s 0.035s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 362
+im_detect: 363/500 0.110s 0.025s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 363
+im_detect: 364/500 0.081s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 364
+im_detect: 365/500 0.081s 0.038s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 365
+im_detect: 366/500 0.084s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 366
+im_detect: 367/500 0.099s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 367
+im_detect: 368/500 0.088s 0.034s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 368
+im_detect: 369/500 0.070s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 369
+im_detect: 370/500 0.097s 0.027s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 370
+im_detect: 371/500 0.097s 0.022s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 371
+im_detect: 372/500 0.100s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 372
+im_detect: 373/500 0.072s 0.016s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 373
+im_detect: 374/500 0.103s 0.027s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 374
+im_detect: 375/500 0.104s 0.060s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 375
+im_detect: 376/500 0.068s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 376
+im_detect: 377/500 0.101s 0.038s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 377
+im_detect: 378/500 0.106s 0.014s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 378
+im_detect: 379/500 0.070s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 379
+im_detect: 380/500 0.099s 0.024s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 380
+im_detect: 381/500 0.069s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 381
+im_detect: 382/500 0.144s 0.041s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 382
+im_detect: 383/500 0.104s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 383
+im_detect: 384/500 0.115s 0.018s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 384
+im_detect: 385/500 0.085s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 385
+im_detect: 386/500 0.108s 0.037s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 386
+im_detect: 387/500 0.112s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 387
+im_detect: 388/500 0.102s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 388
+im_detect: 389/500 0.074s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 389
+im_detect: 390/500 0.103s 0.026s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 390
+im_detect: 391/500 0.072s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 391
+im_detect: 392/500 0.088s 0.060s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 392
+im_detect: 393/500 0.074s 0.039s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 393
+im_detect: 394/500 0.100s 0.015s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 394
+im_detect: 395/500 0.124s 0.018s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 395
+im_detect: 396/500 0.070s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 396
+im_detect: 397/500 0.100s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 397
+im_detect: 398/500 0.091s 0.014s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 398
+im_detect: 399/500 0.105s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 399
+im_detect: 400/500 0.079s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 400
+im_detect: 401/500 0.071s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 401
+im_detect: 402/500 0.126s 0.044s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 402
+im_detect: 403/500 0.069s 0.038s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 403
+im_detect: 404/500 0.113s 0.022s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 404
+im_detect: 405/500 0.127s 0.020s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 405
+im_detect: 406/500 0.071s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 406
+im_detect: 407/500 0.099s 0.017s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 407
+im_detect: 408/500 0.098s 0.019s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 408
+im_detect: 409/500 0.070s 0.014s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 409
+im_detect: 410/500 0.077s 0.042s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 410
+im_detect: 411/500 0.075s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 411
+im_detect: 412/500 0.084s 0.028s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 412
+im_detect: 413/500 0.074s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 413
+im_detect: 414/500 0.086s 0.025s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 414
+im_detect: 415/500 0.068s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 415
+im_detect: 416/500 0.069s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 416
+im_detect: 417/500 0.079s 0.060s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 417
+im_detect: 418/500 0.071s 0.021s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 418
+im_detect: 419/500 0.068s 0.042s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 419
+im_detect: 420/500 0.103s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 420
+im_detect: 421/500 0.068s 0.039s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 421
+im_detect: 422/500 0.098s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 422
+im_detect: 423/500 0.078s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 423
+im_detect: 424/500 0.100s 0.023s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 424
+im_detect: 425/500 0.069s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 425
+im_detect: 426/500 0.112s 0.062s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 426
+im_detect: 427/500 0.139s 0.044s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 427
+im_detect: 428/500 0.071s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 428
+im_detect: 429/500 0.134s 0.042s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 429
+im_detect: 430/500 0.090s 0.032s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 430
+im_detect: 431/500 0.070s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 431
+im_detect: 432/500 0.079s 0.054s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 432
+im_detect: 433/500 0.076s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 433
+im_detect: 434/500 0.074s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 434
+im_detect: 435/500 0.099s 0.025s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 435
+im_detect: 436/500 0.087s 0.027s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 436
+im_detect: 437/500 0.075s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 437
+im_detect: 438/500 0.108s 0.020s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 438
+im_detect: 439/500 0.092s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 439
+im_detect: 440/500 0.109s 0.039s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 440
+im_detect: 441/500 0.075s 0.014s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 441
+im_detect: 442/500 0.090s 0.073s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 442
+im_detect: 443/500 0.082s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 443
+im_detect: 444/500 0.092s 0.034s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 444
+im_detect: 445/500 0.153s 0.011s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 445
+im_detect: 446/500 0.105s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 446
+im_detect: 447/500 0.094s 0.066s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 447
+im_detect: 448/500 0.074s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 448
+im_detect: 449/500 0.075s 0.013s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 449
+im_detect: 450/500 0.082s 0.035s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 450
+im_detect: 451/500 0.090s 0.027s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 451
+im_detect: 452/500 0.095s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 452
+im_detect: 453/500 0.073s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 453
+im_detect: 454/500 0.130s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 454
+im_detect: 455/500 0.087s 0.021s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 455
+im_detect: 456/500 0.072s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 456
+im_detect: 457/500 0.071s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 457
+im_detect: 458/500 0.132s 0.024s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 458
+im_detect: 459/500 0.075s 0.023s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 459
+im_detect: 460/500 0.069s 0.043s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 460
+im_detect: 461/500 0.069s 0.009s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 461
+im_detect: 462/500 0.096s 0.019s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 462
+im_detect: 463/500 0.069s 0.017s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 463
+im_detect: 464/500 0.069s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 464
+im_detect: 465/500 0.069s 0.032s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 465
+im_detect: 466/500 0.120s 0.023s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 466
+im_detect: 467/500 0.092s 0.020s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 467
+im_detect: 468/500 0.085s 0.025s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 468
+im_detect: 469/500 0.074s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 469
+im_detect: 470/500 0.073s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 470
+im_detect: 471/500 0.119s 0.070s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 471
+im_detect: 472/500 0.082s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 472
+im_detect: 473/500 0.113s 0.035s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 473
+im_detect: 474/500 0.116s 0.008s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 474
+im_detect: 475/500 0.074s 0.041s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 475
+im_detect: 476/500 0.109s 0.026s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 476
+im_detect: 477/500 0.114s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 477
+im_detect: 478/500 0.139s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 478
+im_detect: 479/500 0.153s 0.017s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 479
+im_detect: 480/500 0.129s 0.015s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 480
+im_detect: 481/500 0.094s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 481
+im_detect: 482/500 0.097s 0.042s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 482
+im_detect: 483/500 0.068s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 483
+im_detect: 484/500 0.075s 0.036s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 484
+im_detect: 485/500 0.100s 0.012s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 485
+im_detect: 486/500 0.072s 0.014s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 486
+im_detect: 487/500 0.069s 0.007s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 487
+im_detect: 488/500 0.098s 0.022s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 488
+im_detect: 489/500 0.099s 0.026s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 489
+im_detect: 490/500 0.069s 0.010s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 490
+im_detect: 491/500 0.067s 0.048s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 491
+im_detect: 492/500 0.126s 0.027s   ('batch_size', 1)
+rpn_loss_cls 0
+rpn_loss_box 0
+RCNN_loss_cls 0
+RCNN_loss_bbox 0
+iter 492
+im_detect: 493/500 0.092s 0.040s   Traceback (most recent call last):
+  File "test_net_x.py", line 239, in <module>
+    data = next(data_iter)
+  File "/usr/local/lib/python2.7/dist-packages/torch/utils/data/dataloader.py", line 178, in __next__
+    indices = next(self.sample_iter)  # may raise StopIteration
+StopIteration

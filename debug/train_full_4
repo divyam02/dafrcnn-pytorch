@@ -1,0 +1,970 @@
+Called with args:
+Namespace(adaption_lr=False, batch_size=1, checkepoch=1, checkpoint=0, checkpoint_interval=10000, checksession=1, class_agnostic=False, cuda=True, da=True, dataset='pascal_voc', disp_interval=100, large_scale=False, lr=0.001, lr_decay_gamma=0.1, lr_decay_step=50000, mGPUs=False, max_epochs=20, net='res101', num_workers=0, optimizer='sgd', resume=False, save_dir='data/pretrained_model', session=1, src_dataset='city', start_epoch=1, tar_dataset='fcity', use_tfboard=False)
+Using config:
+{'ANCHOR_RATIOS': [0.5, 1, 2],
+ 'ANCHOR_SCALES': [8, 16, 32],
+ 'CROP_RESIZE_WITH_MAX_POOL': False,
+ 'CUDA': False,
+ 'DATA_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch/data',
+ 'DEDUP_BOXES': 0.0625,
+ 'EPS': 1e-14,
+ 'EXP_DIR': 'res101',
+ 'FEAT_STRIDE': [16],
+ 'GPU_ID': 0,
+ 'MATLAB': 'matlab',
+ 'MAX_NUM_GT_BOXES': 20,
+ 'MOBILENET': {'DEPTH_MULTIPLIER': 1.0,
+               'FIXED_LAYERS': 5,
+               'REGU_DEPTH': False,
+               'WEIGHT_DECAY': 4e-05},
+ 'PIXEL_MEANS': array([[[102.9801, 115.9465, 122.7717]]]),
+ 'POOLING_MODE': 'align',
+ 'POOLING_SIZE': 7,
+ 'RESNET': {'FIXED_BLOCKS': 1, 'MAX_POOL': False},
+ 'RNG_SEED': 3,
+ 'ROOT_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch',
+ 'TEST': {'BBOX_REG': True,
+          'HAS_RPN': True,
+          'MAX_SIZE': 1000,
+          'MODE': 'nms',
+          'NMS': 0.3,
+          'PROPOSAL_METHOD': 'gt',
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000,
+          'RPN_TOP_N': 5000,
+          'SCALES': [600],
+          'SVM': False},
+ 'TRAIN': {'ASPECT_GROUPING': False,
+           'BATCH_SIZE': 128,
+           'BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'BBOX_NORMALIZE_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZE_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_NORMALIZE_TARGETS': True,
+           'BBOX_NORMALIZE_TARGETS_PRECOMPUTED': True,
+           'BBOX_REG': True,
+           'BBOX_THRESH': 0.5,
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'BIAS_DECAY': False,
+           'BN_TRAIN': False,
+           'DISPLAY': 20,
+           'DOUBLE_BIAS': False,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'GAMMA': 0.1,
+           'HAS_RPN': True,
+           'IMS_PER_BATCH': 1,
+           'LEARNING_RATE': 0.001,
+           'MAX_SIZE': 1000,
+           'MOMENTUM': 0.9,
+           'PROPOSAL_METHOD': 'gt',
+           'RPN_BATCHSIZE': 256,
+           'RPN_BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 8,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 2000,
+           'RPN_PRE_NMS_TOP_N': 12000,
+           'SCALES': [600],
+           'SNAPSHOT_ITERS': 5000,
+           'SNAPSHOT_KEPT': 3,
+           'SNAPSHOT_PREFIX': 'res101_faster_rcnn',
+           'STEPSIZE': [30000],
+           'SUMMARY_INTERVAL': 180,
+           'TRIM_HEIGHT': 600,
+           'TRIM_WIDTH': 600,
+           'TRUNCATED': False,
+           'USE_ALL_GT': True,
+           'USE_FLIPPED': True,
+           'USE_GT': False,
+           'WEIGHT_DECAY': 0.0001},
+ 'USE_GPU_NMS': True}
+ROOT_DIR /home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/../..
+image dataset path: /home/divyam/FRCN/faster-rcnn.pytorch/data/src/cityscapes/VOCdevkit2007/VOC2007
+sample image from dataset: source_tubingen_000027_000019_leftImg8bit
+
+Loaded dataset `voc_2007_trainval` for training
+Set proposal method: gt
+Appending horizontally-flipped training examples...
+voc_2007_trainval gt roidb loaded from /home/divyam/FRCN/faster-rcnn.pytorch/data/src/cache/voc_2007_trainval_gt_roidb.pkl
+done
+Preparing training data...
+done
+ROOT_DIR /home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/../..
+image dataset path: /home/divyam/FRCN/faster-rcnn.pytorch/data/src/cityscapes/VOCdevkit2007/VOC2007
+sample image from dataset: source_tubingen_000027_000019_leftImg8bit
+
+before filtering, there are 5950 images...
+after filtering, there are 5932 images...
+5932 source roidb entries
+using RESNET101 architecture
+source imdb classes ('__background__', 'person', 'train', 'rider', 'bicycle', 'motorcycle', 'car', 'truck', 'bus')
+Loading pretrained weights from data/pretrained_model/resnet101_caffe.pth
+src_d_cst_loss Variable containing:
+ 67.6208
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 1031.5723
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss <type 'float'> Variable containing:
+ 67.6208
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss <type 'float'> Variable containing:
+ 1031.5723
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+[session 1][epoch  1][iter    0/5932] loss: 114.4999, lr: 1.00e-03
+			src_fg/src_bg=(32/96), time cost: 3.497219
+			src_rpn_cls: 0.717195, src_rpn_box: 0.739964, src_rcnn_cls: 2.362142, src_rcnn_box 0.432962, src_d_img_loss: 0.892836, src_d_inst_loss: 0.748118, src_d_cst_loss: 67.620789, tar_d_img_loss: 0.892829, tar_d_inst_loss: 0.749163, tar_d_cst_loss: 1031.572266
+src_d_cst_loss Variable containing:
+ 62.9365
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 981.2935
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 56.0448
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 880.6741
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 50.2997
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 809.9786
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 43.9246
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 693.8203
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 39.9949
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 615.4635
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 35.5998
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 568.0926
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 38.0670
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 529.4456
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 28.7439
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 493.4599
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 30.3249
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 461.1590
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 26.4189
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 434.8810
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 23.3257
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 389.6146
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 19.2213
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 325.6743
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 9.4109
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 278.5331
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 18.6654
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 247.3986
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 14.3104
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 264.0443
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 16.2874
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 254.5092
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 13.4458
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 243.1945
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 19.2458
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 238.7088
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 16.2076
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 252.3480
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 16.7722
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 261.1679
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 17.1913
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 267.7057
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 17.4981
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 272.5205
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 17.7209
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 276.0005
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 17.8757
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 278.3880
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 17.9765
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 279.9739
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 18.0325
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 280.8574
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 18.0502
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 281.1292
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 18.0345
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 280.8854
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 17.9898
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 280.1901
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 17.9183
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 279.0741
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 17.8203
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 277.5494
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 17.6974
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 275.6330
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 17.5497
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 273.3172
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 17.3755
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 270.5974
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 17.1733
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 267.4501
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 16.9413
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 263.8166
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 16.6760
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 259.6719
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 16.3737
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 254.9424
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 16.0294
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 249.5713
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 15.6374
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 243.4388
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 15.1902
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 236.4497
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 14.6784
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 228.4529
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 14.0908
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 219.2670
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 13.4137
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 208.7023
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 12.6290
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 196.4322
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 11.7135
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 182.1267
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 10.6384
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 165.3139
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 9.3658
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 145.4476
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 7.8457
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 121.7186
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 6.0117
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 93.0431
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 3.7753
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 58.0983
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.0173
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 14.9746
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 2.4274
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 38.8037
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 5.0842
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 80.2933
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 6.7207
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 105.8643
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 7.2481
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 114.1197
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 6.7174
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 105.8393
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 5.2886
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 83.5557
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 3.1929
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 50.8175
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.6921
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 11.7011
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.9936
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 30.2544
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 3.6641
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 56.3452
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 4.6216
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 71.3347
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 5.0324
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 77.7436
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 4.9884
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 77.0658
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 4.5325
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 69.9314
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 3.6680
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 56.4269
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 2.3665
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 36.0913
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.5689
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 8.0212
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.8286
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 29.4465
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 3.3957
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 53.9403
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 4.0465
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 64.1247
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 3.8015
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 60.3119
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 2.7776
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 44.2734
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.1628
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 19.0433
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.9077
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 13.2776
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 2.0270
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 30.7798
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 2.4833
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 37.8984
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 2.3739
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 36.2057
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.7476
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 26.4246
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.6276
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 9.0427
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.0944
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 17.9808
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.9607
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 31.5325
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 2.0409
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 32.7690
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.4208
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 23.0522
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.4307
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 7.0112
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.1703
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 17.3915
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.7504
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 26.4857
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.7595
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 26.6313
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.2625
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 18.9515
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.5158
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 8.0271
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.9141
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 15.2031
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.2145
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 19.7979
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 1.0249
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 16.5898
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.7675
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 11.7602
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.8397
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 12.2606
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.8171
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 11.8998
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.6607
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 10.1553
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.7373
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 12.1098
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.6541
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 11.0850
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss <type 'float'> Variable containing:
+ 0.6541
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss <type 'float'> Variable containing:
+ 11.0850
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+[session 1][epoch  1][iter  100/5932] loss: 0.0458, lr: 1.00e-03
+			src_fg/src_bg=(20/108), time cost: 2.649109
+			src_rpn_cls: 0.647133, src_rpn_box: 1.214527, src_rcnn_cls: 0.868751, src_rcnn_box 0.125542, src_d_img_loss: 0.700390, src_d_inst_loss: 2.064862, src_d_cst_loss: 0.654076, tar_d_img_loss: 0.700471, tar_d_inst_loss: 2.064909, tar_d_cst_loss: 11.084962
+src_d_cst_loss Variable containing:
+ 0.3007
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 5.0678
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.7417
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 10.7956
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.8402
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 12.2680
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+src_d_cst_loss Variable containing:
+ 0.3744
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+tar_d_cst_loss Variable containing:
+ 4.9805
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+

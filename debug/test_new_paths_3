@@ -1,0 +1,704 @@
+Called with args:
+Namespace(batch_size=1, checkepoch=1, checkpoint=0, checkpoint_interval=10000, checksession=1, class_agnostic=False, cuda=True, da=False, dataset='cityscapes', disp_interval=100, large_scale=False, lr=0.001, lr_decay_gamma=0.1, lr_decay_step=50000, mGPUs=False, max_epochs=10, net='res101', num_workers=0, optimizer='sgd', resume=False, save_dir='data/pretrained_model', session=1, src_dataset='city', start_epoch=1, tar_dataset='fcity', use_tfboard=False)
+Using config:
+{'ANCHOR_RATIOS': [0.5, 1, 2],
+ 'ANCHOR_SCALES': [8, 16, 32],
+ 'CROP_RESIZE_WITH_MAX_POOL': False,
+ 'CUDA': False,
+ 'DATA_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch/data',
+ 'DEDUP_BOXES': 0.0625,
+ 'EPS': 1e-14,
+ 'EXP_DIR': 'res101',
+ 'FEAT_STRIDE': [16],
+ 'GPU_ID': 0,
+ 'MATLAB': 'matlab',
+ 'MAX_NUM_GT_BOXES': 20,
+ 'MOBILENET': {'DEPTH_MULTIPLIER': 1.0,
+               'FIXED_LAYERS': 5,
+               'REGU_DEPTH': False,
+               'WEIGHT_DECAY': 4e-05},
+ 'PIXEL_MEANS': array([[[ 102.9801,  115.9465,  122.7717]]]),
+ 'POOLING_MODE': 'align',
+ 'POOLING_SIZE': 7,
+ 'RESNET': {'FIXED_BLOCKS': 1, 'MAX_POOL': False},
+ 'RNG_SEED': 3,
+ 'ROOT_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch',
+ 'TEST': {'BBOX_REG': True,
+          'HAS_RPN': True,
+          'MAX_SIZE': 1000,
+          'MODE': 'nms',
+          'NMS': 0.3,
+          'PROPOSAL_METHOD': 'gt',
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000,
+          'RPN_TOP_N': 5000,
+          'SCALES': [600],
+          'SVM': False},
+ 'TRAIN': {'ASPECT_GROUPING': False,
+           'BATCH_SIZE': 128,
+           'BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'BBOX_NORMALIZE_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZE_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_NORMALIZE_TARGETS': True,
+           'BBOX_NORMALIZE_TARGETS_PRECOMPUTED': True,
+           'BBOX_REG': True,
+           'BBOX_THRESH': 0.5,
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'BIAS_DECAY': False,
+           'BN_TRAIN': False,
+           'DISPLAY': 20,
+           'DOUBLE_BIAS': False,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'GAMMA': 0.1,
+           'HAS_RPN': True,
+           'IMS_PER_BATCH': 1,
+           'LEARNING_RATE': 0.001,
+           'MAX_SIZE': 1000,
+           'MOMENTUM': 0.9,
+           'PROPOSAL_METHOD': 'gt',
+           'RPN_BATCHSIZE': 256,
+           'RPN_BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 8,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 2000,
+           'RPN_PRE_NMS_TOP_N': 12000,
+           'SCALES': [600],
+           'SNAPSHOT_ITERS': 5000,
+           'SNAPSHOT_KEPT': 3,
+           'SNAPSHOT_PREFIX': 'res101_faster_rcnn',
+           'STEPSIZE': [30000],
+           'SUMMARY_INTERVAL': 180,
+           'TRIM_HEIGHT': 600,
+           'TRIM_WIDTH': 600,
+           'TRUNCATED': False,
+           'USE_ALL_GT': True,
+           'USE_FLIPPED': True,
+           'USE_GT': False,
+           'WEIGHT_DECAY': 0.0001},
+ 'USE_GPU_NMS': True}
+self._data_path /home/divyam/FRCN/faster-rcnn.pytorch/data/src/cityscapes/VOCdevkit2007/VOC2007
+image_set_file /home/divyam/FRCN/faster-rcnn.pytorch/data/src/cityscapes/VOCdevkit2007/VOC2007/ImageSets/Main/trainval.txt
+imag name target_tubingen_000119_000019_leftImg8bit_foggy_beta_0.02
+
+Loaded dataset `voc_2007_trainval` for training
+Set proposal method: gt
+Appending horizontally-flipped training examples...
+voc_2007_trainval gt roidb loaded from /home/divyam/FRCN/faster-rcnn.pytorch/data/cache/voc_2007_trainval_gt_roidb.pkl
+done
+Preparing training data...
+done
+self._data_path /home/divyam/FRCN/faster-rcnn.pytorch/data/src/cityscapes/VOCdevkit2007/VOC2007
+image_set_file /home/divyam/FRCN/faster-rcnn.pytorch/data/src/cityscapes/VOCdevkit2007/VOC2007/ImageSets/Main/trainval.txt
+imag name target_tubingen_000119_000019_leftImg8bit_foggy_beta_0.02
+
+before filtering, there are 11900 images...
+after filtering, there are 11864 images...
+train_size 11864
+11864 roidb entries
+Loading pretrained weights from data/pretrained_model/resnet101_caffe.pth
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)
+('pooled feat map dim', Variable containing:
+  0.0000   0.0000   0.0184  ...    0.0010   0.0000   0.0000
+  1.2223   0.0000   0.0000  ...    1.5201   0.0000   0.1244
+  0.0000   0.0000   0.3126  ...    0.0000   0.0000   1.3129
+           ...               ⋱              ...            
+  0.0000   0.0000   0.0000  ...    0.2270   0.0000   0.0000
+  0.1789   0.6042   0.0000  ...    0.8101   0.0000   0.0522
+  0.0000   0.0000   0.0000  ...    2.3920   0.0000   0.0000
+[torch.cuda.FloatTensor of size 128x2048 (GPU 0)]
+, <class 'torch.autograd.variable.Variable'>)
+rpn_loss_cls Variable containing:
+ 0.6835
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 1.4163
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 2.4151
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+ 0.4446
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_cls Variable containing:
+ 0.6835
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 1.4163
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 2.4151
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+ 0.4446
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+[session 1][epoch  1][iter    0/11864] loss: 4.9596, lr: 1.00e-03
+			fg/bg=(32/96), time cost: 1.442494
+			rpn_cls: 0.6835, rpn_box: 1.4163, rcnn_cls: 2.4151, rcnn_box 0.4446
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)
+('pooled feat map dim', Variable containing:
+  0.0000   0.0000   0.0000  ...    1.2945   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.1492
+  0.4520   0.0000   0.0000  ...    0.0000   0.2304   0.0000
+           ...               ⋱              ...            
+  0.0000   0.0012   0.0000  ...    0.0000   0.0000   0.0000
+  0.1460   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0276   0.3818   0.0000  ...    0.0000   0.0000   0.0000
+[torch.cuda.FloatTensor of size 128x2048 (GPU 0)]
+, <class 'torch.autograd.variable.Variable'>)
+rpn_loss_cls Variable containing:
+ 0.6584
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.9640
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 2.0871
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-02 *
+  6.5326
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_cls Variable containing:
+ 0.6584
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.9640
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 2.0871
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-02 *
+  6.5326
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)
+('pooled feat map dim', Variable containing:
+  0.0104   0.0000   0.0000  ...    0.0000   0.0361   0.0000
+  0.2827   1.6288   0.4037  ...    0.5300   0.5917   0.0000
+  0.5585   0.0000   0.0000  ...    0.0783   0.0000   2.2049
+           ...               ⋱              ...            
+  0.0000   0.1992   0.0000  ...    0.0000   0.0099   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  2.2147   0.0491   0.0000  ...    0.0000   0.0000   0.0000
+[torch.cuda.FloatTensor of size 128x2048 (GPU 0)]
+, <class 'torch.autograd.variable.Variable'>)
+rpn_loss_cls Variable containing:
+ 0.5879
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 1.3052
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 1.7269
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-02 *
+  3.7199
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_cls Variable containing:
+ 0.5879
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 1.3052
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 1.7269
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-02 *
+  3.7199
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)
+('pooled feat map dim', Variable containing:
+  0.0000   0.1502   0.0000  ...    0.9515   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    1.2271   0.0000   0.0000
+  0.0710   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+           ...               ⋱              ...            
+  1.2903   0.0000   0.0000  ...    0.3127   0.0562   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0000   0.2568   0.0000  ...    0.0000   0.0799   0.0000
+[torch.cuda.FloatTensor of size 128x2048 (GPU 0)]
+, <class 'torch.autograd.variable.Variable'>)
+rpn_loss_cls Variable containing:
+ 0.5281
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.9981
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 1.7542
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+ 0.2436
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_cls Variable containing:
+ 0.5281
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.9981
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 1.7542
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+ 0.2436
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)
+('pooled feat map dim', Variable containing:
+  0.0000   0.0000   0.0000  ...    0.0127   0.0305   0.0000
+  0.0000   0.0000   0.1997  ...    0.0000   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.1156   0.0533   0.0000
+           ...               ⋱              ...            
+  0.5175   0.0000   0.1272  ...    1.2641   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.9761   0.0000   0.0000
+  0.0000   0.0000   0.0776  ...    0.0000   0.0000   0.0000
+[torch.cuda.FloatTensor of size 128x2048 (GPU 0)]
+, <class 'torch.autograd.variable.Variable'>)
+rpn_loss_cls Variable containing:
+ 0.5583
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.7998
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 1.4514
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-02 *
+  6.6489
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_cls Variable containing:
+ 0.5583
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.7998
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 1.4514
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-02 *
+  6.6489
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)
+('pooled feat map dim', Variable containing:
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.9825   0.0000   0.3764  ...    0.3992   0.0000   0.0000
+           ...               ⋱              ...            
+  0.0000   4.9508   0.0000  ...    0.0000   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0276   0.0000   0.0000
+  0.2178   1.8099   2.4728  ...    0.0180   0.0000   0.0000
+[torch.cuda.FloatTensor of size 128x2048 (GPU 0)]
+, <class 'torch.autograd.variable.Variable'>)
+rpn_loss_cls Variable containing:
+ 0.4495
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.9602
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 1.0053
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-03 *
+  3.1807
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_cls Variable containing:
+ 0.4495
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.9602
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 1.0053
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-03 *
+  3.1807
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)
+('pooled feat map dim', Variable containing:
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.9701   0.0000   0.0000
+           ...               ⋱              ...            
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0000   0.0660   0.0000  ...    0.1323   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+[torch.cuda.FloatTensor of size 128x2048 (GPU 0)]
+, <class 'torch.autograd.variable.Variable'>)
+rpn_loss_cls Variable containing:
+ 0.4720
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 1.1758
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 0.9652
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-02 *
+  4.7283
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_cls Variable containing:
+ 0.4720
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 1.1758
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 0.9652
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-02 *
+  4.7283
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)
+('pooled feat map dim', Variable containing:
+  0.0000   0.0000   0.0210  ...    0.2397   0.0000   0.0897
+  0.0000   0.0000   0.0000  ...    0.0931   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+           ...               ⋱              ...            
+  0.3270   0.0000   0.0000  ...    0.0000   0.0480   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+[torch.cuda.FloatTensor of size 128x2048 (GPU 0)]
+, <class 'torch.autograd.variable.Variable'>)
+rpn_loss_cls Variable containing:
+ 0.3999
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.8021
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 0.5440
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-02 *
+  2.6598
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_cls Variable containing:
+ 0.3999
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.8021
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 0.5440
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-02 *
+  2.6598
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)
+('pooled feat map dim', Variable containing:
+  0.1497   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0850   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+           ...               ⋱              ...            
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.5922   0.0765   0.0000  ...    0.0000   0.0214   0.0000
+  0.0000   0.0000   0.0000  ...    0.0251   0.1420   0.0000
+[torch.cuda.FloatTensor of size 128x2048 (GPU 0)]
+, <class 'torch.autograd.variable.Variable'>)
+rpn_loss_cls Variable containing:
+ 0.4476
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 1.2847
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 0.7204
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+ 0.1420
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_cls Variable containing:
+ 0.4476
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 1.2847
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 0.7204
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+ 0.1420
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)
+('pooled feat map dim', Variable containing:
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+           ...               ⋱              ...            
+  0.0301   0.6957   0.0000  ...    0.0000   0.0443   0.0000
+  1.4987   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+[torch.cuda.FloatTensor of size 128x2048 (GPU 0)]
+, <class 'torch.autograd.variable.Variable'>)
+rpn_loss_cls Variable containing:
+ 0.3397
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.9896
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 1.0514
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+ 0.2345
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_cls Variable containing:
+ 0.3397
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.9896
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 1.0514
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+ 0.2345
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)
+('pooled feat map dim', Variable containing:
+  0.3267   0.0000   0.0000  ...    0.0079   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0000   0.1624   0.0000  ...    0.0000   0.0000   0.0000
+           ...               ⋱              ...            
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0000   0.0000   0.0106  ...    0.0053   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+[torch.cuda.FloatTensor of size 128x2048 (GPU 0)]
+, <class 'torch.autograd.variable.Variable'>)
+rpn_loss_cls Variable containing:
+ 0.5557
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.5021
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 0.1829
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-04 *
+  5.6207
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_cls Variable containing:
+ 0.5557
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 0.5021
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 0.1829
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-04 *
+  5.6207
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)
+('pooled feat map dim', Variable containing:
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.0939   0.0000   0.0000  ...    0.3576   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.2924   0.0000   0.0000
+           ...               ⋱              ...            
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  1.2502   0.0000   0.0888  ...    0.0000   0.0212   0.0000
+  0.1083   0.0000   0.0000  ...    0.0342   0.0000   0.0000
+[torch.cuda.FloatTensor of size 128x2048 (GPU 0)]
+, <class 'torch.autograd.variable.Variable'>)
+rpn_loss_cls Variable containing:
+ 0.6142
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+1.00000e-02 *
+  8.2044
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 0.3608
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-04 *
+  8.2506
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_cls Variable containing:
+ 0.6142
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+1.00000e-02 *
+  8.2044
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 0.3608
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-04 *
+  8.2506
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)
+('pooled feat map dim', Variable containing:
+  0.0000   0.0000   0.0000  ...    0.0063   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.2474   0.0000   0.0000  ...    0.1298   0.0000   0.0000
+           ...               ⋱              ...            
+  0.0000   0.0000   0.0000  ...    0.0000   0.0000   0.0000
+  0.7132   0.0000   0.0000  ...    0.0773   0.0000   0.0000
+  0.0000   0.0000   0.0000  ...    0.0851   0.0000   0.0000
+[torch.cuda.FloatTensor of size 128x2048 (GPU 0)]
+, <class 'torch.autograd.variable.Variable'>)
+rpn_loss_cls Variable containing:
+ 0.5321
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 1.0454
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 0.4760
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-02 *
+  1.4824
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_cls Variable containing:
+ 0.5321
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+rpn_loss_box Variable containing:
+ 1.0454
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_cls Variable containing:
+ 0.4760
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+RCNN_loss_bbox Variable containing:
+1.00000e-02 *
+  1.4824
+[torch.cuda.FloatTensor of size 1 (GPU 0)]
+
+('batch_size', 1)
+('base feature map dim', (1L, 1024L, 38L, 75L), <class 'torch.autograd.variable.Variable'>)

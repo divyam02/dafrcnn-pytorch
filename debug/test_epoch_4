@@ -1,0 +1,1131 @@
+Called with args:
+Namespace(cfg_file='cfgs/vgg16.yml', checkepoch=4, checkpoint=5931, checksession=1, class_agnostic=False, cuda=True, dataset='fcity', large_scale=False, load_dir='data/pretrained_model', mGPUs=False, net='res101', parallel_type=0, set_cfgs=None, vis=False)
+Using config:
+{'ANCHOR_RATIOS': [0.5, 1, 2],
+ 'ANCHOR_SCALES': [8, 16, 32],
+ 'CROP_RESIZE_WITH_MAX_POOL': False,
+ 'CUDA': False,
+ 'DATA_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch/data',
+ 'DEDUP_BOXES': 0.0625,
+ 'EPS': 1e-14,
+ 'EXP_DIR': 'res101',
+ 'FEAT_STRIDE': [16],
+ 'GPU_ID': 0,
+ 'MATLAB': 'matlab',
+ 'MAX_NUM_GT_BOXES': 20,
+ 'MOBILENET': {'DEPTH_MULTIPLIER': 1.0,
+               'FIXED_LAYERS': 5,
+               'REGU_DEPTH': False,
+               'WEIGHT_DECAY': 4e-05},
+ 'PIXEL_MEANS': array([[[102.9801, 115.9465, 122.7717]]]),
+ 'POOLING_MODE': 'align',
+ 'POOLING_SIZE': 7,
+ 'RESNET': {'FIXED_BLOCKS': 1, 'MAX_POOL': False},
+ 'RNG_SEED': 3,
+ 'ROOT_DIR': '/home/divyam/FRCN/faster-rcnn.pytorch',
+ 'TEST': {'BBOX_REG': True,
+          'HAS_RPN': True,
+          'MAX_SIZE': 1000,
+          'MODE': 'nms',
+          'NMS': 0.3,
+          'PROPOSAL_METHOD': 'gt',
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000,
+          'RPN_TOP_N': 5000,
+          'SCALES': [600],
+          'SVM': False},
+ 'TRAIN': {'ASPECT_GROUPING': False,
+           'BATCH_SIZE': 128,
+           'BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'BBOX_NORMALIZE_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZE_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_NORMALIZE_TARGETS': True,
+           'BBOX_NORMALIZE_TARGETS_PRECOMPUTED': True,
+           'BBOX_REG': True,
+           'BBOX_THRESH': 0.5,
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'BIAS_DECAY': False,
+           'BN_TRAIN': False,
+           'DISPLAY': 20,
+           'DOUBLE_BIAS': False,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'GAMMA': 0.1,
+           'HAS_RPN': True,
+           'IMS_PER_BATCH': 1,
+           'LEARNING_RATE': 0.001,
+           'MAX_SIZE': 1000,
+           'MOMENTUM': 0.9,
+           'PROPOSAL_METHOD': 'gt',
+           'RPN_BATCHSIZE': 256,
+           'RPN_BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 8,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 2000,
+           'RPN_PRE_NMS_TOP_N': 12000,
+           'SCALES': [600],
+           'SNAPSHOT_ITERS': 5000,
+           'SNAPSHOT_KEPT': 3,
+           'SNAPSHOT_PREFIX': 'res101_faster_rcnn',
+           'STEPSIZE': [30000],
+           'SUMMARY_INTERVAL': 180,
+           'TRIM_HEIGHT': 600,
+           'TRIM_WIDTH': 600,
+           'TRUNCATED': False,
+           'USE_ALL_GT': True,
+           'USE_FLIPPED': True,
+           'USE_GT': False,
+           'WEIGHT_DECAY': 0.0001},
+ 'USE_GPU_NMS': True}
+ROOT_DIR /home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/../..
+image dataset path: /home/divyam/FRCN/faster-rcnn.pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/VOC2007
+sample image from dataset: target_munster_000158_000019_leftImg8bit_foggy_beta_0.02
+
+Loaded dataset `voc_2007_test` for training
+Set proposal method: gt
+Preparing training data...
+voc_2007_test gt roidb loaded from /home/divyam/FRCN/faster-rcnn.pytorch/data/tar/cache/voc_2007_test_gt_roidb.pkl
+done
+ROOT_DIR /home/divyam/FRCN/faster-rcnn.pytorch/lib/datasets/../..
+image dataset path: /home/divyam/FRCN/faster-rcnn.pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/VOC2007
+sample image from dataset: target_munster_000158_000019_leftImg8bit_foggy_beta_0.02
+
+before filtering, there are 493 images...
+after filtering, there are 493 images...
+493 roidb entries
+load checkpoint data/pretrained_model/res101/fcity/faster_rcnn_1_4_5931.pth
+load model successfully!
+testing phase!
+iter 0
+im_detect: 1/493 0.891s 0.075s   testing phase!
+iter 1
+im_detect: 2/493 0.109s 0.076s   testing phase!
+iter 2
+im_detect: 3/493 0.074s 0.059s   testing phase!
+iter 3
+im_detect: 4/493 0.081s 0.027s   testing phase!
+iter 4
+im_detect: 5/493 0.085s 0.010s   testing phase!
+iter 5
+im_detect: 6/493 0.097s 0.043s   testing phase!
+iter 6
+im_detect: 7/493 0.081s 0.043s   testing phase!
+iter 7
+im_detect: 8/493 0.100s 0.036s   testing phase!
+iter 8
+im_detect: 9/493 0.128s 0.018s   testing phase!
+iter 9
+im_detect: 10/493 0.114s 0.030s   testing phase!
+iter 10
+im_detect: 11/493 0.080s 0.007s   testing phase!
+iter 11
+im_detect: 12/493 0.140s 0.046s   testing phase!
+iter 12
+im_detect: 13/493 0.131s 0.065s   testing phase!
+iter 13
+im_detect: 14/493 0.099s 0.075s   testing phase!
+iter 14
+im_detect: 15/493 0.086s 0.024s   testing phase!
+iter 15
+im_detect: 16/493 0.071s 0.011s   testing phase!
+iter 16
+im_detect: 17/493 0.119s 0.043s   testing phase!
+iter 17
+im_detect: 18/493 0.112s 0.064s   testing phase!
+iter 18
+im_detect: 19/493 0.071s 0.042s   testing phase!
+iter 19
+im_detect: 20/493 0.071s 0.038s   testing phase!
+iter 20
+im_detect: 21/493 0.070s 0.022s   testing phase!
+iter 21
+im_detect: 22/493 0.126s 0.036s   testing phase!
+iter 22
+im_detect: 23/493 0.070s 0.011s   testing phase!
+iter 23
+im_detect: 24/493 0.135s 0.015s   testing phase!
+iter 24
+im_detect: 25/493 0.143s 0.045s   testing phase!
+iter 25
+im_detect: 26/493 0.096s 0.036s   testing phase!
+iter 26
+im_detect: 27/493 0.085s 0.038s   testing phase!
+iter 27
+im_detect: 28/493 0.125s 0.043s   testing phase!
+iter 28
+im_detect: 29/493 0.123s 0.034s   testing phase!
+iter 29
+im_detect: 30/493 0.095s 0.007s   testing phase!
+iter 30
+im_detect: 31/493 0.071s 0.009s   testing phase!
+iter 31
+im_detect: 32/493 0.128s 0.007s   testing phase!
+iter 32
+im_detect: 33/493 0.075s 0.071s   testing phase!
+iter 33
+im_detect: 34/493 0.088s 0.056s   testing phase!
+iter 34
+im_detect: 35/493 0.092s 0.051s   testing phase!
+iter 35
+im_detect: 36/493 0.102s 0.038s   testing phase!
+iter 36
+im_detect: 37/493 0.071s 0.053s   testing phase!
+iter 37
+im_detect: 38/493 0.074s 0.011s   testing phase!
+iter 38
+im_detect: 39/493 0.134s 0.017s   testing phase!
+iter 39
+im_detect: 40/493 0.129s 0.029s   testing phase!
+iter 40
+im_detect: 41/493 0.097s 0.012s   testing phase!
+iter 41
+im_detect: 42/493 0.076s 0.048s   testing phase!
+iter 42
+im_detect: 43/493 0.085s 0.039s   testing phase!
+iter 43
+im_detect: 44/493 0.080s 0.031s   testing phase!
+iter 44
+im_detect: 45/493 0.068s 0.015s   testing phase!
+iter 45
+im_detect: 46/493 0.121s 0.019s   testing phase!
+iter 46
+im_detect: 47/493 0.097s 0.011s   testing phase!
+iter 47
+im_detect: 48/493 0.104s 0.028s   testing phase!
+iter 48
+im_detect: 49/493 0.098s 0.026s   testing phase!
+iter 49
+im_detect: 50/493 0.070s 0.010s   testing phase!
+iter 50
+im_detect: 51/493 0.120s 0.042s   testing phase!
+iter 51
+im_detect: 52/493 0.117s 0.042s   testing phase!
+iter 52
+im_detect: 53/493 0.131s 0.062s   testing phase!
+iter 53
+im_detect: 54/493 0.110s 0.027s   testing phase!
+iter 54
+im_detect: 55/493 0.121s 0.012s   testing phase!
+iter 55
+im_detect: 56/493 0.135s 0.030s   testing phase!
+iter 56
+im_detect: 57/493 0.119s 0.019s   testing phase!
+iter 57
+im_detect: 58/493 0.168s 0.012s   testing phase!
+iter 58
+im_detect: 59/493 0.122s 0.010s   testing phase!
+iter 59
+im_detect: 60/493 0.126s 0.046s   testing phase!
+iter 60
+im_detect: 61/493 0.120s 0.043s   testing phase!
+iter 61
+im_detect: 62/493 0.102s 0.027s   testing phase!
+iter 62
+im_detect: 63/493 0.099s 0.024s   testing phase!
+iter 63
+im_detect: 64/493 0.082s 0.035s   testing phase!
+iter 64
+im_detect: 65/493 0.081s 0.013s   testing phase!
+iter 65
+im_detect: 66/493 0.123s 0.009s   testing phase!
+iter 66
+im_detect: 67/493 0.132s 0.063s   testing phase!
+iter 67
+im_detect: 68/493 0.082s 0.060s   testing phase!
+iter 68
+im_detect: 69/493 0.098s 0.042s   testing phase!
+iter 69
+im_detect: 70/493 0.141s 0.031s   testing phase!
+iter 70
+im_detect: 71/493 0.087s 0.052s   testing phase!
+iter 71
+im_detect: 72/493 0.137s 0.021s   testing phase!
+iter 72
+im_detect: 73/493 0.133s 0.020s   testing phase!
+iter 73
+im_detect: 74/493 0.076s 0.080s   testing phase!
+iter 74
+im_detect: 75/493 0.082s 0.029s   testing phase!
+iter 75
+im_detect: 76/493 0.087s 0.009s   testing phase!
+iter 76
+im_detect: 77/493 0.129s 0.010s   testing phase!
+iter 77
+im_detect: 78/493 0.089s 0.064s   testing phase!
+iter 78
+im_detect: 79/493 0.097s 0.069s   testing phase!
+iter 79
+im_detect: 80/493 0.096s 0.064s   testing phase!
+iter 80
+im_detect: 81/493 0.079s 0.062s   testing phase!
+iter 81
+im_detect: 82/493 0.101s 0.012s   testing phase!
+iter 82
+im_detect: 83/493 0.081s 0.044s   testing phase!
+iter 83
+im_detect: 84/493 0.156s 0.017s   testing phase!
+iter 84
+im_detect: 85/493 0.120s 0.009s   testing phase!
+iter 85
+im_detect: 86/493 0.146s 0.042s   testing phase!
+iter 86
+im_detect: 87/493 0.122s 0.015s   testing phase!
+iter 87
+im_detect: 88/493 0.093s 0.044s   testing phase!
+iter 88
+im_detect: 89/493 0.119s 0.012s   testing phase!
+iter 89
+im_detect: 90/493 0.117s 0.014s   testing phase!
+iter 90
+im_detect: 91/493 0.088s 0.008s   testing phase!
+iter 91
+im_detect: 92/493 0.096s 0.071s   testing phase!
+iter 92
+im_detect: 93/493 0.080s 0.068s   testing phase!
+iter 93
+im_detect: 94/493 0.083s 0.038s   testing phase!
+iter 94
+im_detect: 95/493 0.106s 0.049s   testing phase!
+iter 95
+im_detect: 96/493 0.098s 0.010s   testing phase!
+iter 96
+im_detect: 97/493 0.085s 0.026s   testing phase!
+iter 97
+im_detect: 98/493 0.073s 0.012s   testing phase!
+iter 98
+im_detect: 99/493 0.105s 0.044s   testing phase!
+iter 99
+im_detect: 100/493 0.094s 0.030s   testing phase!
+iter 100
+im_detect: 101/493 0.076s 0.044s   testing phase!
+iter 101
+im_detect: 102/493 0.076s 0.010s   testing phase!
+iter 102
+im_detect: 103/493 0.123s 0.050s   testing phase!
+iter 103
+im_detect: 104/493 0.119s 0.027s   testing phase!
+iter 104
+im_detect: 105/493 0.125s 0.017s   testing phase!
+iter 105
+im_detect: 106/493 0.113s 0.060s   testing phase!
+iter 106
+im_detect: 107/493 0.128s 0.033s   testing phase!
+iter 107
+im_detect: 108/493 0.078s 0.065s   testing phase!
+iter 108
+im_detect: 109/493 0.069s 0.043s   testing phase!
+iter 109
+im_detect: 110/493 0.070s 0.007s   testing phase!
+iter 110
+im_detect: 111/493 0.148s 0.048s   testing phase!
+iter 111
+im_detect: 112/493 0.126s 0.007s   testing phase!
+iter 112
+im_detect: 113/493 0.142s 0.066s   testing phase!
+iter 113
+im_detect: 114/493 0.147s 0.061s   testing phase!
+iter 114
+im_detect: 115/493 0.121s 0.043s   testing phase!
+iter 115
+im_detect: 116/493 0.138s 0.014s   testing phase!
+iter 116
+im_detect: 117/493 0.084s 0.008s   testing phase!
+iter 117
+im_detect: 118/493 0.137s 0.011s   testing phase!
+iter 118
+im_detect: 119/493 0.121s 0.013s   testing phase!
+iter 119
+im_detect: 120/493 0.117s 0.035s   testing phase!
+iter 120
+im_detect: 121/493 0.087s 0.031s   testing phase!
+iter 121
+im_detect: 122/493 0.084s 0.031s   testing phase!
+iter 122
+im_detect: 123/493 0.083s 0.033s   testing phase!
+iter 123
+im_detect: 124/493 0.076s 0.012s   testing phase!
+iter 124
+im_detect: 125/493 0.081s 0.027s   testing phase!
+iter 125
+im_detect: 126/493 0.078s 0.047s   testing phase!
+iter 126
+im_detect: 127/493 0.094s 0.037s   testing phase!
+iter 127
+im_detect: 128/493 0.092s 0.033s   testing phase!
+iter 128
+im_detect: 129/493 0.070s 0.008s   testing phase!
+iter 129
+im_detect: 130/493 0.120s 0.043s   testing phase!
+iter 130
+im_detect: 131/493 0.070s 0.037s   testing phase!
+iter 131
+im_detect: 132/493 0.080s 0.014s   testing phase!
+iter 132
+im_detect: 133/493 0.122s 0.034s   testing phase!
+iter 133
+im_detect: 134/493 0.122s 0.016s   testing phase!
+iter 134
+im_detect: 135/493 0.088s 0.063s   testing phase!
+iter 135
+im_detect: 136/493 0.072s 0.010s   testing phase!
+iter 136
+im_detect: 137/493 0.080s 0.078s   testing phase!
+iter 137
+im_detect: 138/493 0.103s 0.023s   testing phase!
+iter 138
+im_detect: 139/493 0.087s 0.036s   testing phase!
+iter 139
+im_detect: 140/493 0.077s 0.015s   testing phase!
+iter 140
+im_detect: 141/493 0.106s 0.058s   testing phase!
+iter 141
+im_detect: 142/493 0.100s 0.020s   testing phase!
+iter 142
+im_detect: 143/493 0.099s 0.030s   testing phase!
+iter 143
+im_detect: 144/493 0.100s 0.011s   testing phase!
+iter 144
+im_detect: 145/493 0.088s 0.026s   testing phase!
+iter 145
+im_detect: 146/493 0.084s 0.013s   testing phase!
+iter 146
+im_detect: 147/493 0.125s 0.044s   testing phase!
+iter 147
+im_detect: 148/493 0.073s 0.039s   testing phase!
+iter 148
+im_detect: 149/493 0.097s 0.015s   testing phase!
+iter 149
+im_detect: 150/493 0.069s 0.008s   testing phase!
+iter 150
+im_detect: 151/493 0.123s 0.010s   testing phase!
+iter 151
+im_detect: 152/493 0.116s 0.029s   testing phase!
+iter 152
+im_detect: 153/493 0.126s 0.012s   testing phase!
+iter 153
+im_detect: 154/493 0.124s 0.025s   testing phase!
+iter 154
+im_detect: 155/493 0.102s 0.025s   testing phase!
+iter 155
+im_detect: 156/493 0.082s 0.012s   testing phase!
+iter 156
+im_detect: 157/493 0.131s 0.037s   testing phase!
+iter 157
+im_detect: 158/493 0.116s 0.042s   testing phase!
+iter 158
+im_detect: 159/493 0.079s 0.010s   testing phase!
+iter 159
+im_detect: 160/493 0.079s 0.062s   testing phase!
+iter 160
+im_detect: 161/493 0.074s 0.038s   testing phase!
+iter 161
+im_detect: 162/493 0.070s 0.008s   testing phase!
+iter 162
+im_detect: 163/493 0.121s 0.044s   testing phase!
+iter 163
+im_detect: 164/493 0.132s 0.077s   testing phase!
+iter 164
+im_detect: 165/493 0.080s 0.076s   testing phase!
+iter 165
+im_detect: 166/493 0.101s 0.028s   testing phase!
+iter 166
+im_detect: 167/493 0.069s 0.010s   testing phase!
+iter 167
+im_detect: 168/493 0.112s 0.059s   testing phase!
+iter 168
+im_detect: 169/493 0.079s 0.073s   testing phase!
+iter 169
+im_detect: 170/493 0.093s 0.068s   testing phase!
+iter 170
+im_detect: 171/493 0.100s 0.027s   testing phase!
+iter 171
+im_detect: 172/493 0.085s 0.047s   testing phase!
+iter 172
+im_detect: 173/493 0.081s 0.008s   testing phase!
+iter 173
+im_detect: 174/493 0.086s 0.073s   testing phase!
+iter 174
+im_detect: 175/493 0.086s 0.038s   testing phase!
+iter 175
+im_detect: 176/493 0.121s 0.009s   testing phase!
+iter 176
+im_detect: 177/493 0.117s 0.035s   testing phase!
+iter 177
+im_detect: 178/493 0.088s 0.037s   testing phase!
+iter 178
+im_detect: 179/493 0.127s 0.008s   testing phase!
+iter 179
+im_detect: 180/493 0.134s 0.065s   testing phase!
+iter 180
+im_detect: 181/493 0.133s 0.064s   testing phase!
+iter 181
+im_detect: 182/493 0.071s 0.008s   testing phase!
+iter 182
+im_detect: 183/493 0.114s 0.062s   testing phase!
+iter 183
+im_detect: 184/493 0.121s 0.076s   testing phase!
+iter 184
+im_detect: 185/493 0.073s 0.040s   testing phase!
+iter 185
+im_detect: 186/493 0.090s 0.044s   testing phase!
+iter 186
+im_detect: 187/493 0.121s 0.022s   testing phase!
+iter 187
+im_detect: 188/493 0.069s 0.008s   testing phase!
+iter 188
+im_detect: 189/493 0.125s 0.040s   testing phase!
+iter 189
+im_detect: 190/493 0.082s 0.011s   testing phase!
+iter 190
+im_detect: 191/493 0.111s 0.039s   testing phase!
+iter 191
+im_detect: 192/493 0.078s 0.064s   testing phase!
+iter 192
+im_detect: 193/493 0.073s 0.033s   testing phase!
+iter 193
+im_detect: 194/493 0.093s 0.023s   testing phase!
+iter 194
+im_detect: 195/493 0.071s 0.033s   testing phase!
+iter 195
+im_detect: 196/493 0.109s 0.007s   testing phase!
+iter 196
+im_detect: 197/493 0.078s 0.040s   testing phase!
+iter 197
+im_detect: 198/493 0.100s 0.026s   testing phase!
+iter 198
+im_detect: 199/493 0.114s 0.020s   testing phase!
+iter 199
+im_detect: 200/493 0.096s 0.041s   testing phase!
+iter 200
+im_detect: 201/493 0.126s 0.040s   testing phase!
+iter 201
+im_detect: 202/493 0.147s 0.024s   testing phase!
+iter 202
+im_detect: 203/493 0.120s 0.039s   testing phase!
+iter 203
+im_detect: 204/493 0.095s 0.017s   testing phase!
+iter 204
+im_detect: 205/493 0.138s 0.047s   testing phase!
+iter 205
+im_detect: 206/493 0.118s 0.042s   testing phase!
+iter 206
+im_detect: 207/493 0.102s 0.025s   testing phase!
+iter 207
+im_detect: 208/493 0.101s 0.035s   testing phase!
+iter 208
+im_detect: 209/493 0.072s 0.014s   testing phase!
+iter 209
+im_detect: 210/493 0.122s 0.008s   testing phase!
+iter 210
+im_detect: 211/493 0.128s 0.073s   testing phase!
+iter 211
+im_detect: 212/493 0.092s 0.011s   testing phase!
+iter 212
+im_detect: 213/493 0.123s 0.050s   testing phase!
+iter 213
+im_detect: 214/493 0.126s 0.052s   testing phase!
+iter 214
+im_detect: 215/493 0.082s 0.035s   testing phase!
+iter 215
+im_detect: 216/493 0.138s 0.017s   testing phase!
+iter 216
+im_detect: 217/493 0.077s 0.011s   testing phase!
+iter 217
+im_detect: 218/493 0.126s 0.055s   testing phase!
+iter 218
+im_detect: 219/493 0.127s 0.019s   testing phase!
+iter 219
+im_detect: 220/493 0.129s 0.034s   testing phase!
+iter 220
+im_detect: 221/493 0.071s 0.013s   testing phase!
+iter 221
+im_detect: 222/493 0.114s 0.009s   testing phase!
+iter 222
+im_detect: 223/493 0.119s 0.058s   testing phase!
+iter 223
+im_detect: 224/493 0.083s 0.041s   testing phase!
+iter 224
+im_detect: 225/493 0.093s 0.037s   testing phase!
+iter 225
+im_detect: 226/493 0.102s 0.013s   testing phase!
+iter 226
+im_detect: 227/493 0.108s 0.020s   testing phase!
+iter 227
+im_detect: 228/493 0.075s 0.010s   testing phase!
+iter 228
+im_detect: 229/493 0.119s 0.040s   testing phase!
+iter 229
+im_detect: 230/493 0.129s 0.009s   testing phase!
+iter 230
+im_detect: 231/493 0.122s 0.009s   testing phase!
+iter 231
+im_detect: 232/493 0.121s 0.011s   testing phase!
+iter 232
+im_detect: 233/493 0.124s 0.052s   testing phase!
+iter 233
+im_detect: 234/493 0.101s 0.053s   testing phase!
+iter 234
+im_detect: 235/493 0.082s 0.008s   testing phase!
+iter 235
+im_detect: 236/493 0.132s 0.060s   testing phase!
+iter 236
+im_detect: 237/493 0.074s 0.013s   testing phase!
+iter 237
+im_detect: 238/493 0.127s 0.052s   testing phase!
+iter 238
+im_detect: 239/493 0.118s 0.027s   testing phase!
+iter 239
+im_detect: 240/493 0.124s 0.049s   testing phase!
+iter 240
+im_detect: 241/493 0.084s 0.054s   testing phase!
+iter 241
+im_detect: 242/493 0.100s 0.035s   testing phase!
+iter 242
+im_detect: 243/493 0.110s 0.029s   testing phase!
+iter 243
+im_detect: 244/493 0.122s 0.019s   testing phase!
+iter 244
+im_detect: 245/493 0.159s 0.038s   testing phase!
+iter 245
+im_detect: 246/493 0.106s 0.016s   testing phase!
+iter 246
+im_detect: 247/493 0.090s 0.010s   testing phase!
+iter 247
+im_detect: 248/493 0.122s 0.021s   testing phase!
+iter 248
+im_detect: 249/493 0.085s 0.043s   testing phase!
+iter 249
+im_detect: 250/493 0.080s 0.007s   testing phase!
+iter 250
+im_detect: 251/493 0.088s 0.028s   testing phase!
+iter 251
+im_detect: 252/493 0.105s 0.023s   testing phase!
+iter 252
+im_detect: 253/493 0.091s 0.042s   testing phase!
+iter 253
+im_detect: 254/493 0.119s 0.007s   testing phase!
+iter 254
+im_detect: 255/493 0.135s 0.010s   testing phase!
+iter 255
+im_detect: 256/493 0.107s 0.084s   testing phase!
+iter 256
+im_detect: 257/493 0.091s 0.036s   testing phase!
+iter 257
+im_detect: 258/493 0.088s 0.034s   testing phase!
+iter 258
+im_detect: 259/493 0.108s 0.032s   testing phase!
+iter 259
+im_detect: 260/493 0.079s 0.034s   testing phase!
+iter 260
+im_detect: 261/493 0.116s 0.032s   testing phase!
+iter 261
+im_detect: 262/493 0.089s 0.023s   testing phase!
+iter 262
+im_detect: 263/493 0.072s 0.011s   testing phase!
+iter 263
+im_detect: 264/493 0.112s 0.037s   testing phase!
+iter 264
+im_detect: 265/493 0.131s 0.012s   testing phase!
+iter 265
+im_detect: 266/493 0.121s 0.041s   testing phase!
+iter 266
+im_detect: 267/493 0.081s 0.041s   testing phase!
+iter 267
+im_detect: 268/493 0.134s 0.035s   testing phase!
+iter 268
+im_detect: 269/493 0.144s 0.020s   testing phase!
+iter 269
+im_detect: 270/493 0.115s 0.010s   testing phase!
+iter 270
+im_detect: 271/493 0.091s 0.055s   testing phase!
+iter 271
+im_detect: 272/493 0.070s 0.009s   testing phase!
+iter 272
+im_detect: 273/493 0.135s 0.016s   testing phase!
+iter 273
+im_detect: 274/493 0.140s 0.008s   testing phase!
+iter 274
+im_detect: 275/493 0.093s 0.086s   testing phase!
+iter 275
+im_detect: 276/493 0.083s 0.024s   testing phase!
+iter 276
+im_detect: 277/493 0.073s 0.009s   testing phase!
+iter 277
+im_detect: 278/493 0.076s 0.059s   testing phase!
+iter 278
+im_detect: 279/493 0.102s 0.009s   testing phase!
+iter 279
+im_detect: 280/493 0.105s 0.007s   testing phase!
+iter 280
+im_detect: 281/493 0.130s 0.046s   testing phase!
+iter 281
+im_detect: 282/493 0.146s 0.064s   testing phase!
+iter 282
+im_detect: 283/493 0.109s 0.072s   testing phase!
+iter 283
+im_detect: 284/493 0.085s 0.052s   testing phase!
+iter 284
+im_detect: 285/493 0.068s 0.008s   testing phase!
+iter 285
+im_detect: 286/493 0.124s 0.026s   testing phase!
+iter 286
+im_detect: 287/493 0.075s 0.066s   testing phase!
+iter 287
+im_detect: 288/493 0.099s 0.033s   testing phase!
+iter 288
+im_detect: 289/493 0.101s 0.026s   testing phase!
+iter 289
+im_detect: 290/493 0.108s 0.019s   testing phase!
+iter 290
+im_detect: 291/493 0.076s 0.007s   testing phase!
+iter 291
+im_detect: 292/493 0.128s 0.049s   testing phase!
+iter 292
+im_detect: 293/493 0.105s 0.019s   testing phase!
+iter 293
+im_detect: 294/493 0.074s 0.012s   testing phase!
+iter 294
+im_detect: 295/493 0.123s 0.057s   testing phase!
+iter 295
+im_detect: 296/493 0.116s 0.045s   testing phase!
+iter 296
+im_detect: 297/493 0.069s 0.009s   testing phase!
+iter 297
+im_detect: 298/493 0.069s 0.012s   testing phase!
+iter 298
+im_detect: 299/493 0.124s 0.030s   testing phase!
+iter 299
+im_detect: 300/493 0.122s 0.057s   testing phase!
+iter 300
+im_detect: 301/493 0.083s 0.053s   testing phase!
+iter 301
+im_detect: 302/493 0.098s 0.033s   testing phase!
+iter 302
+im_detect: 303/493 0.069s 0.034s   testing phase!
+iter 303
+im_detect: 304/493 0.114s 0.030s   testing phase!
+iter 304
+im_detect: 305/493 0.086s 0.036s   testing phase!
+iter 305
+im_detect: 306/493 0.070s 0.043s   testing phase!
+iter 306
+im_detect: 307/493 0.074s 0.010s   testing phase!
+iter 307
+im_detect: 308/493 0.127s 0.040s   testing phase!
+iter 308
+im_detect: 309/493 0.071s 0.036s   testing phase!
+iter 309
+im_detect: 310/493 0.071s 0.010s   testing phase!
+iter 310
+im_detect: 311/493 0.135s 0.013s   testing phase!
+iter 311
+im_detect: 312/493 0.134s 0.021s   testing phase!
+iter 312
+im_detect: 313/493 0.122s 0.068s   testing phase!
+iter 313
+im_detect: 314/493 0.132s 0.075s   testing phase!
+iter 314
+im_detect: 315/493 0.099s 0.073s   testing phase!
+iter 315
+im_detect: 316/493 0.080s 0.061s   testing phase!
+iter 316
+im_detect: 317/493 0.079s 0.076s   testing phase!
+iter 317
+im_detect: 318/493 0.080s 0.033s   testing phase!
+iter 318
+im_detect: 319/493 0.069s 0.008s   testing phase!
+iter 319
+im_detect: 320/493 0.111s 0.038s   testing phase!
+iter 320
+im_detect: 321/493 0.121s 0.032s   testing phase!
+iter 321
+im_detect: 322/493 0.139s 0.043s   testing phase!
+iter 322
+im_detect: 323/493 0.124s 0.065s   testing phase!
+iter 323
+im_detect: 324/493 0.133s 0.022s   testing phase!
+iter 324
+im_detect: 325/493 0.140s 0.043s   testing phase!
+iter 325
+im_detect: 326/493 0.134s 0.071s   testing phase!
+iter 326
+im_detect: 327/493 0.122s 0.011s   testing phase!
+iter 327
+im_detect: 328/493 0.109s 0.080s   testing phase!
+iter 328
+im_detect: 329/493 0.111s 0.012s   testing phase!
+iter 329
+im_detect: 330/493 0.079s 0.034s   testing phase!
+iter 330
+im_detect: 331/493 0.080s 0.014s   testing phase!
+iter 331
+im_detect: 332/493 0.126s 0.014s   testing phase!
+iter 332
+im_detect: 333/493 0.077s 0.016s   testing phase!
+iter 333
+im_detect: 334/493 0.148s 0.075s   testing phase!
+iter 334
+im_detect: 335/493 0.139s 0.031s   testing phase!
+iter 335
+im_detect: 336/493 0.159s 0.020s   testing phase!
+iter 336
+im_detect: 337/493 0.115s 0.009s   testing phase!
+iter 337
+im_detect: 338/493 0.135s 0.078s   testing phase!
+iter 338
+im_detect: 339/493 0.103s 0.014s   testing phase!
+iter 339
+im_detect: 340/493 0.119s 0.059s   testing phase!
+iter 340
+im_detect: 341/493 0.140s 0.060s   testing phase!
+iter 341
+im_detect: 342/493 0.140s 0.062s   testing phase!
+iter 342
+im_detect: 343/493 0.085s 0.069s   testing phase!
+iter 343
+im_detect: 344/493 0.118s 0.034s   testing phase!
+iter 344
+im_detect: 345/493 0.114s 0.013s   testing phase!
+iter 345
+im_detect: 346/493 0.090s 0.051s   testing phase!
+iter 346
+im_detect: 347/493 0.149s 0.033s   testing phase!
+iter 347
+im_detect: 348/493 0.123s 0.037s   testing phase!
+iter 348
+im_detect: 349/493 0.106s 0.014s   testing phase!
+iter 349
+im_detect: 350/493 0.134s 0.045s   testing phase!
+iter 350
+im_detect: 351/493 0.080s 0.079s   testing phase!
+iter 351
+im_detect: 352/493 0.100s 0.024s   testing phase!
+iter 352
+im_detect: 353/493 0.071s 0.040s   testing phase!
+iter 353
+im_detect: 354/493 0.077s 0.038s   testing phase!
+iter 354
+im_detect: 355/493 0.076s 0.039s   testing phase!
+iter 355
+im_detect: 356/493 0.084s 0.028s   testing phase!
+iter 356
+im_detect: 357/493 0.106s 0.052s   testing phase!
+iter 357
+im_detect: 358/493 0.095s 0.029s   testing phase!
+iter 358
+im_detect: 359/493 0.088s 0.008s   testing phase!
+iter 359
+im_detect: 360/493 0.075s 0.052s   testing phase!
+iter 360
+im_detect: 361/493 0.092s 0.019s   testing phase!
+iter 361
+im_detect: 362/493 0.069s 0.020s   testing phase!
+iter 362
+im_detect: 363/493 0.120s 0.065s   testing phase!
+iter 363
+im_detect: 364/493 0.126s 0.067s   testing phase!
+iter 364
+im_detect: 365/493 0.102s 0.015s   testing phase!
+iter 365
+im_detect: 366/493 0.072s 0.012s   testing phase!
+iter 366
+im_detect: 367/493 0.117s 0.031s   testing phase!
+iter 367
+im_detect: 368/493 0.129s 0.066s   testing phase!
+iter 368
+im_detect: 369/493 0.112s 0.063s   testing phase!
+iter 369
+im_detect: 370/493 0.114s 0.034s   testing phase!
+iter 370
+im_detect: 371/493 0.086s 0.013s   testing phase!
+iter 371
+im_detect: 372/493 0.115s 0.037s   testing phase!
+iter 372
+im_detect: 373/493 0.119s 0.043s   testing phase!
+iter 373
+im_detect: 374/493 0.101s 0.022s   testing phase!
+iter 374
+im_detect: 375/493 0.108s 0.015s   testing phase!
+iter 375
+im_detect: 376/493 0.079s 0.044s   testing phase!
+iter 376
+im_detect: 377/493 0.078s 0.036s   testing phase!
+iter 377
+im_detect: 378/493 0.072s 0.010s   testing phase!
+iter 378
+im_detect: 379/493 0.115s 0.060s   testing phase!
+iter 379
+im_detect: 380/493 0.104s 0.077s   testing phase!
+iter 380
+im_detect: 381/493 0.117s 0.023s   testing phase!
+iter 381
+im_detect: 382/493 0.106s 0.029s   testing phase!
+iter 382
+im_detect: 383/493 0.088s 0.055s   testing phase!
+iter 383
+im_detect: 384/493 0.090s 0.034s   testing phase!
+iter 384
+im_detect: 385/493 0.086s 0.038s   testing phase!
+iter 385
+im_detect: 386/493 0.078s 0.017s   testing phase!
+iter 386
+im_detect: 387/493 0.133s 0.057s   testing phase!
+iter 387
+im_detect: 388/493 0.120s 0.045s   testing phase!
+iter 388
+im_detect: 389/493 0.131s 0.044s   testing phase!
+iter 389
+im_detect: 390/493 0.080s 0.081s   testing phase!
+iter 390
+im_detect: 391/493 0.113s 0.036s   testing phase!
+iter 391
+im_detect: 392/493 0.112s 0.036s   testing phase!
+iter 392
+im_detect: 393/493 0.100s 0.021s   testing phase!
+iter 393
+im_detect: 394/493 0.097s 0.032s   testing phase!
+iter 394
+im_detect: 395/493 0.112s 0.037s   testing phase!
+iter 395
+im_detect: 396/493 0.107s 0.022s   testing phase!
+iter 396
+im_detect: 397/493 0.127s 0.016s   testing phase!
+iter 397
+im_detect: 398/493 0.133s 0.054s   testing phase!
+iter 398
+im_detect: 399/493 0.072s 0.011s   testing phase!
+iter 399
+im_detect: 400/493 0.098s 0.072s   testing phase!
+iter 400
+im_detect: 401/493 0.082s 0.010s   testing phase!
+iter 401
+im_detect: 402/493 0.147s 0.075s   testing phase!
+iter 402
+im_detect: 403/493 0.121s 0.008s   testing phase!
+iter 403
+im_detect: 404/493 0.154s 0.053s   testing phase!
+iter 404
+im_detect: 405/493 0.106s 0.028s   testing phase!
+iter 405
+im_detect: 406/493 0.082s 0.007s   testing phase!
+iter 406
+im_detect: 407/493 0.086s 0.039s   testing phase!
+iter 407
+im_detect: 408/493 0.097s 0.059s   testing phase!
+iter 408
+im_detect: 409/493 0.113s 0.040s   testing phase!
+iter 409
+im_detect: 410/493 0.103s 0.034s   testing phase!
+iter 410
+im_detect: 411/493 0.075s 0.011s   testing phase!
+iter 411
+im_detect: 412/493 0.098s 0.026s   testing phase!
+iter 412
+im_detect: 413/493 0.068s 0.010s   testing phase!
+iter 413
+im_detect: 414/493 0.117s 0.046s   testing phase!
+iter 414
+im_detect: 415/493 0.100s 0.013s   testing phase!
+iter 415
+im_detect: 416/493 0.072s 0.013s   testing phase!
+iter 416
+im_detect: 417/493 0.119s 0.029s   testing phase!
+iter 417
+im_detect: 418/493 0.129s 0.058s   testing phase!
+iter 418
+im_detect: 419/493 0.075s 0.035s   testing phase!
+iter 419
+im_detect: 420/493 0.071s 0.016s   testing phase!
+iter 420
+im_detect: 421/493 0.127s 0.016s   testing phase!
+iter 421
+im_detect: 422/493 0.123s 0.016s   testing phase!
+iter 422
+im_detect: 423/493 0.091s 0.036s   testing phase!
+iter 423
+im_detect: 424/493 0.124s 0.020s   testing phase!
+iter 424
+im_detect: 425/493 0.117s 0.008s   testing phase!
+iter 425
+im_detect: 426/493 0.151s 0.011s   testing phase!
+iter 426
+im_detect: 427/493 0.143s 0.049s   testing phase!
+iter 427
+im_detect: 428/493 0.146s 0.045s   testing phase!
+iter 428
+im_detect: 429/493 0.100s 0.086s   testing phase!
+iter 429
+im_detect: 430/493 0.096s 0.084s   testing phase!
+iter 430
+im_detect: 431/493 0.094s 0.071s   testing phase!
+iter 431
+im_detect: 432/493 0.108s 0.035s   testing phase!
+iter 432
+im_detect: 433/493 0.072s 0.007s   testing phase!
+iter 433
+im_detect: 434/493 0.115s 0.046s   testing phase!
+iter 434
+im_detect: 435/493 0.094s 0.086s   testing phase!
+iter 435
+im_detect: 436/493 0.092s 0.071s   testing phase!
+iter 436
+im_detect: 437/493 0.113s 0.028s   testing phase!
+iter 437
+im_detect: 438/493 0.069s 0.007s   testing phase!
+iter 438
+im_detect: 439/493 0.117s 0.031s   testing phase!
+iter 439
+im_detect: 440/493 0.129s 0.007s   testing phase!
+iter 440
+im_detect: 441/493 0.114s 0.057s   testing phase!
+iter 441
+im_detect: 442/493 0.116s 0.058s   testing phase!
+iter 442
+im_detect: 443/493 0.110s 0.061s   testing phase!
+iter 443
+im_detect: 444/493 0.101s 0.016s   testing phase!
+iter 444
+im_detect: 445/493 0.078s 0.007s   testing phase!
+iter 445
+im_detect: 446/493 0.099s 0.091s   testing phase!
+iter 446
+im_detect: 447/493 0.109s 0.020s   testing phase!
+iter 447
+im_detect: 448/493 0.103s 0.014s   testing phase!
+iter 448
+im_detect: 449/493 0.097s 0.040s   testing phase!
+iter 449
+im_detect: 450/493 0.086s 0.037s   testing phase!
+iter 450
+im_detect: 451/493 0.111s 0.035s   testing phase!
+iter 451
+im_detect: 452/493 0.073s 0.031s   testing phase!
+iter 452
+im_detect: 453/493 0.130s 0.014s   testing phase!
+iter 453
+im_detect: 454/493 0.116s 0.030s   testing phase!
+iter 454
+im_detect: 455/493 0.073s 0.012s   testing phase!
+iter 455
+im_detect: 456/493 0.127s 0.046s   testing phase!
+iter 456
+im_detect: 457/493 0.107s 0.077s   testing phase!
+iter 457
+im_detect: 458/493 0.106s 0.064s   testing phase!
+iter 458
+im_detect: 459/493 0.073s 0.049s   testing phase!
+iter 459
+im_detect: 460/493 0.136s 0.010s   testing phase!
+iter 460
+im_detect: 461/493 0.147s 0.020s   testing phase!
+iter 461
+im_detect: 462/493 0.144s 0.043s   testing phase!
+iter 462
+im_detect: 463/493 0.147s 0.009s   testing phase!
+iter 463
+im_detect: 464/493 0.150s 0.011s   testing phase!
+iter 464
+im_detect: 465/493 0.134s 0.066s   testing phase!
+iter 465
+im_detect: 466/493 0.106s 0.097s   testing phase!
+iter 466
+im_detect: 467/493 0.111s 0.015s   testing phase!
+iter 467
+im_detect: 468/493 0.084s 0.015s   testing phase!
+iter 468
+im_detect: 469/493 0.119s 0.062s   testing phase!
+iter 469
+im_detect: 470/493 0.089s 0.060s   testing phase!
+iter 470
+im_detect: 471/493 0.102s 0.012s   testing phase!
+iter 471
+im_detect: 472/493 0.073s 0.013s   testing phase!
+iter 472
+im_detect: 473/493 0.121s 0.085s   testing phase!
+iter 473
+im_detect: 474/493 0.140s 0.030s   testing phase!
+iter 474
+im_detect: 475/493 0.145s 0.022s   testing phase!
+iter 475
+im_detect: 476/493 0.128s 0.063s   testing phase!
+iter 476
+im_detect: 477/493 0.115s 0.061s   testing phase!
+iter 477
+im_detect: 478/493 0.105s 0.028s   testing phase!
+iter 478
+im_detect: 479/493 0.112s 0.021s   testing phase!
+iter 479
+im_detect: 480/493 0.153s 0.015s   testing phase!
+iter 480
+im_detect: 481/493 0.084s 0.017s   testing phase!
+iter 481
+im_detect: 482/493 0.132s 0.009s   testing phase!
+iter 482
+im_detect: 483/493 0.092s 0.073s   testing phase!
+iter 483
+im_detect: 484/493 0.096s 0.085s   testing phase!
+iter 484
+im_detect: 485/493 0.085s 0.010s   testing phase!
+iter 485
+im_detect: 486/493 0.085s 0.011s   testing phase!
+iter 486
+im_detect: 487/493 0.102s 0.030s   testing phase!
+iter 487
+im_detect: 488/493 0.119s 0.048s   testing phase!
+iter 488
+im_detect: 489/493 0.134s 0.030s   testing phase!
+iter 489
+im_detect: 490/493 0.103s 0.046s   testing phase!
+iter 490
+im_detect: 491/493 0.139s 0.040s   testing phase!
+iter 491
+im_detect: 492/493 0.076s 0.008s   testing phase!
+iter 492
+im_detect: 493/493 0.125s 0.049s   Evaluating detections
+Writing person VOC results file
+Writing train VOC results file
+Writing rider VOC results file
+Writing bicycle VOC results file
+Writing motorcycle VOC results file
+Writing car VOC results file
+Writing truck VOC results file
+Writing bus VOC results file
+VOC07 metric? Yes
+AP for person = 0.2504
+AP for train = 0.0430
+AP for rider = 0.3794
+AP for bicycle = 0.2759
+AP for motorcycle = 0.1976
+AP for car = 0.4056
+AP for truck = 0.1838
+AP for bus = 0.3408
+Mean AP = 0.2596
+~~~~~~~~
+Results:
+0.250
+0.043
+0.379
+0.276
+0.198
+0.406
+0.184
+0.341
+0.260
+~~~~~~~~
+
+--------------------------------------------------------------
+Results computed with the **unofficial** Python eval code.
+Results should be very close to the official MATLAB eval code.
+Recompute with `./tools/reval.py --matlab ...` for your paper.
+-- Thanks, The Management
+--------------------------------------------------------------
+test time: 126.4761s
+WUTZLOL

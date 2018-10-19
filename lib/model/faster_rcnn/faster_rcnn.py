@@ -38,14 +38,14 @@ class _fasterRCNN(nn.Module):
 
     def forward(self, im_data, im_info, gt_boxes, num_boxes):
         batch_size = im_data.size(0)
-
+	#print('batch_size', batch_size)
         im_info = im_info.data
         gt_boxes = gt_boxes.data
         num_boxes = num_boxes.data
 
         # feed image data to base model to obtain base feature map
         base_feat = self.RCNN_base(im_data)
-
+	#print('base feature map dim', base_feat.size(), type(base_feat))
         # feed base feature map tp RPN to obtain rois
         rois, rpn_loss_cls, rpn_loss_bbox = self.RCNN_rpn(base_feat, im_info, gt_boxes, num_boxes)
 
@@ -59,7 +59,8 @@ class _fasterRCNN(nn.Module):
             rois_inside_ws = Variable(rois_inside_ws.view(-1, rois_inside_ws.size(2)))
             rois_outside_ws = Variable(rois_outside_ws.view(-1, rois_outside_ws.size(2)))
         else:
-            rois_label = None
+            #print('testing phase!')
+	    rois_label = None
             rois_target = None
             rois_inside_ws = None
             rois_outside_ws = None
@@ -84,7 +85,7 @@ class _fasterRCNN(nn.Module):
 
         # feed pooled features to top model
         pooled_feat = self._head_to_tail(pooled_feat)
-
+	#print('pooled feat map dim', pooled_feat, type(pooled_feat))
         # compute bbox offset
         bbox_pred = self.RCNN_bbox_pred(pooled_feat)
         if self.training and not self.class_agnostic:
