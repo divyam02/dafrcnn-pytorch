@@ -6,7 +6,7 @@ The original code used by the authors can be found [here.](https://github.com/yu
 ## Usage
 Ensure all prerequisites mentioned [here](https://github.com/jwyang/faster-rcnn.pytorch) are satisfied by your machine.
 Ensure all images used for training (source) and testing have annotations (in Pascal VOC format).
-Modify [this](https://github.com/divyam02/dafrcnn-pytorch/blob/trainval_net_x.py#L696) line in `trainval_net_x.py` to the directory of the target dataset.
+Modify [this](https://github.com/divyam02/dafrcnn-pytorch/blob/e22be667140b7dcfca4325a8e7bb9f325048e124/trainval_net_x.py#L696) line in `trainval_net_x.py` to the directory of the target dataset.
 
 Changes will be made in the future for ease of use.
 
