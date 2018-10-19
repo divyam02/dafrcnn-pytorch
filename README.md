@@ -32,6 +32,6 @@ python test_net.py --dataset $TARGET_DATASET_NAME --net res101 \
 Specify the specific model session, chechepoch and checkpoint, e.g., SESSION=1, EPOCH=5, CHECKPOINT=5931.
 
 ## Acknowledgements
-This code is built on the python implementation of the Faster-RCNN [jwyang/faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch
+This code is built on the python implementation of the Faster-RCNN [jwyang/faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch)
 
 Part of an ongoing project under Dr. Saket Anand
