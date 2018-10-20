@@ -72,7 +72,7 @@ def rank_roidb_ratio(roidb):
     ratio_index = np.argsort(ratio_list)
     return ratio_list[ratio_index], ratio_index
 
-def filter_roidb(roidb):
+def filter_roidb(roidb, ignore=False):
     # filter the image without bounding box.
     print('before filtering, there are %d images...' % (len(roidb)))
     pre_len = len(roidb)
@@ -85,7 +85,8 @@ def filter_roidb(roidb):
       i += 1
 
     print('after filtering, there are %d images...' % (len(roidb)))
-    assert pre_len==len(roidb),'WARNING: Dataset contains images without proper bboxes.'
+    if(ignore):
+      assert pre_len==len(roidb),'WARNING: Dataset contains images without proper bboxes.'
     return roidb
 
 def combined_roidb(imdb_names, domain, training=True):

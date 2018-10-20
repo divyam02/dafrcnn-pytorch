@@ -26,24 +26,24 @@ import os.path
 
 for year in ['2007', '2012']:
   for split in ['train', 'val', 'trainval', 'test']:
-    name = 'src_{}_{}'.format(year, split)
-    file_path = '' # Insert file path here
-    assert os.path.exists(file_path), 'Invalid file path.'
-    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, 'src', file_path ))
+    name = 'city_{}_{}'.format(year, split)
+    file_src = '/home/divyam/FRCN/dafrcnn-pytorch/data/src/cityscapes/VOCdevkit2007/' # Insert file path here
+    assert os.path.exists(file_src), 'Invalid file path.'
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, 'src', file_src ))
 
 for year in ['2007', '2012']:
   for split in ['train', 'val', 'trainval', 'test']:
-    name = 'tar_{}_{}'.format(year, split)
-    file_path = '' # Insert file path here
-    assert os.path.exists(file_path), 'Invalid file path.'
-    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, 'tar', file_path ))
+    name = 'fcity_{}_{}'.format(year, split)
+    file_tar = '/home/divyam/FRCN/dafrcnn-pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/' # Insert file path here
+    assert os.path.exists(file_tar), 'Invalid file path.'
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, 'tar', file_tar ))
 
 ###############################################################################
 # Set up voc_<year>_<split>
 for year in ['2007', '2012']:
   for split in ['train', 'val', 'trainval', 'test']:
     name = 'voc_{}_{}'.format(year, split)
-    file_path = '' # Insert file path here
+    file_path = '/home/divyam/FRCN/dafrcnn-pytorch/data/VOC2007/VOCdevkit2007/' # Insert file path here
     assert os.path.exists(file_path), 'Invalid file path.'
     __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, file_path ))
 

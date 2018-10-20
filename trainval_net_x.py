@@ -63,6 +63,10 @@ def parse_args():
   parser.add_argument('--tar', dest='tar_dataset',
 		      default='fcity', type=str,
 	              help='target dataset')
+
+  parser.add_argument('--ignore_filter', dest='ignore_filter',
+		      default= False, type=bool,
+		      help='ignore filter warning')
 ######################################################################################################################
 
   parser.add_argument('--net', dest='net',
@@ -692,12 +696,20 @@ if __name__ == '__main__':
       # set domain classifiers to train mode
       d_cls_image.train()
       d_cls_inst.train()
-     
-      tar_img_dir = '/home/divyam/FRCN/faster-rcnn.pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/VOC2007/JPEGImages/'      
+################################################################################################### 
+      tar_name_dir = '/home/divyam/FRCN/dafrcnn-pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/VOC2007/ImageSets/Main/test.txt'
+      tar_img_dir = '/home/divyam/FRCN/dafrcnn-pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/VOC2007/JPEGImages'
+      with open(tar_name_dir) as f:
+        namelist = f.read().splitlines() 
       imglist = os.listdir(tar_img_dir)
+      num_names = len(namelist)
+      for i in range(num_names):
+	a = namelist[i]+'.jpg'
+	imglist.remove(a)
+	print('removed', a)
       num_images = len(imglist)
-      #tar_img_dir = 'home/divyam/FRCN/faster-rcnn.pytorch/'
-      
+      #assert num_names==num_images, 'WARNING: Test images are being included.'
+###################################################################################################
       #print('check7')
       loss_temp = 0
       start = time.time()
@@ -731,8 +743,7 @@ if __name__ == '__main__':
 	fasterRCNN.zero_grad()
 		
 	src_rois, src_cls_prob, src_bbox_pred, src_rpn_loss_cls, src_rpn_loss_box, src_RCNN_loss_cls, src_RCNN_loss_bbox, src_rois_label, src_feat_map, src_roi_pool = fasterRCNN(src_img_data, src_img_info, src_gt_boxes, src_num_boxes, is_target=False)
-######################################################################################################################################################
-	
+######################################################################################################################################################	
 	tar_im_counter = step%num_images
 	tar_im_file = os.path.join(tar_img_dir, imglist[tar_im_counter])
 	#print(tar_im_file, 'name')
