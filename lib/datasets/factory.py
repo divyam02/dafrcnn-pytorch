@@ -22,6 +22,15 @@ import os.path
 
 # Add devkit paths to your own folders. Add paths to folders containing VOCdevkit2007 in the format '$ROOT/dafrcnn-pytorch/data/src/$NAME_OF_YOUR_DATASET/VOCdevkit2007/'
 # Add argument for domain.
+"""
+Dummy path:
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = '$YOUR_DATASET_NAME_{}_{}'.format(year, split)
+    file_src = '$ROOT/dafrcnn-pytorch/data/src/$YOUR_DATASET/VOCdevkit2007/' # Insert file path here
+    assert os.path.exists(file_src), 'Invalid file path.'
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, 'src', file_src ))
+"""
 ###############################################################################
 
 for year in ['2007', '2012']:
