@@ -47,7 +47,8 @@ def parse_args():
   parser.add_argument('--dataset', dest='dataset',
                       help='training dataset',
                       default='pascal_voc', type=str)
-######################################################################################################################
+####################################################################################################
+# Domain Adaptation
   parser.add_argument('--da', dest='da',
 		      default=False, type=bool,
 		      help='Include domain adaptation')
@@ -56,8 +57,8 @@ def parse_args():
   		      default=False, type=bool,
   		      help='modify gradient reverse')
 
-  parser.add_argument('--src', dest='src_dataset', 
-		      default='city', type=str, 
+  parser.add_argument('--src', dest='src_dataset',
+		      default='city', type=str,
 		      help='source dataset')
 
   parser.add_argument('--tar', dest='tar_dataset',
@@ -67,7 +68,7 @@ def parse_args():
   parser.add_argument('--ignore_filter', dest='ignore_filter',
 		      default= False, type=bool,
 		      help='ignore filter warning')
-######################################################################################################################
+####################################################################################################
 
   parser.add_argument('--net', dest='net',
                     help='vgg16, res101',
@@ -96,7 +97,7 @@ def parse_args():
                       action='store_true')
   parser.add_argument('--ls', dest='large_scale',
                       help='whether use large imag scale',
-                      action='store_true')                      
+                      action='store_true')
   parser.add_argument('--mGPUs', dest='mGPUs',
                       help='whether use multiple GPUs',
                       action='store_true')
@@ -146,9 +147,9 @@ def parse_args():
 
   args = parser.parse_args()
   return args
-############################################################################################################################################
-def _get_image_blob(im): 
-  
+####################################################################################################
+def _get_image_blob(im):
+
   """Converts an image into a network input.
   Arguments:
     im (ndarray): a color image in BGR order
@@ -181,7 +182,7 @@ def _get_image_blob(im):
   blob = im_list_to_blob(processed_ims)
 
   return blob, np.array(im_scale_factors)
-##########################################################################################################################################
+####################################################################################################
 class sampler(Sampler):
   def __init__(self, train_size, batch_size):
     self.num_data = train_size
@@ -207,7 +208,7 @@ class sampler(Sampler):
   def __len__(self):
     return self.num_data
 
-###############################################################################################################################################
+####################################################################################################
 
 if __name__ == '__main__':
 
@@ -220,7 +221,7 @@ if __name__ == '__main__':
     from model.utils.logger import Logger
     # Set the logger
     logger = Logger('./logs')
-# Domain adaption if true, give 
+# Domain adaption if true, give
   if args.da is False:
 
     if args.dataset == "pascal_voc":
@@ -258,7 +259,7 @@ if __name__ == '__main__':
     pprint.pprint(cfg)
     np.random.seed(cfg.RNG_SEED)
 
-###################################################################################################################################################
+####################################################################################################
 
     #torch.backends.cudnn.benchmark = True
     if torch.cuda.is_available() and not args.cuda:
@@ -306,8 +307,17 @@ if __name__ == '__main__':
     num_boxes = Variable(num_boxes)
     gt_boxes = Variable(gt_boxes)
 
-######################################################################################################################################################
+####################################################################################################
 # Add custom dataset add cfgs from da-faster-rcnn
+# Make sure you change the imdb_name in factory.py
+"""
+Dummy format:
+
+args.src_dataset == '$YOUR_DATASET_NAME'
+args.src_imdb_name = '$YOUR_DATASET_NAME_2007_trainval'
+args.src_imdbval_name = '$YOUR_DATASET_NAME_2007_test'
+args.set_cfgs = [...]
+"""
   else:
     if args.src_dataset == "city":
       args.src_imdb_name = "city_2007_trainval"
@@ -340,55 +350,28 @@ if __name__ == '__main__':
     pprint.pprint(cfg)
     np.random.seed(cfg.RNG_SEED)
 
-####################################################################################################################################################
+####################################################################################################
 
     cfg.TRAIN.USE_FLIPPED = True
     cfg.USE_GPU_NMS = args.cuda
     # src, tar dataloaders
-	
-    #print('Loading src, tar datasets from <trainval.py')
 
     src_imdb, src_roidb, src_ratio_list, src_ratio_index = combined_roidb(args.src_imdb_name, domain='src')
     train_size_src = len(src_roidb)
-    
-    """
-    Cannot take roidb of target dataset... only imdb!
-    Log:
-    02/10/18:
-    """
 
-
-
-
-
-    #ar_imdb, tar_roidb, tar_ratio_list, tar_ratio_index = combined_roidb(args.tar_imdb_name, domain='tar')
-    #t(tar_ro  id
-    #print('check1')
     # Modify train size. Make sure both are of same size.
     # Modify training loop to continue giving src loss after tar is done.
     train_size = train_size_src
     #print('check2')
     src_dataset = roibatchLoader(src_roidb, src_ratio_list, src_ratio_index, 1, \
 							  src_imdb.num_classes, training=True)
-   
 
-    #print(tar_roidb)
-    #assert 1<0
-
-    #print('check3')
-    #tar_dataset = roibatchLoader(tar_roidb, tar_ratio_list, tar_ratio_index, 1, \
-    #							  tar_imdb.num_classes, training=True)
-    #print('check4')
     sampler_batch_src = sampler(train_size, args.batch_size)
-    #print('check5')
     sampler_batch_tar = sampler(train_size, args.batch_size)
 
     src_dataloader = torch.utils.data.DataLoader(src_dataset, sampler=sampler_batch_src, batch_size=1)
-    #tar_dataloader = torch.utils.data.DataLoader(tar_dataset, sampler=sampler_batch_tar, batch_size=1)
 
     print('{:d} source roidb entries'.format(len(src_roidb)))
-
-    #print('{:d} target roidb entries'.format(len(tar_roidb)))
 
     # Update output_dir for testing!
 
@@ -408,11 +391,11 @@ if __name__ == '__main__':
     tar_num_boxes = torch.LongTensor(1)
     tar_gt_boxes = torch.FloatTensor(1)
 
-  ##############################################################################################################################################
+  ##################################################################################################
 
     # ship to cuda
     if args.cuda:
-      # domain 
+      # domain
       src_img_data = src_img_data.cuda()
       src_img_info = src_img_info.cuda()
       src_num_boxes = src_num_boxes.cuda()
@@ -422,7 +405,6 @@ if __name__ == '__main__':
       tar_num_boxes = src_num_boxes.cuda()
       tar_gt_boxes = src_gt_boxes.cuda()
 
-    # wtf is this?? fix it.
     # UPDATED: same as declaring tensor object. We are using v0.2.0_3!
     # make variable
     src_img_data = Variable(src_img_data)
@@ -440,10 +422,9 @@ if __name__ == '__main__':
     # Initialize domain classifiers here.
     if args.da == True:
       d_cls_image = d_cls_image()
-      #print('d_cls_image gpu id', d_cls_image.get_device())      
       d_cls_inst = d_cls_inst()
 
-#########################################################################################################################
+####################################################################################################
 
   if args.cuda:
     cfg.CUDA = True
@@ -468,11 +449,9 @@ if __name__ == '__main__':
       print('source imdb classes', src_imdb.classes)
       fasterRCNN = resnet(src_imdb.classes, 101, pretrained=True, class_agnostic=args.class_agnostic)
 
-#########################################################################################################################
+####################################################################################################
 
   fasterRCNN.create_architecture()
-  #print('created arch')
-  #print(fasterRCNN)
   lr = cfg.TRAIN.LEARNING_RATE
   lr = args.lr
   #tr_momentum = cfg.TRAIN.MOMENTUM
@@ -480,18 +459,12 @@ if __name__ == '__main__':
 
   params = []
   for key, value in dict(fasterRCNN.named_parameters()).items():
-    #print('key:', key)
-    #print('value:', type(value))
-    #print('value.requires_grad?', value.requires_grad)
-    #print('network parameters:', fasterRCNN.named_parameters())
     if value.requires_grad:
       if 'bias' in key:
 	params += [{'params':[value],'lr':lr*(cfg.TRAIN.DOUBLE_BIAS + 1), \
 		'weight_decay': cfg.TRAIN.BIAS_DECAY and cfg.TRAIN.WEIGHT_DECAY or 0}]
       else:
 	params += [{'params':[value],'lr':lr, 'weight_decay': cfg.TRAIN.WEIGHT_DECAY}]
-
-  #print('Param List:', params)
 
   if args.optimizer == "adam":
     lr = lr * 0.1
@@ -511,25 +484,15 @@ if __name__ == '__main__':
 
 
   # Set domain image level loss criteria
-  def d_img_criteria(d_img_x, label): 	
+  def d_img_criteria(d_img_x, label):
     policy = torch.nn.NLLLoss()
-    #print(type(d_img_x), "d_img_x")
-    #print(torch.max(label, 1)[1], "label")
     loss = policy(d_img_x, torch.max(label, 1)[1])
     loss = loss.sum(dim=0)
     return loss
 
-  # Set domain instance level loss criteria	
+  # Set domain instance level loss criteria
   def d_inst_criteria(d_inst_x, label):
-    """
-    size = list(d_inst_x.size())[0]
-    for i in range(size):
-	  loss += torch.nn.NLLLoss(d_inst_x, label)
-    return loss
-    """
     policy = torch.nn.NLLLoss()
-    #loss = torch.nn.NLLLoss(d_inst_x, label)
-    #print(torch.max(label, 1)[1], "label")
     loss = policy(d_inst_x, torch.max(label, 1)[1])
     loss = loss.sum(dim=0)
     return loss
@@ -537,7 +500,7 @@ if __name__ == '__main__':
   # Initialize consistency regularization
   d_cst_src_loss = 0
   d_cst_tar_loss = 0
-##########################################################################################################################################################
+####################################################################################################
 
   if args.resume:
     load_name = os.path.join(output_dir,
@@ -560,13 +523,13 @@ if __name__ == '__main__':
     fasterRCNN.cuda()
     # Add domain classfiers to cuda
     d_cls_image.cuda()
-    d_cls_inst.cuda()  
-  
+    d_cls_inst.cuda()
+
 
   iters_per_epoch = int(train_size / args.batch_size)
 
 
-#############################################################################################################################################################
+####################################################################################################
 
 # Modify train size!
   if args.da is False:
@@ -593,7 +556,7 @@ if __name__ == '__main__':
 	rpn_loss_cls, rpn_loss_box, \
 	RCNN_loss_cls, RCNN_loss_bbox, \
 	rois_label = fasterRCNN(im_data, im_info, gt_boxes, num_boxes)
-	
+
 	# check sizes
 
 	print('rpn_loss_cls', rpn_loss_cls)
@@ -608,7 +571,7 @@ if __name__ == '__main__':
 	print('rpn_loss_cls', rpn_loss_cls)
 	print('rpn_loss_box', rpn_loss_box)
 	print('RCNN_loss_cls', RCNN_loss_cls)
-	print('RCNN_loss_bbox', RCNN_loss_bbox)	
+	print('RCNN_loss_bbox', RCNN_loss_bbox)
 
 	# backward
 	optimizer.zero_grad()
@@ -682,35 +645,35 @@ if __name__ == '__main__':
       print(end - start)
 
 
-###########################################################################################################################################################
+####################################################################################################
 
   else:
     # Modify epoch cycle
     for epoch in range(args.start_epoch, args.max_epochs + 1):
       start_steps = epoch * len(src_dataloader)
       total_steps = args.max_epochs * len(src_dataloader)
-      
+
       # setting to train mode
       fasterRCNN.train()
 
       # set domain classifiers to train mode
       d_cls_image.train()
       d_cls_inst.train()
-################################################################################################### 
-      tar_name_dir = '/home/divyam/FRCN/dafrcnn-pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/VOC2007/ImageSets/Main/test.txt'
-      tar_img_dir = '/home/divyam/FRCN/dafrcnn-pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/VOC2007/JPEGImages'
+###################################################################################################
+
+      tar_name_dir = '$YOUR_PATH/VOCdevkit2007/VOC2007/ImageSets/Main/test.txt'# Insert target testset path here
+      tar_img_dir = '$YOUR_PATH/VOCdevkit2007/VOC2007/JPEGImages'# Insert target image directory here
       with open(tar_name_dir) as f:
-        namelist = f.read().splitlines() 
+        namelist = f.read().splitlines()
       imglist = os.listdir(tar_img_dir)
       num_names = len(namelist)
       for i in range(num_names):
-	a = namelist[i]+'.jpg'
+        a = namelist[i]+'.jpg'
 	imglist.remove(a)
 	print('removed', a)
       num_images = len(imglist)
-      #assert num_names==num_images, 'WARNING: Test images are being included.'
+
 ###################################################################################################
-      #print('check7')
       loss_temp = 0
       start = time.time()
 
@@ -718,36 +681,23 @@ if __name__ == '__main__':
 	adjust_learning_rate(optimizer, args.lr_decay_gamma)
 	lr *= args.lr_decay_gamma
 
-      #data_iter = iter(dataloader)
-      #data iters for src, tar
-      #print('check8')
       src_data_iter = iter(src_dataloader)
-      #tar_data_iter = iter(tar_dataloader)
-      
+
       for step in range(iters_per_epoch):
 	# add scoring for normal faster rcnn
 	src_data = next(src_data_iter)
-	#print('step', step)
-	#print('src data file', src_data)
-	#print('step', step)
 	src_img_data.data.resize_(src_data[0].size()).copy_(src_data[0])
 	src_img_info.data.resize_(src_data[1].size()).copy_(src_data[1])
 	src_gt_boxes.data.resize_(src_data[2].size()).copy_(src_data[2])
 	src_num_boxes.data.resize_(src_data[3].size()).copy_(src_data[3])
-	#print('IMG INFO:', src_img_info)
-	#tar_data = next(tar_data_iter)
-	#tar_img_data.data.resize_(tar_data[0].size()).copy_(tar_data[0])
-	#tar_img_info.data.resize_(tar_data[1].size()).copy_(tar_data[1])
-	
 	# EXTRACT FEATURE MAP AND ROI MAP HERE
 	fasterRCNN.zero_grad()
-		
+
 	src_rois, src_cls_prob, src_bbox_pred, src_rpn_loss_cls, src_rpn_loss_box, src_RCNN_loss_cls, src_RCNN_loss_bbox, src_rois_label, src_feat_map, src_roi_pool = fasterRCNN(src_img_data, src_img_info, src_gt_boxes, src_num_boxes, is_target=False)
-######################################################################################################################################################	
+
+####################################################################################################
 	tar_im_counter = step%num_images
 	tar_im_file = os.path.join(tar_img_dir, imglist[tar_im_counter])
-	#print(tar_im_file, 'name')
-	# im = cv2.imread(im_file)
 	tar_im_in = np.array(imread(tar_im_file))
 	if len(tar_im_in.shape) == 2:
 	  tar_im_in = tar_im_in[:,:,np.newaxis]
@@ -770,47 +720,30 @@ if __name__ == '__main__':
 	tar_num_boxes.data.resize_(1).zero_()
 
 	tar_feat_map, tar_roi_pool = fasterRCNN(tar_im_data, tar_im_info, tar_gt_boxes, tar_num_boxes, is_target=True)
-
-	#tar_feat_map, tar_roi_pool = fasterRCNN(tar_img_data, tar_img_info, gt_boxes=None, num_boxes=None, is_target=True)
-
-
-	#print(tar_feat_map,'tar_feat_map')
-	#print(tar_roi_pool, 'tar_roi_pool')
-	#assert 1<0
+###################################################################################################
 	# Add domain adaption elements
 	# setup hyperparameter
-#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FIXED, CHECK >>>>>>>>>>>>>>>>>>>>>>>>>	
-	#if args.adaption_lr:
 	p = float(step + start_steps) / total_steps
 	constant = 2. / (1. + np.exp(-10 * p)) - 1
-#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>	
-      	#print('base feat map type', type(src_feat_map)se)
-	  	#print('pool feat map type', type(src_roi_pool))
-	#print('base feat map id', src_feat_map.get_device())
+###################################################################################################
 	d_cls_image.set_beta(constant)
 	d_cls_inst.set_beta(constant)
+
 	src_d_img_score = d_cls_image(src_feat_map)
       	src_d_inst_score = d_cls_inst(src_roi_pool)
       	tar_d_img_score = d_cls_image(tar_feat_map)
       	tar_d_inst_score = d_cls_inst(tar_roi_pool)
 
-	#print('src_d_img_score', src_d_img_score)
-	
-	
 	s1 = np.zeros((list(src_d_img_score[0].size())[0], 2))
-	s2 = np.ones((list(tar_d_img_score[0].size())[0], 2))	
+	s2 = np.ones((list(tar_d_img_score[0].size())[0], 2))
 	s3 = np.zeros((list(src_d_inst_score[0].size())[0], 2))
 	s4 = np.ones((list(tar_d_inst_score[0].size())[0], 2))
-      	
-		
+
+
 	src_img_label = Variable(torch.from_numpy(s1)).type(torch.cuda.LongTensor)
 	src_inst_label = Variable(torch.from_numpy(s3)).type(torch.cuda.LongTensor)
 	tar_img_label = Variable(torch.from_numpy(s2)).type(torch.cuda.LongTensor)
 	tar_inst_label = Variable(torch.from_numpy(s4)).type(torch.cuda.LongTensor)
-        
-	#src_img_label = Variable(torch.FloatTensor(719872).uniform_(0, 1).long())
-	
-	#print('src_img_label', src_img_label, src_img_label[0].size(), type(src_d_img_score[0]))
 
       	src_d_img_loss = d_img_criteria(src_d_img_score[0],  src_img_label)
       	src_d_inst_loss = d_inst_criteria(src_d_inst_score[0], src_inst_label)
@@ -818,7 +751,7 @@ if __name__ == '__main__':
       	tar_d_inst_loss = d_inst_criteria(tar_d_inst_score[0], tar_inst_label)
 
       	d_img_loss = src_d_img_loss + tar_d_img_loss
-      	d_inst_loss = src_d_inst_loss + tar_d_inst_loss 
+      	d_inst_loss = src_d_inst_loss + tar_d_inst_loss
 
       	# Feature map representation: 1 x 1024 x H x W
       	src_feat_map_dim = list(src_feat_map.size())[1]*list(src_feat_map.size())[2]*list(src_feat_map.size())[3]
@@ -826,7 +759,7 @@ if __name__ == '__main__':
 
       	src_d_cst_loss = consistency_reg(src_feat_map_dim, src_d_img_score[1], src_d_inst_score)
       	tar_d_cst_loss = consistency_reg(tar_feat_map_dim, tar_d_img_score[1], tar_d_inst_score)
-        
+
 	print('src_d_cst_loss', src_d_cst_loss)
 	print('tar_d_cst_loss', tar_d_cst_loss)
 
@@ -834,8 +767,6 @@ if __name__ == '__main__':
 
 	# Add domain loss
 	loss = src_rpn_loss_cls.mean() + src_rpn_loss_box.mean() + src_RCNN_loss_cls.mean() + src_RCNN_loss_bbox.mean() + (1e-1)*(d_img_loss.mean() + d_inst_loss.mean() + d_cst_loss.mean())
-  
-
 	loss_temp += loss.data[0]
 
 	# domain backward
@@ -851,11 +782,12 @@ if __name__ == '__main__':
 	d_inst_opt.step()
 	d_image_opt.step()
 
+###################################################################################################
+
 	if step % args.disp_interval == 0:
 	  end = time.time()
 	  if step > 0:
 	    loss_temp /= args.disp_interval
-  #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FIX for src, tar tensors >>>>>>>>>>>> FIXED >>>>
 	  if args.mGPUs:
 	    src_loss_rpn_cls = src_rpn_loss_cls.mean().data[0]
 	    src_loss_rpn_box = src_rpn_loss_box.mean().data[0]
@@ -885,23 +817,17 @@ if __name__ == '__main__':
 	    tar_loss_d_img = tar_d_img_loss.data[0]
 	    tar_loss_d_inst = tar_d_inst_loss.data[0]
 	    tar_loss_d_cst = tar_d_cst_loss.data[0]
-  #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	  
-	  #print('src_rpn_cls', type(src_loss_rpn_cls))
-	  #print('src_rpn_bpx', type(src_loss_rpn_box))
-	  #print('src_rcnn_cls', type(src_loss_rcnn_cls))
-	  #print('src_rcnn_box', type(src_loss_rcnn_box))
-	  #print('src_d_img_loss', type(src_loss_d_img))
-	  #print('src_d_inst_loss', type(src_loss_d_inst))
-	  
+
+###################################################################################################
+
 	  print('src_d_cst_loss', type(src_loss_d_cst), src_d_cst_loss)
 	  print('tar_d_cst_loss', type(tar_loss_d_cst), tar_d_cst_loss)
-	  
+
 	  print("[session %d][epoch %2d][iter %4d/%4d] loss: %.4f, lr: %.2e" \
 				  % (args.session, epoch, step, iters_per_epoch, loss_temp, lr))
 	  print("\t\t\tsrc_fg/src_bg=(%d/%d), time cost: %f" % (src_fg_cnt, src_bg_cnt, end-start))
 	  print("\t\t\tsrc_rpn_cls: %f, src_rpn_box: %f, src_rcnn_cls: %f, src_rcnn_box %f, src_d_img_loss: %f, src_d_inst_loss: %f, src_d_cst_loss: %f, tar_d_img_loss: %f, tar_d_inst_loss: %f, tar_d_cst_loss: %f" % (src_loss_rpn_cls, src_loss_rpn_box, src_loss_rcnn_cls, src_loss_rcnn_box, src_loss_d_img, src_loss_d_inst, src_loss_d_cst, tar_loss_d_img, tar_loss_d_inst, tar_loss_d_cst))
-	  
+
 	if args.use_tfboard:
 	  info = {
 	    'loss': loss_temp,
@@ -916,8 +842,7 @@ if __name__ == '__main__':
 	loss_temp = 0
 	start = time.time()
 
-
-      ###########################################################################################################################
+####################################################################################################
 
       if args.mGPUs:
 	save_name = os.path.join(output_dir, 'faster_rcnn_{}_{}_{}.pth'.format(args.session, epoch, step))
