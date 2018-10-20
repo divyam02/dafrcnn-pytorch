@@ -48,7 +48,7 @@ class pascal_voc(imdb):
 	self.domain = domain
         print('image dataset path:', self._data_path)
 
-        # Modify classes
+        # Modify classes for your dataset
         """
         self._classes = ('__background__',  # always index 0
                          'aeroplane', 'bicycle', 'bird', 'boat',
@@ -66,7 +66,6 @@ class pascal_voc(imdb):
         # Default to roidb handler
         # self._roidb_handler = self.selective_search_roidb
         self._roidb_handler = self.gt_roidb
-	#print('CALLING FROM PASCAL_VOC FOR gt_roidb')
         self._salt = str(uuid.uuid4())
         self._comp_id = 'comp4'
 
@@ -90,7 +89,6 @@ class pascal_voc(imdb):
         return self.image_path_from_index(self._image_index[i])
 
     def image_id_at(self, i):
-	#print('LOADED FROM PASCAL_VOC')
         """
         Return the absolute path to image i in the image sequence.
         """
@@ -119,11 +117,8 @@ class pascal_voc(imdb):
         with open(image_set_file) as f:
             image_index = [x.strip() for x in f.readlines()]
             print('sample image from dataset:', x)
-	#print('image_index', image_index)
-        # DEAL WITH ROIDBS REMOVED
 
 	return image_index
-	#return 493
 
     def _get_default_path(self):
         """
@@ -132,19 +127,11 @@ class pascal_voc(imdb):
         return os.path.join(cfg.DATA_DIR, 'VOCdevkit' + self._year)
 
     def gt_roidb(self):
-
-	#print('CALLING FROM PASCAL_VOC')
-
         """
         Return the database of ground-truth regions of interest.
 
         This function loads/saves from/to a cache file to speed up future calls.
         """
-
-	#print('cache_path:', self.cache_path)
-	#print('self.domain', self.domain)
-	#print('self.name', self.name)
-
 	cache_file = os.path.join(self.cache_path, self.name + '_gt_roidb.pkl')
         if os.path.exists(cache_file):
             with open(cache_file, 'rb') as fid:
