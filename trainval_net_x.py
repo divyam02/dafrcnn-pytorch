@@ -777,19 +777,19 @@ args.set_cfgs = [...]
 	loss = src_rpn_loss_cls.mean() + src_rpn_loss_box.mean() + src_RCNN_loss_cls.mean() + src_RCNN_loss_bbox.mean() + (1e-1)*(d_img_loss.mean() + d_inst_loss.mean() + d_cst_loss.mean())
 	loss_temp += loss.data[0]
 
-        # frcnn backward
-        optimizer.zero_grad()
+	# frcnn backward
+	optimizer.zero_grad()
 	# domain backward
 	d_inst_opt.zero_grad()
 	d_image_opt.zero_grad()
 
 	loss.backward()
-
-        if args.net == "vgg16":
+	
+	if args.net == "vgg16":
 	  clip_gradient(fasterRCNN, 10.)
 
-        # frcnn optimizer update
-        optimizer.step()
+	# frcnn optimizer update
+	optimizer.step()
 	# domain optimizer update
 	d_inst_opt.step()
 	d_image_opt.step()
