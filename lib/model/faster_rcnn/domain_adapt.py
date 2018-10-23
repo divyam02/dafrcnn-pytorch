@@ -19,7 +19,6 @@ def consistency_reg(N, d_image_y, d_inst_y):
 
 def flatten(x):
     N = list(x.size())[0]
-    #print('dim 0', N, 1024*19*37)
     return x.view(N, -1)
 
 def grad_reverse(x, beta):
