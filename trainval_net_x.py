@@ -362,7 +362,6 @@ args.set_cfgs = [...]
     # Modify train size. Make sure both are of same size.
     # Modify training loop to continue giving src loss after tar is done.
     train_size = train_size_src
-    #print('check2')
     src_dataset = roibatchLoader(src_roidb, src_ratio_list, src_ratio_index, 1, \
 							  src_imdb.num_classes, training=True)
 
@@ -386,6 +385,7 @@ args.set_cfgs = [...]
     src_img_info = torch.FloatTensor(1)
     src_num_boxes = torch.LongTensor(1)
     src_gt_boxes = torch.FloatTensor(1)
+
     tar_img_data = torch.FloatTensor(1)
     tar_img_info = torch.FloatTensor(1)
     tar_num_boxes = torch.LongTensor(1)
@@ -400,10 +400,11 @@ args.set_cfgs = [...]
       src_img_info = src_img_info.cuda()
       src_num_boxes = src_num_boxes.cuda()
       src_gt_boxes = src_gt_boxes.cuda()
-      tar_img_data = src_img_data.cuda()
-      tar_img_info = src_img_info.cuda()
-      tar_num_boxes = src_num_boxes.cuda()
-      tar_gt_boxes = src_gt_boxes.cuda()
+
+      tar_img_data = tar_img_data.cuda()
+      tar_img_info = tar_img_info.cuda()
+      tar_num_boxes = tar_num_boxes.cuda()
+      tar_gt_boxes = tar_gt_boxes.cuda()
 
     # UPDATED: same as declaring tensor object. We are using v0.2.0_3!
     # make variable
@@ -411,6 +412,7 @@ args.set_cfgs = [...]
     src_img_info = Variable(src_img_info)
     src_num_boxes = Variable(src_num_boxes)
     src_gt_boxes = Variable(src_gt_boxes)
+
     tar_im_data = Variable(tar_img_data)
     tar_im_info = Variable(tar_img_info)
     tar_num_boxes = Variable(tar_num_boxes)
@@ -468,13 +470,10 @@ args.set_cfgs = [...]
 
   if args.optimizer == "adam":
     lr = lr * 0.1
-    # CHANGE THIS, OPTIMIZER IS NEEDED
-    if args.da is False:
-      optimizer = torch.optim.Adam(params)
-    else:
-      # domain optimizers
-      d_image_opt = torch.optim.Adam(d_cls_image.parameters(), params['lr'], params['weight_decay'])
-      d_inst_opt = torch.optim.Adam(d_cls_inst.parameters(), params['lr'], params['weight_decay'])
+    optimizer = torch.optim.Adam(params)
+    # domain optimizers
+    d_image_opt = torch.optim.Adam(d_cls_image.parameters(), params['lr'], params['weight_decay'])
+    d_inst_opt = torch.optim.Adam(d_cls_inst.parameters(), params['lr'], params['weight_decay'])
 
   elif args.optimizer == "sgd":
     optimizer = torch.optim.SGD(params, momentum=cfg.TRAIN.MOMENTUM)
@@ -486,14 +485,14 @@ args.set_cfgs = [...]
   # Set domain image level loss criteria
   def d_img_criteria(d_img_x, label):
     policy = torch.nn.NLLLoss()
-    loss = policy(d_img_x, torch.max(label, 1)[1])
+    loss = policy(d_img_x, label)
     loss = loss.sum(dim=0)
     return loss
 
   # Set domain instance level loss criteria
   def d_inst_criteria(d_inst_x, label):
     policy = torch.nn.NLLLoss()
-    loss = policy(d_inst_x, torch.max(label, 1)[1])
+    loss = policy(d_inst_x, label)
     loss = loss.sum(dim=0)
     return loss
 
@@ -646,7 +645,8 @@ args.set_cfgs = [...]
 
 
 ####################################################################################################
-
+# Domain Adaptive version
+####################################################################################################
   else:
     # Modify epoch cycle
     for epoch in range(args.start_epoch, args.max_epochs + 1):
@@ -655,7 +655,6 @@ args.set_cfgs = [...]
 
       # setting to train mode
       fasterRCNN.train()
-
       # set domain classifiers to train mode
       d_cls_image.train()
       d_cls_inst.train()
@@ -691,7 +690,10 @@ args.set_cfgs = [...]
 	src_gt_boxes.data.resize_(src_data[2].size()).copy_(src_data[2])
 	src_num_boxes.data.resize_(src_data[3].size()).copy_(src_data[3])
 	# EXTRACT FEATURE MAP AND ROI MAP HERE
+        # Set gradient to zero...
 	fasterRCNN.zero_grad()
+        d_cls_image.zero_grad()
+        d_cls_inst.zero_grad()
 
 	src_rois, src_cls_prob, src_bbox_pred, src_rpn_loss_cls, src_rpn_loss_box, src_RCNN_loss_cls, src_RCNN_loss_bbox, src_rois_label, src_feat_map, src_roi_pool = fasterRCNN(src_img_data, src_img_info, src_gt_boxes, src_num_boxes, is_target=False)
 
@@ -734,16 +736,15 @@ args.set_cfgs = [...]
       	tar_d_img_score = d_cls_image(tar_feat_map)
       	tar_d_inst_score = d_cls_inst(tar_roi_pool)
 
-	s1 = np.zeros((list(src_d_img_score[0].size())[0], 2))
-	s2 = np.ones((list(tar_d_img_score[0].size())[0], 2))
-	s3 = np.zeros((list(src_d_inst_score[0].size())[0], 2))
-	s4 = np.ones((list(tar_d_inst_score[0].size())[0], 2))
+	s1 = list(src_d_img_score[0].size())[0]
+	s2 = list(tar_d_img_score[0].size())[0]
+	s3 = list(src_d_inst_score[0].size())[0]
+        s4 = list(tar_d_inst_score[0].size())[0]
 
-
-	src_img_label = Variable(torch.from_numpy(s1)).type(torch.cuda.LongTensor)
-	src_inst_label = Variable(torch.from_numpy(s3)).type(torch.cuda.LongTensor)
-	tar_img_label = Variable(torch.from_numpy(s2)).type(torch.cuda.LongTensor)
-	tar_inst_label = Variable(torch.from_numpy(s4)).type(torch.cuda.LongTensor)
+        src_img_label = Variable(torch.zeros(s1).long()).cuda()
+        src_inst_label = Variable(torch.zeros(s3).long()).cuda()
+        tar_img_label = Variable(torch.ones(s2).long()).cuda()
+        tar_inst_label = Variable(torch.ones(s4).long()).cuda()
 
       	src_d_img_loss = d_img_criteria(src_d_img_score[0],  src_img_label)
       	src_d_inst_loss = d_inst_criteria(src_d_inst_score[0], src_inst_label)
@@ -760,15 +761,14 @@ args.set_cfgs = [...]
       	src_d_cst_loss = consistency_reg(src_feat_map_dim, src_d_img_score[1], src_d_inst_score)
       	tar_d_cst_loss = consistency_reg(tar_feat_map_dim, tar_d_img_score[1], tar_d_inst_score)
 
-	print('src_d_cst_loss', src_d_cst_loss)
-	print('tar_d_cst_loss', tar_d_cst_loss)
-
       	d_cst_loss = src_d_cst_loss + tar_d_cst_loss
 
 	# Add domain loss
 	loss = src_rpn_loss_cls.mean() + src_rpn_loss_box.mean() + src_RCNN_loss_cls.mean() + src_RCNN_loss_bbox.mean() + (1e-1)*(d_img_loss.mean() + d_inst_loss.mean() + d_cst_loss.mean())
 	loss_temp += loss.data[0]
 
+        # frcnn backward
+        optimizer.zero_grad()
 	# domain backward
 	d_inst_opt.zero_grad()
 	d_image_opt.zero_grad()
@@ -776,8 +776,9 @@ args.set_cfgs = [...]
 	loss.backward()
 	if args.net == "vgg16":
 	  clip_gradient(fasterRCNN, 10.)
-	optimizer.step()
 
+        # frcnn optimizer update
+        optimizer.step()
 	# domain optimizer update
 	d_inst_opt.step()
 	d_image_opt.step()
