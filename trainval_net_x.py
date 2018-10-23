@@ -740,29 +740,29 @@ args.set_cfgs = [...]
 ###################################################################################################
 	d_cls_image.set_beta(constant)
 	d_cls_inst.set_beta(constant)
-
-        src_d_img_score = d_cls_image(src_feat_map)
-        src_d_inst_score = d_cls_inst(src_roi_pool)
-        tar_d_img_score = d_cls_image(tar_feat_map)
-        tar_d_inst_score = d_cls_inst(tar_roi_pool)
-
-        s1 = list(src_d_img_score[0].size())[0]
-        s2 = list(tar_d_img_score[0].size())[0]
-        s3 = list(src_d_inst_score[0].size())[0]
-        s4 = list(tar_d_inst_score[0].size())[0]
-
-        src_img_label = Variable(torch.zeros(s1).long()).cuda()
-        src_inst_label = Variable(torch.zeros(s3).long()).cuda()
-        tar_img_label = Variable(torch.ones(s2).long()).cuda()
-        tar_inst_label = Variable(torch.ones(s4).long()).cuda()
+	
+	src_d_img_score = d_cls_image(src_feat_map)
+	src_d_inst_score = d_cls_inst(src_roi_pool)
+	tar_d_img_score = d_cls_image(tar_feat_map)
+	tar_d_inst_score = d_cls_inst(tar_roi_pool)
+	
+	s1 = list(src_d_img_score[0].size())[0]
+	s2 = list(tar_d_img_score[0].size())[0]
+	s3 = list(src_d_inst_score[0].size())[0]
+	s4 = list(tar_d_inst_score[0].size())[0]
+	
+	src_img_label = Variable(torch.zeros(s1).long()).cuda()
+	src_inst_label = Variable(torch.zeros(s3).long()).cuda()
+	tar_img_label = Variable(torch.ones(s2).long()).cuda()
+	tar_inst_label = Variable(torch.ones(s4).long()).cuda()
 
       	src_d_img_loss = d_img_criteria(src_d_img_score[0],  src_img_label)
       	src_d_inst_loss = d_inst_criteria(src_d_inst_score[0], src_inst_label)
       	tar_d_img_loss = d_img_criteria(tar_d_img_score[0], tar_img_label)
       	tar_d_inst_loss = d_inst_criteria(tar_d_inst_score[0], tar_inst_label)
-
-      	d_img_loss = src_d_img_loss + tar_d_img_loss
-      	d_inst_loss = src_d_inst_loss + tar_d_inst_loss
+	
+	d_img_loss = src_d_img_loss + tar_d_img_loss
+	d_inst_loss = src_d_inst_loss + tar_d_inst_loss
 
       	# Feature map representation: 1 x 1024 x H x W
       	src_feat_map_dim = list(src_feat_map.size())[1]*list(src_feat_map.size())[2]*list(src_feat_map.size())[3]
