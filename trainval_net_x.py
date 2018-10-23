@@ -692,6 +692,7 @@ args.set_cfgs = [...]
 	# EXTRACT FEATURE MAP AND ROI MAP HERE
         # Set gradient to zero...
 	fasterRCNN.zero_grad()
+        # Domain classifiers
         d_cls_image.zero_grad()
         d_cls_inst.zero_grad()
 
@@ -731,14 +732,14 @@ args.set_cfgs = [...]
 	d_cls_image.set_beta(constant)
 	d_cls_inst.set_beta(constant)
 
-	src_d_img_score = d_cls_image(src_feat_map)
-      	src_d_inst_score = d_cls_inst(src_roi_pool)
-      	tar_d_img_score = d_cls_image(tar_feat_map)
-      	tar_d_inst_score = d_cls_inst(tar_roi_pool)
+        src_d_img_score = d_cls_image(src_feat_map)
+        src_d_inst_score = d_cls_inst(src_roi_pool)
+        tar_d_img_score = d_cls_image(tar_feat_map)
+        tar_d_inst_score = d_cls_inst(tar_roi_pool)
 
-	s1 = list(src_d_img_score[0].size())[0]
-	s2 = list(tar_d_img_score[0].size())[0]
-	s3 = list(src_d_inst_score[0].size())[0]
+        s1 = list(src_d_img_score[0].size())[0]
+        s2 = list(tar_d_img_score[0].size())[0]
+        s3 = list(src_d_inst_score[0].size())[0]
         s4 = list(tar_d_inst_score[0].size())[0]
 
         src_img_label = Variable(torch.zeros(s1).long()).cuda()
