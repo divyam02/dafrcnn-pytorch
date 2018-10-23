@@ -653,6 +653,8 @@ args.set_cfgs = [...]
       start_steps = epoch * len(src_dataloader)
       total_steps = args.max_epochs * len(src_dataloader)
 
+      is_flipped = 0
+
       # setting to train mode
       fasterRCNN.train()
       # set domain classifiers to train mode
