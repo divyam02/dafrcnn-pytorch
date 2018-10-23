@@ -702,6 +702,13 @@ args.set_cfgs = [...]
 	tar_im_counter = step%num_images
 	tar_im_file = os.path.join(tar_img_dir, imglist[tar_im_counter])
 	tar_im_in = np.array(imread(tar_im_file))
+        # Use flipped images...
+        if tar_im_counter==0:
+          is_flipped = (is_flipped+1)%2
+          print('flipped targets...', is_flipped)
+          if is_flipped==0:
+            tar_im_in = np.fliplr(tar_im_in)
+
 	if len(tar_im_in.shape) == 2:
 	  tar_im_in = tar_im_in[:,:,np.newaxis]
 	  tar_im_in = np.concatenate((tar_im_in,tar_im_in,tar_im_in), axis=2)
@@ -775,7 +782,8 @@ args.set_cfgs = [...]
 	d_image_opt.zero_grad()
 
 	loss.backward()
-	if args.net == "vgg16":
+
+        if args.net == "vgg16":
 	  clip_gradient(fasterRCNN, 10.)
 
         # frcnn optimizer update
