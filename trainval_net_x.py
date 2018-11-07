@@ -63,7 +63,6 @@ def parse_args():
     parser.add_argument('--src', dest='src_dataset',
                       default='city', type=str,
                       help='source dataset')
-
     parser.add_argument('--tar', dest='tar_dataset',
                       default='fcity', type=str,
                       help='target dataset')
@@ -118,9 +117,10 @@ def parse_args():
     parser.add_argument('--lr', dest='lr',
                       help='starting learning rate',
                       default=0.001, type=float)
+		      #default=0.0001, type=float)
     parser.add_argument('--lr_decay_step', dest='lr_decay_step',
                       help='step to do learning rate decay, unit is epoch',
-                      default=8, type=int)
+                      default=5, type=int)
     parser.add_argument('--lr_decay_gamma', dest='lr_decay_gamma',
                       help='learning rate decay ratio',
                       default=0.1, type=float)
@@ -226,14 +226,14 @@ if __name__ == '__main__':
         logger = Logger('./logs')
 # Add custom dataset add cfgs from da-faster-rcnn
 # Make sure you change the imdb_name in factory.py
-"""
-Dummy format:
+    """
+    Dummy format:
 
-args.src_dataset == '$YOUR_DATASET_NAME'
-args.src_imdb_name = '$YOUR_DATASET_NAME_2007_trainval'
-args.src_imdbval_name = '$YOUR_DATASET_NAME_2007_test'
-args.set_cfgs = [...]
-"""
+    args.src_dataset == '$YOUR_DATASET_NAME'
+    args.src_imdb_name = '$YOUR_DATASET_NAME_2007_trainval'
+    args.src_imdbval_name = '$YOUR_DATASET_NAME_2007_test'
+    args.set_cfgs = [...]
+    """
     if args.src_dataset == "city":
         args.src_imdb_name = "city_2007_trainval"
         args.src_imdbval_name = "city_2007_test"
@@ -366,6 +366,7 @@ args.set_cfgs = [...]
     fasterRCNN.create_architecture()
     lr = cfg.TRAIN.LEARNING_RATE
     lr = args.lr
+
 #tr_momentum = cfg.TRAIN.MOMENTUM
 #tr_momentum = args.momentum
 
@@ -391,19 +392,17 @@ args.set_cfgs = [...]
         d_image_opt = torch.optim.SGD(d_cls_image.parameters(), lr=lr*(cfg.TRAIN.DOUBLE_BIAS + 1), weight_decay=cfg.TRAIN.WEIGHT_DECAY, momentum=cfg.TRAIN.MOMENTUM)
         d_inst_opt = torch.optim.SGD(d_cls_inst.parameters(), lr=lr*(cfg.TRAIN.DOUBLE_BIAS + 1), weight_decay=cfg.TRAIN.WEIGHT_DECAY, momentum=cfg.TRAIN.MOMENTUM)
 
+        #d_image_opt = torch.optim.SGD(d_cls_image.parameters(), lr=args.lr, weight_decay=cfg.TRAIN.WEIGHT_DECAY, momentum=cfg.TRAIN.MOMENTUM)
+        #d_inst_opt = torch.optim.SGD(d_cls_inst.parameters(), lr=args.lr, weight_decay=cfg.TRAIN.WEIGHT_DECAY, momentum=cfg.TRAIN.MOMENTUM)
 
 # Set domain image level loss criteria
-    def d_img_criteria(d_img_x, label):
-        policy = torch.nn.NLLLoss()
-        loss = policy(d_img_x, label)
-        loss = loss.sum(dim=0)
-        return loss
-
-# Set domain instance level loss criteria
-    def d_inst_criteria(d_inst_x, label):
-        policy = torch.nn.NLLLoss()
-        loss = policy(d_inst_x, label)
-        loss = loss.sum(dim=0)
+    def d_criteria(d_x, label):
+        #policy = torch.nn.NLLLoss()
+	policy = torch.nn.CrossEntropyLoss()
+        loss = policy(d_x, label)
+	#print(loss, 'loss before')
+        #loss = loss.sum(dim=0)
+	#print(loss, 'loss')
         return loss
 
 # Initialize consistency regularization
@@ -419,7 +418,13 @@ args.set_cfgs = [...]
         args.session = checkpoint['session']
         args.start_epoch = checkpoint['epoch']
         fasterRCNN.load_state_dict(checkpoint['model'])
+	# Load domain classifiers
+	d_cls_image.load_state_dict(checkpoint['d_cls_image'])
+	d_cls_inst.load_state_dict(checkpoint['d_inst_img'])
         optimizer.load_state_dict(checkpoint['optimizer'])
+	# Load domain optimizers
+	d_image_opt.load_state_dict(checkpoint['d_image_opt'])
+	d_inst_opt.load_state_dict(checkpoint['d_inst_opt'])
         lr = optimizer.param_groups[0]['lr']
         if 'pooling_mode' in checkpoint.keys():
             cfg.POOLING_MODE = checkpoint['pooling_mode']
@@ -454,8 +459,8 @@ args.set_cfgs = [...]
         d_cls_inst.train()
 ###################################################################################################
 
-        tar_name_dir = '$YOUR_PATH/VOCdevkit2007/VOC2007/ImageSets/Main/test.txt'# Insert target testset path here
-        tar_img_dir = '$YOUR_PATH/VOCdevkit2007/VOC2007/JPEGImages'# Insert target image directory here
+        tar_name_dir = '$YOUR_TARGET_DATASET_PATH/VOCdevkit2007/VOC2007/ImageSets/Main/test.txt'# Insert target testset path here
+        tar_img_dir = '$YOUR_TARGET_DATASET_PATH/VOCdevkit2007/VOC2007/JPEGImages'# Insert target image directory here
 
         with open(tar_name_dir) as f:
             namelist = f.read().splitlines()
@@ -474,17 +479,22 @@ args.set_cfgs = [...]
 
         if epoch % (args.lr_decay_step + 1) == 0:
             adjust_learning_rate(optimizer, args.lr_decay_gamma)
-            lr *= args.lr_decay_gamma
+	    adjust_learning_rate(d_image_opt)
+	    adjust_learning_rate(d_inst_opt)
+	    lr *= args.lr_decay_gamma
+	    print('learning rate decayed to', lr)
 
         src_data_iter = iter(src_dataloader)
 
         for step in range(iters_per_epoch):
 # add scoring for normal faster rcnn
+
             src_data = next(src_data_iter)
             src_img_data.data.resize_(src_data[0].size()).copy_(src_data[0])
             src_img_info.data.resize_(src_data[1].size()).copy_(src_data[1])
             src_gt_boxes.data.resize_(src_data[2].size()).copy_(src_data[2])
             src_num_boxes.data.resize_(src_data[3].size()).copy_(src_data[3])
+
 # EXTRACT FEATURE MAP AND ROI MAP HERE
 # Set gradient to zero...
             fasterRCNN.zero_grad()
@@ -540,20 +550,20 @@ args.set_cfgs = [...]
             tar_d_img_score = d_cls_image(tar_feat_map)
             tar_d_inst_score = d_cls_inst(tar_roi_pool)
 
-            s1 = list(src_d_img_score[0].size())[0]
-            s2 = list(tar_d_img_score[0].size())[0]
-            s3 = list(src_d_inst_score[0].size())[0]
-            s4 = list(tar_d_inst_score[0].size())[0]
+            s1 = list(src_d_img_score.size())[0]
+            s2 = list(tar_d_img_score.size())[0]
+            s3 = list(src_d_inst_score.size())[0]
+            s4 = list(tar_d_inst_score.size())[0]
 
             src_img_label = Variable(torch.zeros(s1).long()).cuda()
             src_inst_label = Variable(torch.zeros(s3).long()).cuda()
             tar_img_label = Variable(torch.ones(s2).long()).cuda()
             tar_inst_label = Variable(torch.ones(s4).long()).cuda()
 
-            src_d_img_loss = d_img_criteria(src_d_img_score[0],  src_img_label)
-            src_d_inst_loss = d_inst_criteria(src_d_inst_score[0], src_inst_label)
-            tar_d_img_loss = d_img_criteria(tar_d_img_score[0], tar_img_label)
-            tar_d_inst_loss = d_inst_criteria(tar_d_inst_score[0], tar_inst_label)
+            src_d_img_loss = d_criteria(src_d_img_score,  src_img_label)
+            src_d_inst_loss = d_criteria(src_d_inst_score, src_inst_label)
+            tar_d_img_loss = d_criteria(tar_d_img_score, tar_img_label)
+            tar_d_inst_loss = d_criteria(tar_d_inst_score, tar_inst_label)
 
             d_img_loss = src_d_img_loss + tar_d_img_loss
             d_inst_loss = src_d_inst_loss + tar_d_inst_loss
@@ -562,13 +572,13 @@ args.set_cfgs = [...]
             src_feat_map_dim = list(src_feat_map.size())[1]*list(src_feat_map.size())[2]*list(src_feat_map.size())[3]
             tar_feat_map_dim = list(tar_feat_map.size())[1]*list(tar_feat_map.size())[2]*list(tar_feat_map.size())[3]
 
-            src_d_cst_loss = consistency_reg(src_feat_map_dim, src_d_img_score[1], src_d_inst_score)
-            tar_d_cst_loss = consistency_reg(tar_feat_map_dim, tar_d_img_score[1], tar_d_inst_score)
+            src_d_cst_loss = consistency_reg(src_feat_map_dim, src_d_img_score, src_d_inst_score, domain='src')
+            tar_d_cst_loss = consistency_reg(tar_feat_map_dim, tar_d_img_score, tar_d_inst_score, domain='tar')
 
             d_cst_loss = src_d_cst_loss + tar_d_cst_loss
 
 # Add domain loss
-            loss = src_rpn_loss_cls.mean() + src_rpn_loss_box.mean() + src_RCNN_loss_cls.mean() + src_RCNN_loss_bbox.mean() + (1e-1)*(d_img_loss.mean() + d_inst_loss.mean() + d_cst_loss.mean())
+            loss = src_rpn_loss_cls.mean() + src_rpn_loss_box.mean() + src_RCNN_loss_cls.mean() + src_RCNN_loss_bbox.mean() + (0.1)*(d_img_loss.mean() + d_inst_loss.mean() + d_cst_loss.mean())
             loss_temp += loss.data[0]
 
 # frcnn backward
@@ -629,10 +639,10 @@ args.set_cfgs = [...]
                 print('src_d_cst_loss', type(src_loss_d_cst), src_d_cst_loss)
                 print('tar_d_cst_loss', type(tar_loss_d_cst), tar_d_cst_loss)
 
-                print("[session %d][epoch %2d][iter %4d/%4d] loss: %.4f, lr: %.2e" \
+                print("[session %d][epoch %2d][iter %4d/%4d]\nloss: %.4f, lr: %.2e" \
                                       % (args.session, epoch, step, iters_per_epoch, loss_temp, lr))
                 print("\t\t\tsrc_fg/src_bg=(%d/%d), time cost: %f" % (src_fg_cnt, src_bg_cnt, end-start))
-                print("\t\t\tsrc_rpn_cls: %f, src_rpn_box: %f, src_rcnn_cls: %f, src_rcnn_box %f, src_d_img_loss: %f, src_d_inst_loss: %f, src_d_cst_loss: %f, tar_d_img_loss: %f, tar_d_inst_loss: %f, tar_d_cst_loss: %f" % (src_loss_rpn_cls, src_loss_rpn_box, src_loss_rcnn_cls, src_loss_rcnn_box, src_loss_d_img, src_loss_d_inst, src_loss_d_cst, tar_loss_d_img, tar_loss_d_inst, tar_loss_d_cst))
+                print("\t\t\tsrc_rpn_cls: %f,\nsrc_rpn_box: %f,\nsrc_rcnn_cls: %f,\nsrc_rcnn_box %f,\nsrc_d_img_loss: %f,\nsrc_d_inst_loss: %f,\nsrc_d_cst_loss: %f,\ntar_d_img_loss: %f,\ntar_d_inst_loss: %f,\ntar_d_cst_loss: %f\n" % (src_loss_rpn_cls, src_loss_rpn_box, src_loss_rcnn_cls, src_loss_rcnn_box, src_loss_d_img, src_loss_d_inst, src_loss_d_cst, tar_loss_d_img, tar_loss_d_inst, tar_loss_d_cst))
 
             if args.use_tfboard:
                 info = {
@@ -656,7 +666,13 @@ args.set_cfgs = [...]
                 'session': args.session,
                 'epoch': epoch + 1,
                 'model': fasterRCNN.module.state_dict(),
+		# Domain classifiers
+		'd_cls_image': d_cls_image.module.state_dict(),
+		'd_cls_inst': d_cls_inst.module.state_dict(),
                 'optimizer': optimizer.state_dict(),
+		# Domain optimizers
+		'd_image_opt': d_image_opt.state_dict(),
+		'd_inst_opt': d_inst_opt.state_dict(),
                 'pooling_mode': cfg.POOLING_MODE,
                 'class_agnostic': args.class_agnostic,
             }, save_name)
@@ -666,6 +682,13 @@ args.set_cfgs = [...]
                 'session': args.session,
                 'epoch': epoch + 1,
                 'model': fasterRCNN.state_dict(),
+		# Domain classifiers
+		'd_cls_image': d_cls_image.state_dict(),
+		'd_cls_inst': d_cls_inst.state_dict(),
+                'optimizer': optimizer.state_dict(),
+		# Domain optimizers
+		'd_image_opt': d_image_opt.state_dict(),
+		'd_inst_opt': d_inst_opt.state_dict(),
                 'optimizer': optimizer.state_dict(),
                 'pooling_mode': cfg.POOLING_MODE,
                 'class_agnostic': args.class_agnostic,
