@@ -9,16 +9,30 @@ import numpy as np
 # ADD LOGSOFTMAX(x) FOR CONSISTENCY REGEX
 # take in d_inst_y as n x 2 where n is the number of roi samples for the given image in train loop
 # in consistency_reg, N is image/feature map dimensions.
-
-def consistency_reg(N, d_image_y, d_inst_y):
+def consistency_reg(N, d_image_y, d_inst_y, domain):
   y = d_image_y.sum(dim=0)
   L_cst = 0
-  for i in range(list(d_inst_y[0].size())[0]):
-    L_cst += torch.norm((y/N - d_inst_y[1][i][0]), p=2)
+  if domain=='src':
+    r = 0
+    f = 1
+  else:
+    r = 1
+    f = 1
+    #f = 15
+
+  y = y[r]
+  #size = list(d_inst_y.size())[0]
+  size = min(list(d_inst_y.size())[0], 128)
+  for i in range(size):
+  #for i in range(size/f)
+    # L_cst += torch.norm((y/N - d_inst_y[f*i][r]), p=2)
+    L_cst += torch.norm((y/N - d_inst_y[i][r]), p=2)
+  #print(i)
   return L_cst
 
 def flatten(x):
     N = list(x.size())[0]
+    #print('dim 0', N, 1024*19*37)
     return x.view(N, -1)
 
 def grad_reverse(x, beta):
@@ -51,8 +65,8 @@ class d_cls_image(nn.Module):
     self.relu = nn.ReLU(inplace=True)
     self.maxpool = nn.MaxPool2d(kernel_size=2)
     self.bn_2 = nn.BatchNorm1d(1024)
-    self.softmax = nn.Softmax()
-    self.logsoftmax = nn.LogSoftmax()
+    #self.softmax = nn.Softmax()
+    #self.logsoftmax = nn.LogSoftmax()
     self.beta = beta
 
   def forward(self, x):
@@ -66,10 +80,11 @@ class d_cls_image(nn.Module):
     x = flatten(x)
     x = torch.transpose(x, 0, 1)
     x = self.fc_1_image(x)
-    # 1 x lala vector
-    y = self.softmax(x)
-    x = self.logsoftmax(x)
-    return x, y
+    # 1 x n vector
+    #y = self.softmax(x)
+    #x = self.logsoftmax(x)
+    #return x, y
+    return x
 
   def set_beta(self, beta):
     self.beta = beta
@@ -83,17 +98,18 @@ class d_cls_inst(nn.Module):
     self.fc_2_inst = nn.Linear(100, 2)
     self.relu = nn.ReLU(inplace=True)
     self.beta = beta
-    self.softmax = nn.Softmax()
-    self.logsoftmax = nn.LogSoftmax()
+    #self.softmax = nn.Softmax()
+    #self.logsoftmax = nn.LogSoftmax()
     self.bn = nn.BatchNorm1d(2)
 
   def forward(self, x):
     x = grad_reverse(x, self.beta)
     x = self.relu(self.fc_1_inst(x))
     x = self.relu(self.bn(self.fc_2_inst(x)))
-    y = self.softmax(x)
-    x = self.logsoftmax(x)
-    return x, y
+    #y = self.softmax(x)
+    #x = self.logsoftmax(x)
+    #return x, y
+    return x
 
   def set_beta(self, beta):
     self.beta = beta
