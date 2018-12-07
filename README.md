@@ -40,7 +40,7 @@ For testing your model, ensure the model is placed in the target dataset folder.
 ```
 python test_net_x.py --dataset $TARGET_DATASET_NAME --net res101 \
                    --checksession $SESSION --checkepoch $EPOCH --checkpoint $CHECKPOINT \
-                   --cuda
+                   --cuda --load_dir $path/to/dir
 ```
 Specify the specific model session, checkepoch and checkpoint, e.g., SESSION=1, EPOCH=5, CHECKPOINT=5931.
 
