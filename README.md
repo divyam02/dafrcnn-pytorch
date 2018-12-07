@@ -1,10 +1,13 @@
+## NOTE
+Please know that this branch has not been updated yet. All users are requested to use the [cleaning branch](https://github.com/divyam02/dafrcnn-pytorch/tree/cleaning) of the repository.
+
 # Domain Adaptive Faster R-CNN
 
 A PyTorch implementation of the CVPR 2018 paper [Domain Adaptive Faster R-CNN for Object Detection in the Wild.](https://arxiv.org/pdf/1803.03243)
 The original code used by the authors can be found [here.](https://github.com/yuhuayc/da-faster-rcnn)
 
 ## Usage
-Ensure all prerequisites mentioned [here](https://github.com/jwyang/faster-rcnn.pytorch) are satisfied by your machine.
+Ensure all rerequisites mentioned [here](https://github.com/jwyang/faster-rcnn.pytorch) are satisfied by your machine.
 Ensure all images used for training (source) and testing have annotations (in Pascal VOC format).
 Modify [this](https://github.com/divyam02/dafrcnn-pytorch/blob/e22be667140b7dcfca4325a8e7bb9f325048e124/trainval_net_x.py#L696) line in `trainval_net_x.py` to the directory of the target dataset.
 
