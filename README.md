@@ -6,7 +6,7 @@ The original code used by the authors can be found [here](https://github.com/yuh
 This implementation is built on [jwyang/faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch). You may find it to be helpful for debugging.
 
 ## Usage
-Ensure all prerequisites mentioned [here](https://github.com/jwyang/faster-rcnn.pytorch) are satisfied by your machine.
+Ensure all prerequisites mentioned [here](https://github.com/jwyang/faster-rcnn.pytorch) are satisfied by your machine. This model supports `pytorch 0.2.0`.
 
 Install python dependencies with `pip install -r requirements.txt`.
 
