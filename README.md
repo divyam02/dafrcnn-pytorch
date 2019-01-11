@@ -1,5 +1,5 @@
 # NOTE
-## Please know that this branch has not been updated yet. All users are requested to use the [cleaning branch](https://github.com/divyam02/dafrcnn-pytorch/tree/cleaning) of the repository.
+## Please know that this branch has not been updated yet. Interested people may use the [cleaning branch](https://github.com/divyam02/dafrcnn-pytorch/tree/cleaning) of the repository.
 
 # Domain Adaptive Faster R-CNN
 
