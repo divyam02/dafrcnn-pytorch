@@ -1,4 +1,4 @@
-# Domain Adaptive Faster-RCNN
+# Domain Adaptive Faster R-CNN
 
 A PyTorch implementation of the CVPR 2018 paper [Domain Adaptive Faster R-CNN for Object Detection in the Wild](https://arxiv.org/pdf/1803.03243).
 The original code used by the authors can be found [here](https://github.com/yuhuayc/da-faster-rcnn).
