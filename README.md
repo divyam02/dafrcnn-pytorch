@@ -6,17 +6,21 @@ The original code used by the authors can be found [here](https://github.com/yuh
 This implementation is built on [jwyang/faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch). You may find it to be helpful for debugging.
 
 ## Usage
-Ensure all prerequisites mentioned [here](https://github.com/jwyang/faster-rcnn.pytorch) are satisfied by your machine. This model supports `pytorch 0.2.0`.
+This model supports `pytorch 0.2.0`.
 
 Install python dependencies with `pip install -r requirements.txt`.
 
 Ensure all images used for training (source) and testing have annotations (in Pascal VOC format).
 
-Modify [this line](https://github.com/divyam02/dafrcnn-pytorch/blob/6492195758c1b9f11173339dbabd91d70624e0a7/trainval_net_x.py#L663) in `trainval_net_x.py` to the directory of the target dataset.
+Modify [this line](https://github.com/divyam02/dafrcnn-pytorch/blob/a4ee095b6818a0351f3aca306262d82425c39948/new_trainval_net.py#L494) in `new_trainval_net.py` to the directory of the target dataset.
 
-Refer to dummy formatting in `./lib/datasets/pascal_voc.py` files to make your dataset usable.
+Add labels as needed in `./lib/datasets/pascal_voc.py`.
 
-Changes will be made in the future for ease of use.
+Place source data in `./data/src/` in PASCAL VOC format. Similarly for target data, under `./data/tar/`.
+
+Delete `cache` folders in `src` and `tar` before training and testing on a new data set.
+
+Add the data set in `new_trainval_net.py` wrt [this line](https://github.com/divyam02/dafrcnn-pytorch/blob/a4ee095b6818a0351f3aca306262d82425c39948/new_trainval_net.py#L232).
 
 ### Compile
 Compile cuda dependencies with `cd lib && sh make.sh`. Incase cuda is not on `$PATH` use `make2.sh`.
@@ -29,10 +33,10 @@ Modify `factory.py` as given in the dummy formatting so it is usable.
 Run training as:
 ```
 CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net_x.py \
-                   --src $SOURCE_DATASET_NAME --tar $TARGET_DATASET_NAME \
-                   --da True --adaption_lr True --net res101 \
-                   --bs $BATCH_SIZE --nw $WORKER_NUMBER \
+                   --src $SOURCE_DATASET_NAME --da True 
+                   --net res101 \ --bs $BATCH_SIZE --nw $WORKER_NUMBER \
                    --lr $LEARNING_RATE --lr_decay_step $DECAY_STEP \
+                   -- $PATH_TO_PRETRAINED_MODEL save_dir $./data/pretrained_model/
                    --cuda
 ```
 ### Test
