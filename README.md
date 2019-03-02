@@ -5,6 +5,8 @@ The original code used by the authors can be found [here](https://github.com/yuh
 
 This implementation is built on [jwyang/faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch). You may find it to be helpful for debugging.
 
+Note that consistency regularization is broken hence disabled. 
+
 ## Usage
 This model supports `pytorch 0.2.0`.
 
