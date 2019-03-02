@@ -131,9 +131,20 @@ if __name__ == '__main__':
   elif args.dataset=="fcity":
     args.imdb_name = "fcity_2007_trainval"
     args.imdbval_name = "fcity_2007_test"
+    args.set_cfgs = ['ANCHOR_SCALES', '[8, 16, 32]', 'ANCHOR_RATIOS', '[0.5,1,2]'] 
+  elif args.dataset=="monkey":
+    args.imdb_name = "monkey_2007_trainval"
+    args.imdbval_name = "monkey_2007_test"
+    args.set_cfgs = ['ANCHOR_SCALES', '[8, 16, 32]', 'ANCHOR_RATIOS', '[0.5,1,2]']
+  elif args.dataset=="chimp": 
+    args.imdb_name = "chimp_2007_trainval"
+    args.imdbval_name = "chimp_2007_test"
     args.set_cfgs = ['ANCHOR_SCALES', '[8, 16, 32]', 'ANCHOR_RATIOS', '[0.5,1,2]']
 
-
+  elif args.dataset=="c-kitti": 
+    args.imdb_name = "c-kitti_2007_trainval"
+    args.imdbval_name = "c-kitti_2007_test"
+    args.set_cfgs = ['ANCHOR_SCALES', '[8, 16, 32]', 'ANCHOR_RATIOS', '[0.5,1,2]']
 
   args.cfg_file = "cfgs/{}_ls.yml".format(args.net) if args.large_scale else "cfgs/{}.yml".format(args.net)
 
@@ -177,6 +188,9 @@ if __name__ == '__main__':
   fasterRCNN.load_state_dict(checkpoint['model'])
   if 'pooling_mode' in checkpoint.keys():
     cfg.POOLING_MODE = checkpoint['pooling_mode']
+
+  # Initialize misses here.
+  misses = 0
 
 
   print('load model successfully!')
@@ -245,15 +259,18 @@ if __name__ == '__main__':
       num_boxes.data.resize_(data[3].size()).copy_(data[3])
 
       det_tic = time.time()
-      rois, cls_prob, bbox_pred, \
-      rpn_loss_cls, rpn_loss_box, \
-      RCNN_loss_cls, RCNN_loss_bbox, \
-      rois_label = fasterRCNN(im_data, im_info, gt_boxes, num_boxes)
+
+      rois, cls_prob, bbox_pred, rpn_loss_cls, rpn_loss_box, RCNN_loss_cls, RCNN_loss_bbox, rois_label, base_feats, pooled_feats = fasterRCNN(im_data, im_info, gt_boxes, num_boxes)
       # check loss dimensions.
-      print('rpn_loss_cls', rpn_loss_cls)
-      print('rpn_loss_box', rpn_loss_box)
-      print('RCNN_loss_cls', RCNN_loss_cls)
-      print('RCNN_loss_bbox', RCNN_loss_bbox)
+      #print('rpn_loss_cls', rpn_loss_cls)
+      #print('rpn_loss_box', rpn_loss_box)
+      #print('RCNN_loss_cls', RCNN_loss_cls)
+      #print('RCNN_loss_bbox', RCNN_loss_bbox)
+	  
+      #print(pooled_feats.data)
+      #print(pooled_feats.cpu().data.numpy())
+      #assert 1<0
+
       scores = cls_prob.data
       boxes = rois.data[:, :, 1:5]
 
@@ -308,6 +325,10 @@ if __name__ == '__main__':
             all_boxes[j][i] = cls_dets.cpu().numpy()
           else:
             all_boxes[j][i] = empty_array
+	    # Increase missed detection by one
+	    print("miss...")
+	    misses = misses+1
+	    assert 1<0
 
       # Limit to max_per_image detections *over all classes*
       if max_per_image > 0:
@@ -339,4 +360,7 @@ if __name__ == '__main__':
   imdb.evaluate_detections(all_boxes, output_dir)
 
   end = time.time()
+  print("Bad detections: %0.4f" % (misses))
+  print("Total images: %0.4f" % (num_images))
+  print("Misses or IoU value less than threshold: %0.4f" % (misses/num_images))
   print("test time: %0.4fs" % (end - start))
