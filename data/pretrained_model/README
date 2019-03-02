@@ -1,0 +1,2 @@
+Place a pretrained caffe or pytorch model here. Preferably caffe, as the network is configured for it. For a pytorch model, please 
+check out the original repository.
