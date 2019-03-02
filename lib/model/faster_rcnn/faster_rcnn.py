@@ -58,22 +58,21 @@ class _fasterRCNN(nn.Module):
 	rois, rpn_loss_cls, rpn_loss_bbox = self.RCNN_rpn(base_feat, im_info, gt_boxes, num_boxes, is_target)
         # if it is training phrase, then use ground truth bboxes for refining
         # if domain data, pass.
-        if is_target is False:
-            if self.training:
-                roi_data = self.RCNN_proposal_target(rois, gt_boxes, num_boxes)
-                rois, rois_label, rois_target, rois_inside_ws, rois_outside_ws = roi_data
+	if self.training and not is_target:
+		roi_data = self.RCNN_proposal_target(rois, gt_boxes, num_boxes)
+		rois, rois_label, rois_target, rois_inside_ws, rois_outside_ws = roi_data
 
-                rois_label = Variable(rois_label.view(-1).long())
-                rois_target = Variable(rois_target.view(-1, rois_target.size(2)))
-                rois_inside_ws = Variable(rois_inside_ws.view(-1, rois_inside_ws.size(2)))
-                rois_outside_ws = Variable(rois_outside_ws.view(-1, rois_outside_ws.size(2)))
-            else:
-                rois_label = None
-                rois_target = None
-                rois_inside_ws = None
-                rois_outside_ws = None
-                rpn_loss_cls = 0
-                rpn_loss_bbox = 0
+		rois_label = Variable(rois_label.view(-1).long())
+		rois_target = Variable(rois_target.view(-1, rois_target.size(2)))
+		rois_inside_ws = Variable(rois_inside_ws.view(-1, rois_inside_ws.size(2)))
+		rois_outside_ws = Variable(rois_outside_ws.view(-1, rois_outside_ws.size(2)))
+	else:
+		rois_label = None
+		rois_target = None
+		rois_inside_ws = None
+		rois_outside_ws = None
+		rpn_loss_cls = 0
+		rpn_loss_bbox = 0
 
         rois = Variable(rois)
         # do roi pooling based on predicted rois

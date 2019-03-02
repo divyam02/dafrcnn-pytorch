@@ -48,7 +48,7 @@ class pascal_voc(imdb):
 	self.domain = domain
         print('image dataset path:', self._data_path)
 
-        # Modify classes for your dataset
+        # Modify classes
         """
         self._classes = ('__background__',  # always index 0
                          'aeroplane', 'bicycle', 'bird', 'boat',
@@ -60,12 +60,20 @@ class pascal_voc(imdb):
 	self._classes = ('__background__', 'person', 'train',
 			'rider', 'bicycle', 'motorcycle',
 			'car', 'truck', 'bus')
-        self._class_to_ind = dict(zip(self.classes, xrange(self.num_classes)))
+	
+	"""
+	self._classes = ('__background__', 'face')        
+	
+	self._classes = ('__background__', 'car')	
+	"""	
+	self._class_to_ind = dict(zip(self.classes, xrange(self.num_classes)))
         self._image_ext = '.jpg'
+	#self._image_ext = '.png'
         self._image_index = self._load_image_set_index()
         # Default to roidb handler
         # self._roidb_handler = self.selective_search_roidb
         self._roidb_handler = self.gt_roidb
+	#print('CALLING FROM PASCAL_VOC FOR gt_roidb')
         self._salt = str(uuid.uuid4())
         self._comp_id = 'comp4'
 
@@ -89,6 +97,7 @@ class pascal_voc(imdb):
         return self.image_path_from_index(self._image_index[i])
 
     def image_id_at(self, i):
+	#print('LOADED FROM PASCAL_VOC')
         """
         Return the absolute path to image i in the image sequence.
         """
@@ -110,15 +119,20 @@ class pascal_voc(imdb):
         """
         # Example path to image set file:
         # self._devkit_path + /VOCdevkit2007/VOC2007/ImageSets/Main/val.txt
+        print(self._data_path)
         image_set_file = os.path.join(self._data_path, 'ImageSets', 'Main',
                                       self._image_set + '.txt')
+	print(image_set_file)
         assert os.path.exists(image_set_file), \
             'Path does not exist: {}'.format(image_set_file)
         with open(image_set_file) as f:
             image_index = [x.strip() for x in f.readlines()]
             print('sample image from dataset:', x)
+	#print('image_index', image_index)
+        # DEAL WITH ROIDBS REMOVED
 
 	return image_index
+	#return 493
 
     def _get_default_path(self):
         """
@@ -127,11 +141,19 @@ class pascal_voc(imdb):
         return os.path.join(cfg.DATA_DIR, 'VOCdevkit' + self._year)
 
     def gt_roidb(self):
+
+	#print('CALLING FROM PASCAL_VOC')
+
         """
         Return the database of ground-truth regions of interest.
 
         This function loads/saves from/to a cache file to speed up future calls.
         """
+
+	#print('cache_path:', self.cache_path)
+	#print('self.domain', self.domain)
+	#print('self.name', self.name)
+
 	cache_file = os.path.join(self.cache_path, self.name + '_gt_roidb.pkl')
         if os.path.exists(cache_file):
             with open(cache_file, 'rb') as fid:
@@ -291,6 +313,11 @@ class pascal_voc(imdb):
             filename = self._get_voc_results_file_template().format(cls)
             with open(filename, 'wt') as f:
 		for im_ind, index in enumerate(self.image_index):
+		    
+
+		    print(cls_ind, im_ind, len(all_boxes))
+
+
                     dets = all_boxes[cls_ind][im_ind]
                     if dets == []:
                         print('EMPTY DET BOX')
