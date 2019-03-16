@@ -58,6 +58,14 @@ Faster R-CNN | 18.8  | 17.8  | 23.6  | 27.1  | 11.9  | 23.8  | 9.1 | 14.4  | 22.
 Y.Chen et al  | 27.6  | 25.0  | 31.0  | 40.5  | 22.1  | 35.3  | 20.2  | 20.0  | 27.1  |
 dafrcnn-pytorch | 28.6  | 25.7  | 40.1  | 36.0  | 20.1  | 33.9  | 17.3  | 24.3  | 31.3  |
 
+Source dataset  | Target dataset  |
+----------------|-----------------|
+Zoo_Leipzig_Individuen (Chimpanzees)  | (Name to be updated) (Monkeys)
+
+Model | Mean AP (Face)
+------|---------------|
+dafrcnn-pytorch | 89.1  |
+
 ## Acknowledgements
 This code is built on the python implementation of the Faster-RCNN [jwyang/faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch)
 
