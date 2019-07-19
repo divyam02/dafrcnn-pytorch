@@ -38,17 +38,13 @@ except NameError:
 
 
 class pascal_voc(imdb):
-    def __init__(self, image_set, year, domain, devkit_path=None):
+    def __init__(self, image_set, year, devkit_path=None):
         imdb.__init__(self, 'voc_' + year + '_' + image_set)
         self._year = year
         self._image_set = image_set
         self._devkit_path = self._get_default_path() if devkit_path is None \
             else devkit_path
         self._data_path = os.path.join(self._devkit_path, 'VOC' + self._year)
-	self.domain = domain
-        print('image dataset path:', self._data_path)
-
-        # Modify classes
         """
         self._classes = ('__background__',  # always index 0
                          'aeroplane', 'bicycle', 'bird', 'boat',
@@ -56,17 +52,37 @@ class pascal_voc(imdb):
                          'cow', 'diningtable', 'dog', 'horse',
                          'motorbike', 'person', 'pottedplant',
                          'sheep', 'sofa', 'train', 'tvmonitor')
-	"""
-	self._classes = ('__background__', 'person', 'train',
-			'rider', 'bicycle', 'motorcycle',
-			'car', 'truck', 'bus')
+
+        
+        self._classes = ('__background__',  # always index 0
+                 'aeroplane', 'bicycle', 'bird', 'boat',
+                 'bottle', 'bus', 'car', 'cat', 'chair',
+                 'cow', 'diningtable', 'dog', 'horse',
+                 'motorbike', 'person', 'pottedplant',
+                 'sheep', 'sofa', 'train', 'tvmonitor',
+                 'rider', 'motorcycle', 'truck')
+        
+        self._classes = ('__background__', 'person', 'rider',
+                            'car', 'truck', 'bus', 'train',
+                            'motorcycle', 'bicycle')
+        
+        self._classes = ('__background__', 'bobcat', 'opossum',
+                         'coyote', 'raccoon', 'bird', 'dog',
+                         'cat', 'squirrel', 'rabbit', 'skunk',
+                         'rodent', 'badger', 'deer', 'car', 'fox')
+        
+        self._classes = ('__background__', 'leopard', 'sambar',
+                         'tiger', 'chital')
+        """
+        self._classes = ('__background__', 'tiger')
+        
         self._class_to_ind = dict(zip(self.classes, xrange(self.num_classes)))
+        print(self.classes)
         self._image_ext = '.jpg'
         self._image_index = self._load_image_set_index()
         # Default to roidb handler
         # self._roidb_handler = self.selective_search_roidb
         self._roidb_handler = self.gt_roidb
-	#print('CALLING FROM PASCAL_VOC FOR gt_roidb')
         self._salt = str(uuid.uuid4())
         self._comp_id = 'comp4'
 
@@ -90,7 +106,6 @@ class pascal_voc(imdb):
         return self.image_path_from_index(self._image_index[i])
 
     def image_id_at(self, i):
-	#print('LOADED FROM PASCAL_VOC')
         """
         Return the absolute path to image i in the image sequence.
         """
@@ -112,18 +127,15 @@ class pascal_voc(imdb):
         """
         # Example path to image set file:
         # self._devkit_path + /VOCdevkit2007/VOC2007/ImageSets/Main/val.txt
-        image_set_file = os.path.join(self._data_path, 'ImageSets', 'Main',
+        image_set_file = os.path.join(self._data_path, 'ImageSets',
                                       self._image_set + '.txt')
         assert os.path.exists(image_set_file), \
             'Path does not exist: {}'.format(image_set_file)
         with open(image_set_file) as f:
             image_index = [x.strip() for x in f.readlines()]
-            print('sample image from dataset:', x)
-	#print('image_index', image_index)
-        # DEAL WITH ROIDBS REMOVED
+            print('sample image from dataset:', image_index[0])
 
-	return image_index
-	#return 493
+        return image_index
 
     def _get_default_path(self):
         """
@@ -132,35 +144,27 @@ class pascal_voc(imdb):
         return os.path.join(cfg.DATA_DIR, 'VOCdevkit' + self._year)
 
     def gt_roidb(self):
-
-	#print('CALLING FROM PASCAL_VOC')
-	
         """
         Return the database of ground-truth regions of interest.
 
         This function loads/saves from/to a cache file to speed up future calls.
         """
-        
-	#print('cache_path:', self.cache_path)
-	#print('self.domain', self.domain)
-	#print('self.name', self.name)
-	
-	cache_file = os.path.join(self.cache_path, self.name + '_gt_roidb.pkl')
+        """
+        @Blocking caching due to various reasons...
+        cache_file = os.path.join(self.cache_path, self.name + '_gt_roidb.pkl')
         if os.path.exists(cache_file):
             with open(cache_file, 'rb') as fid:
                 roidb = pickle.load(fid)
             print('{} gt roidb loaded from {}'.format(self.name, cache_file))
-    	    #print('roidb:', roidb)
             return roidb
-
+        """
         gt_roidb = [self._load_pascal_annotation(index)
                     for index in self.image_index]
+        """
         with open(cache_file, 'wb') as fid:
             pickle.dump(gt_roidb, fid, pickle.HIGHEST_PROTOCOL)
         print('wrote gt roidb to {}'.format(cache_file))
-	
-	print('gt_roidb', gt_roidb)
-
+        """
         return gt_roidb
 
     def selective_search_roidb(self):
@@ -170,6 +174,7 @@ class pascal_voc(imdb):
 
         This function loads/saves from/to a cache file to speed up future calls.
         """
+        """
         cache_file = os.path.join(self.cache_path,
                                   self.name + '_selective_search_roidb.pkl')
 
@@ -178,17 +183,18 @@ class pascal_voc(imdb):
                 roidb = pickle.load(fid)
             print('{} ss roidb loaded from {}'.format(self.name, cache_file))
             return roidb
-
+        """
         if int(self._year) == 2007 or self._image_set != 'test':
             gt_roidb = self.gt_roidb()
             ss_roidb = self._load_selective_search_roidb(gt_roidb)
             roidb = imdb.merge_roidbs(gt_roidb, ss_roidb)
         else:
             roidb = self._load_selective_search_roidb(None)
+        """
         with open(cache_file, 'wb') as fid:
             pickle.dump(roidb, fid, pickle.HIGHEST_PROTOCOL)
         print('wrote ss roidb to {}'.format(cache_file))
-
+        """
         return roidb
 
     def rpn_roidb(self):
@@ -258,10 +264,17 @@ class pascal_voc(imdb):
         for ix, obj in enumerate(objs):
             bbox = obj.find('bndbox')
             # Make pixel indexes 0-based
+            """
+            @Edit x1, y1 distances maybe flipping.
+            """
             x1 = float(bbox.find('xmin').text) - 1
             y1 = float(bbox.find('ymin').text) - 1
+            #x1 = float(bbox.find('xmin').text)
+            #y1 = float(bbox.find('ymin').text)
             x2 = float(bbox.find('xmax').text) - 1
             y2 = float(bbox.find('ymax').text) - 1
+            #x2 = float(bbox.find('xmax').text)
+            #y2 = float(bbox.find('ymax').text)
 
             diffc = obj.find('difficult')
             difficult = 0 if diffc == None else int(diffc.text)
@@ -290,7 +303,7 @@ class pascal_voc(imdb):
     def _get_voc_results_file_template(self):
         # VOCdevkit/results/VOC2007/Main/<comp_id>_det_test_aeroplane.txt
         filename = self._get_comp_id() + '_det_' + self._image_set + '_{:s}.txt'
-        filedir = os.path.join(self._devkit_path, 'results', 'VOC' + self._year, 'Main')
+        filedir = os.path.join(self._devkit_path, 'results', 'VOC' + self._year)
         if not os.path.exists(filedir):
             os.makedirs(filedir)
         path = os.path.join(filedir, filename)
@@ -303,29 +316,9 @@ class pascal_voc(imdb):
             print('Writing {} VOC results file'.format(cls))
             filename = self._get_voc_results_file_template().format(cls)
             with open(filename, 'wt') as f:
-
-
-
-
-
-
-
-		#TO ACCOUNT FOR REJECTED ROIDBS
-		#self.image_index = 493
-            
-
-
-
-    
-
-
-		for im_ind, index in enumerate(self.image_index):
-		    #print('all boxes', len(all_boxes))
-		    #print('cls_ind', cls_ind)
-		    #print('im_ind', im_ind)
+                for im_ind, index in enumerate(self.image_index):
                     dets = all_boxes[cls_ind][im_ind]
                     if dets == []:
-                        print('EMPTY DET BOX')
                         continue
                     # the VOCdevkit expects 1-based indices
                     for k in xrange(dets.shape[0]):
@@ -344,7 +337,6 @@ class pascal_voc(imdb):
             self._devkit_path,
             'VOC' + self._year,
             'ImageSets',
-            'Main',
             self._image_set + '.txt')
         cachedir = os.path.join(self._devkit_path, 'annotations_cache')
         aps = []
@@ -358,7 +350,7 @@ class pascal_voc(imdb):
                 continue
             filename = self._get_voc_results_file_template().format(cls)
             rec, prec, ap = voc_eval(
-                filename, annopath, imagesetfile, cls, cachedir, ovthresh=0.5,
+                filename, annopath, imagesetfile, cls, cachedir, ovthresh=0.60,
                 use_07_metric=use_07_metric)
             aps += [ap]
             print('AP for {} = {:.4f}'.format(cls, ap))

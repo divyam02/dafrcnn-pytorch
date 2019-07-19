@@ -17,24 +17,13 @@ from datasets.imagenet import imagenet
 from datasets.vg import vg
 
 import numpy as np
-
-# Add devkit paths to your own folders
-# Add argument for domain
-for year in ['2007', '2012']:
-  for split in ['train', 'val', 'trainval', 'test']:
-    name = 'city_{}_{}'.format(year, split)
-    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, 'src', '/home/divyam/FRCN/faster-rcnn.pytorch/data/src/cityscapes/VOCdevkit2007/' ))
-
-for year in ['2007', '2012']:
-  for split in ['train', 'val', 'trainval', 'test']:
-    name = 'fcity_{}_{}'.format(year, split)
-    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, 'tar', '/home/divyam/FRCN/faster-rcnn.pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/' ))
+import os
 
 # Set up voc_<year>_<split>
 for year in ['2007', '2012']:
   for split in ['train', 'val', 'trainval', 'test']:
     name = 'voc_{}_{}'.format(year, split)
-    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year,'/home/divyam/FRCN/faster-rcnn.pytorch/data/VOC2007/VOCdevkit2007/' ))
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year))
 
 # Set up coco_2014_<split>
 for year in ['2014']:
@@ -54,6 +43,12 @@ for year in ['2015']:
     name = 'coco_{}_{}'.format(year, split)
     __sets[name] = (lambda split=split, year=year: coco(split, year))
 
+for year in ['2014']:
+  #for split in ['cis_train', 'cis_val', 'cis_test', 'trans_val', 'trans_test']:
+  for split in ['train', 'val', 'minival']:
+    name = 'coco_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: coco(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/src/caltech/'))
+
 # Set up vg_<split>
 # for version in ['1600-400-20']:
 #     for split in ['minitrain', 'train', 'minival', 'val', 'test']:
@@ -71,12 +66,87 @@ for split in ['train', 'val', 'val1', 'val2', 'test']:
     data_path = 'data/imagenet/ILSVRC'
     __sets[name] = (lambda split=split, devkit_path=devkit_path, data_path=data_path: imagenet(split,devkit_path,data_path))
 
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'city_{}_{}'.format(year, split)
+    # Insert file path here
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/src/cityscapes/VOCdevkit2007/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'fcity_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/tar/foggy_cityscapes/VOCdevkit2007/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'kitti_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/tar/kitti/VOCdevkit2007/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'kitti-voc_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/tar/kitti-voc/VOCdevkit2007/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'caltech-voc_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/src/caltech-voc/VOCdevkit2007/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'pascal-voc-2007_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/src/pascal-voc-2007/VOCdevkit2007/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'pascal-voc-2012_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/src/pascal-voc-2012/VOCdevkit2012/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'clipart_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/tar/clipart/VOCdevkit2007/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'comic_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/tar/comic/VOCdevkit2007/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'watercolor_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/tar/watercolor/VOCdevkit2007/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'sim10k_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/src/sim10k/VOCdevkit2012/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'species_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/src/species/VOCdevkit2007/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'species_2018_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/src/species_2018/VOCdevkit2007/' ))
+
+for year in ['2007', '2012']:
+  for split in ['train', 'val', 'trainval', 'test']:
+    name = 'CVWC2019_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/src/CVWC2019/VOCdevkit2007/' ))
+
+for year in ['2007', '2012']:
+  for split in ['trainExtra']:
+    name = 'CVWC2019_extra_{}_{}'.format(year, split)
+    __sets[name] = (lambda split=split, year=year: pascal_voc(split, year, '/home/divyam/dafrcnn/dafrcnn-pytorch/data/src/CVWC2019/VOCdevkit2007/' ))
+
 def get_imdb(name):
   """Get an imdb (image database) by name."""
   if name not in __sets:
     raise KeyError('Unknown dataset: {}'.format(name))
   return __sets[name]()
-
 
 def list_imdbs():
   """List all registered imdbs."""

@@ -19,15 +19,17 @@ def parse_rec(filename):
   for obj in tree.findall('object'):
     obj_struct = {}
     obj_struct['name'] = obj.find('name').text
-    # city xml files don't have pose attribute
     #obj_struct['pose'] = obj.find('pose').text
-    obj_struct['truncated'] = int(obj.find('truncated').text)
-    obj_struct['difficult'] = int(obj.find('difficult').text)
+    #obj_struct['truncated'] = int(obj.find('truncated').text)
+    try:
+      obj_struct['difficult'] = int(obj.find('difficult').text)
+    except:
+      obj_struct['difficult'] = 0
     bbox = obj.find('bndbox')
-    obj_struct['bbox'] = [int(bbox.find('xmin').text),
-                          int(bbox.find('ymin').text),
-                          int(bbox.find('xmax').text),
-                          int(bbox.find('ymax').text)]
+    obj_struct['bbox'] = [int(float(bbox.find('xmin').text)),
+                          int(float(bbox.find('ymin').text)),
+                          int(float(bbox.find('xmax').text)),
+                          int(float(bbox.find('ymax').text))]
     objects.append(obj_struct)
 
   return objects
@@ -100,20 +102,30 @@ def voc_eval(detpath,
   # cachedir caches the annotations in a pickle file
 
   # first load gt
+  #assert 1<0
+
+  print("threshold values:", ovthresh)
+
   if not os.path.isdir(cachedir):
     os.mkdir(cachedir)
   cachefile = os.path.join(cachedir, '%s_annots.pkl' % imagesetfile)
+  print("cachefile, delete this if you are testing on a new dataset!", cachefile)
   # read list of images
   with open(imagesetfile, 'r') as f:
     lines = f.readlines()
   imagenames = [x.strip() for x in lines]
-
+  # load annotations
+  recs = {}
+  for i, imagename in enumerate(imagenames):
+    recs[imagename] = parse_rec(annopath.format(imagename))
+    if i % 100 == 0:
+      print('Reading annotation for {:d}/{:d}'.format(
+        i + 1, len(imagenames)))
+  """
   if not os.path.isfile(cachefile):
     # load annotations
     recs = {}
     for i, imagename in enumerate(imagenames):
-      #print('imagename', i, imagename)
-      #print('formated annopath', annopath.format(imagename))
       recs[imagename] = parse_rec(annopath.format(imagename))
       if i % 100 == 0:
         print('Reading annotation for {:d}/{:d}'.format(
@@ -129,7 +141,7 @@ def voc_eval(detpath,
         recs = pickle.load(f)
       except:
         recs = pickle.load(f, encoding='bytes')
-
+  """
   # extract gt objects for this class
   class_recs = {}
   npos = 0
