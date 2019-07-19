@@ -12,8 +12,6 @@ Install python dependencies with `pip install -r requirements.txt`.
 
 Ensure all images used for training (source) and testing have annotations (in Pascal VOC format).
 
-Modify [this line](https://github.com/divyam02/dafrcnn-pytorch/blob/6492195758c1b9f11173339dbabd91d70624e0a7/trainval_net_x.py#L663) in `trainval_net_x.py` to the directory of the target dataset.
-
 Refer to dummy formatting in `./lib/datasets/pascal_voc.py` files to make your dataset usable.
 
 Changes will be made in the future for ease of use.
