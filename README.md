@@ -1,3 +1,5 @@
+# The Master Branch has been updated! Please utilize the new code!
+
 # Domain Adaptive Faster R-CNN
 
 A PyTorch implementation of the CVPR 2018 paper [Domain Adaptive Faster R-CNN for Object Detection in the Wild](https://arxiv.org/pdf/1803.03243).
