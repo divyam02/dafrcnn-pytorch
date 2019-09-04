@@ -82,7 +82,7 @@ Faster RCNN (VGG16) | 35.3  |
 
 ________________________________________________________________________________________________________________________
 
-This particular experiment was with temporal data and is not publically available.
+This particular experiment was with temporal data and is not publically available. Uses **camera trap images**.
 
 Source dataset  | Target dataset  |
 ----------------|-----------------|
