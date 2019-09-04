@@ -83,6 +83,7 @@ Faster RCNN (VGG16) | 35.3  |
 ________________________________________________________________________________________________________________________
 
 This particular experiment was with temporal data and is not publically available. Uses **camera trap images**.
+Consists of images from Chitals, Tigers, Sambar and Leopards.
 
 Source dataset  | Target dataset  |
 ----------------|-----------------|
