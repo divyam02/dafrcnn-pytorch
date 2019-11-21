@@ -123,4 +123,4 @@ Working on a under-segmentation problem observed in our target data set. Example
 ## Acknowledgements
 This code is built on the python implementation of the Faster-RCNN [jwyang/faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch)
 
-Part of an ongoing project under Dr. Saket Anand
+Completed as an independent study under Dr. Saket Anand
